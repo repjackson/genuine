@@ -1,0 +1,138 @@
+template(name='testimonials')
+    .ui.stackable.padded.centered.grid 
+        .sixteen.wide.center.aligned.column
+            .ui.massive.header 
+                |Testimonials
+            if currentUser
+                .ui.icon.button.add_testimonial
+                    i.plus.large.icon
+        .twelve.wide.column
+            .scrolling
+                // if subs_ready
+                .ui.centered.stackable.cards
+                    each model_docs 'testimonial' 
+                        +testimonial_card
+                // else 
+                //     i.massive.yin.yang.loading.icon
+
+
+template(name='testimonial_card')
+    .ui.link.card.view_testimonial.pointer.fly_right
+        img.ui.fluid.rounded.image(src="{{c.url image_id height=200 width=400 gravity='face' crop='fill'}}" class=currentUser.invert_class)
+        .content
+            a.ui.header(href="/testimonial/#{_id}") #{title}
+            .ui.small.grey.inline.header #{when}
+            | !{content}
+            // +comments_view_small
+            +author_info
+
+template(name='testimonial_view')
+    with current_doc
+        .ui.stackable.padded.grid
+            .row 
+                .four.wide.column.scrolling
+                    a.ui.circular.icon.button(href="/testimonials" title='testimonials')
+                        i.chevron.left.icon
+                        +i name='testimonial'
+                        |testimonials
+                    .ui.inline.grey.header {{from_now start_datetime}}
+                    
+                    if can_edit
+                        a.ui.circular.icon.button.fly_down(href="/testimonial/#{_id}/edit" title='edit')
+                            +i name='pencil'
+                    .ui.segment
+                        .ui.header 
+                            small author
+                        a.ui.header(href="/user/#{_author.username}") 
+                            img.ui.avatar.image(src="{{c.url _author.image_id height=200 width=200 gravity='face' crop='fill'}}" class=currentUser.invert_class)
+                            |#{_author.username}
+                    .ui.list
+                        .item #{views} views
+                    each viewers
+                        .ui.label #{username
+                    +array_view key='tags' label='tags' direct=true
+                    +voting_full
+                    +array_view key='location_tags' label='location_tags' direct=true
+                    +visibility_settings
+                    // +group_widget
+                .twelve.wide.column.scrolling
+                    .ui.header #{title}
+                    img.ui.rounded.image(src="{{c.url image_id }}" class=currentUser.invert_class)
+                    // a.ui.header(href="/user/#{target.username}")
+                    //     |#{target.username}
+                    |!{content}
+                    if watson 
+                        +watson_view
+                    div 
+                    .spacer
+                    .spacer
+                    +comments
+                // .four.wide.column
+                
+                    //- .ui.fluid.green.button.submit
+                    //-     i.checkmark.icon
+                    //-     |submit
+
+
+
+
+template(name='testimonial_edit')
+    with current_doc
+        .ui.stackable.padded.grid
+            .two.column.row 
+                .column.scrolling
+                    .ui.inline.header 
+                        +icolor name='news' cl='ui image inline pointer'
+                        |edit testimonial
+                    a.ui.icon.green.big.button(href="/testimonial/#{_id}/view" title='save')
+                        i.checkmark.big.icon
+                    +text_edit key='title' label='title' direct=true
+                    
+                    +boolean_edit key='has_content' label='has content' icon='content' direct=true
+                    if has_content
+                        +html_edit key='content' label='content' direct=true
+                .column.scrolling
+                    i.large.link.red.remove.icon.delete_testimonial
+                    if is_dev
+                        +single_user_edit key='_author_id' label='author' direct=true
+                    else 
+                        .ui.header 
+                            small author
+                            |#{_author.username}
+                    +boolean_edit key='has_image' label='has image' icon='content' direct=true
+                    if has_image
+                        +image_edit key='image_id' label='image' direct=true
+                    div 
+                    +array_edit key='tags' label='tags' direct=true icon='tags'
+                    +boolean_edit key='published' icon='visible' direct=true
+                    if is_dev 
+                        +text_edit key='model' label='model' direct=true
+                .column.scrolling
+                    +array_edit key='location_tags' label='location tags' icon='marker' direct=true
+                    unless published
+                        a.ui.fluid.green.button.submit
+                            i.checkmark.icon
+                            |publish
+                    else
+                        .ui.basic.button.unpublish 
+                            |unpublish
+                    .ui.header
+                        |audience
+                    +boolean_edit key='private' label='private' 
+                    if private 
+                        +multi_user_edit key='access_user_ids' label='user picker' direct=true
+                    +group_picker
+                    
+                    
+                    
+template(name='testimonials_widget')
+    .ui.center.aligned.segment(style="background: #F5FDFF url(https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/02/03___about-Copy-1.png) no-repeat center / contain !important;")
+        a.ui.center.aligned.dividing.header.fly_down(href="/testimonials")
+            |Testimonials
+        .ui.center.aligned.massive.blue.header 
+            |What People Say About Us
+        each testimonial_docs
+            .ui.header #{title}
+    
+                
+                    

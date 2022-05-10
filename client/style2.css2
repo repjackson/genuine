@@ -1,0 +1,666 @@
+.get-started-tabs .w-tabs-item .active span{
+position:relative;
+left:0 !important;
+}
+.get-started-tabs .w-tabs-item span{
+position:relative;
+left:45px !important;
+}
+.get-started-tabs .w-tabs-item:first-line{
+text-align:left;
+color:#fff !important;
+font-weight:700 !important;
+font-size:22px;	
+}
+.get-started-tabs .w-tabs-item{
+text-align:left;
+color:#fff !important;	
+}
+.get-started-tabs .w-tabs-list-h{
+	background:linear-gradient(-90deg,#00528F,#0097C7)
+}
+.get-started-tabs .w-tabs-item.active{
+background:#FEB200 !important;
+border:none !important;	
+}
+
+#home-how-work-mob-icon .w-iconbox-meta{
+margin-top:-26px;	
+}
+
+.main-banner-content h1{
+font-size:60px !important;	
+}
+.footer-logos .w-grid-item{
+padding-bottom:2px !important;	
+}
+ 
+.page-id-17 input[type="text"]{
+padding-left:60px !important;	
+}
+.page-id-17 .w-tabs-section-header{
+height:64px !important;	
+}
+.page-id-17 #us_form_search_s{
+height:64px !important;
+box-shadow:0 0 16px #ccc;	
+}
+.custom-charity-popup .ult_modal-content{
+box-shadow:none !important;	
+border:none !important;
+}
+.custom-charity-popup .popup-edge-top-right:after{
+content:'\f00d';
+width:10%;
+height:80%;
+font-family:fontawesome;
+font-weight:100 !important;
+font-size:25px;	
+color:#000 !important;
+display:block;
+position:absolute;
+font-style:light !important;	
+left:13px;
+top:23px;	
+z-index:1;	
+}
+
+.custom-charity-popup .ult-overlay-close-inside{
+display:none;
+position:relative;
+z-index:-1;	
+
+}
+
+.custom-charity-popup .popup-edge-top-right{
+width: 35px;
+height: 35px;
+background-color: #feb500;
+border-radius: 50%;
+padding: 10px;
+ box-sizing: content-box;
+top: 27% !important;
+right: 107.5px !important;
+}
+
+.custom-charity-popup .ult_modal-body{
+padding-top:7rem;
+padding-bottom:2rem;
+padding-left:3rem;
+padding-right:3rem;	
+width:80%;
+margin:40% auto;
+border-radius:50px;	
+}
+.home-choose-us h4{
+font-weight:700 !important;
+color:#000 !important;
+}
+.orange-sep-text p{
+font-weight:500;
+font-style:bold !important;	
+}
+.orange-sep-text h2{
+font-size:34px;	
+}
+
+.page-id-407 .w-socials-list i{
+font-size:14px !important;	
+}
+.page-id-407 .w-socials-list .fa-facebook:before{
+content:'\f39e' !important;   
+}
+
+header{
+box-shadow: 10px 22px 16px #eceded;	
+	transition: box-shadow 0.3s ease-in-out;
+}
+header.sticky {
+	box-shadow: none;
+	transition: box-shadow 0.3s ease-in-out;
+}
+form 
+::-webkit-input-placeholder{
+color:#000  !important;
+opacity:1;	
+}
+
+.contact-pg-main-wrapper form .w-form-row.cols_2{
+margin-bottom:22px !important;	
+}
+.contact-pg-main-wrapper form .w-form-row{
+margin-bottom:30px !important;	
+}
+.contact-pg-main-wrapper form textarea{
+border-radius:0px !important;
+border:1px solid #B7BFC8 !important;	
+}
+
+.contact-pg-main-wrapper form input{
+border-radius:0px !important;
+border:1px solid #B7BFC8 !important;
+--inputs-height:2.3rem !important;
+}
+
+#us_form_search_s::placeholder{
+color:#B5B5B5 !important;
+position:absolute;
+left:65px;
+top:20px;
+font-weight:500;
+font-size:20px;	
+}
+
+#us_form_search_s ::placeholder:before{
+content:'\f010';
+font-size:40px;
+font-family:font-awesome;
+width:90px;
+height:50px;
+display:block;
+}
+
+.fa-search:after{
+ content: url(https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/02/search-icon.png);
+    font-family:fontawesome;
+    display: block;
+    position: relative;
+	     width: 100px;
+    height: 8px;
+	  line-height:7px;
+    padding:0.9em  1.1em !important;
+   right:448%;
+    top: -50px;
+	  color:#AEB7C1;
+    z-index: 1;
+    border-radius: 100px; 
+}
+
+.fa-search:before {
+background-color: orange !important;
+    content: "Search";
+    display: block;
+    position: relative;
+    width: 100px;
+    height: 8px;
+	  line-height:7px;
+    padding:0.9em  1.1em !important;
+    left: 5px;
+    top: -2px;
+	  color:#ffff;
+    z-index: 1;
+    border-radius: 100px; 
+	      font-family: var(--font-body);
+font-weight: normal;
+}
+
+.faq-section .w-tabs-section-header:focus{
+background:transparent !important;
+}
+.faq-section .w-tabs-section-header:hover{
+background:transparent !important;
+}
+.faq-section .w-tabs-section-header.active{
+position:relative;	
+}
+.faq-section .w-tabs-section-header.active:after{
+content:'';
+background:#ccc;
+width:85%;
+height:1px;
+display:block;
+position:absolute;
+top:70px;
+}
+
+.faq-section .w-tabs-section .w-tabs-section-content{
+box-shadow:none !important;	
+}
+.faq-section .w-tabs-section .active{
+color:#000 !important;
+}
+.faq-section .w-tabs-section .w-tabs-section-control{
+color:#FEB304 !important;
+font-weight:400 !important;
+font-size:16px;	
+}
+
+.faq-section .w-tabs-section{
+border:none !important;
+box-shadow:0 0 5px #ccc;
+background:#fff !important;
+margin-bottom:1rem !important;	
+}
+.custom-search-bar input{
+border-radius:100px !important;	
+}
+.g-breadcrumbs li{
+margin:0 2px;	
+}
+
+.custom-footer h4:after{
+content:'';
+background:#FEB100;
+display:block;
+width:140px;
+height:1px;
+position:relative;
+top:7px;	
+}
+.orange-sep-text p:after{
+content:'';
+background:#FEB100;
+display:block;
+width:140px;
+height:1px;
+margin:0 auto;
+position:relative;
+top:7px;	
+}
+
+@media (max-width:1024px){
+	.aboutpg-twologo-grid .post_image{
+width:150px !important;		
+	}	
+.page-id-887  .w-grid-item-h  .left-img-post-grid-cat{
+margin-left: Auto!important;
+    margin-bottom: 0 !important;
+    margin-right: Auto!important;
+    position: absolute!important;
+    bottom: -25px !important;
+    right: 0px!important;
+    padding: 3px 40px 3px 40px!important;
+	}		
+.fa-search:after{
+ content: url(https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/02/search-icon.png);
+    font-family:fontawesome;
+    display: block;
+    position: relative;
+	     width: 100px;
+    height: 8px;
+	  line-height:7px;
+    padding:0.9em  1.1em !important;
+   right:351% !important;
+    top: -50px;
+	  color:#AEB7C1;
+    z-index: 1;
+    border-radius: 100px; 
+}	
+#us_form_search_s::placeholder{
+color:#B5B5B5 !important;
+position:absolute;
+left:50px;
+top:20px;
+font-weight:500;
+font-size:16px;	
+}			
+.custom-charity-popup .popup-edge-top-right{
+width: 35px;
+height: 35px;
+background-color: #feb500;
+border-radius: 50%;
+padding: 10px;
+ box-sizing: content-box;
+top: 22% !important;
+right: 107.5px !important;
+}
+	
+.home-choose-us p br{
+display:none !important;	
+}
+}
+
+
+@media (max-width:768px){
+.get-started-tabs .w-tabs-section-title:first-line{
+text-align:left;
+color:#fff !important;
+font-weight:700 !important;
+font-size:16px;	
+}
+.get-started-tabs  button{
+ background: linear-gradient(-90deg,#00528F,#0097C7) !important;
+color:#fff !important;	
+}
+	.get-started-tabs .w-tabs-section{
+	border:none !important;	
+	}	
+.get-started-tabs .w-tabs-section.active button{
+background:#FEB200 !important;
+border:none !important;
+width:272px !important;
+border:none !important;	
+overflow:hidden !important;
+}
+.get-started-tabs .w-tabs-section.active button:after {
+       content: '';
+    background: #FEB200 !important;
+    width: 52px;
+    border: 2px solid #FEB200;
+    height: 52px;
+    display: block;
+    right: 26px;
+    position: absolute !important;
+    transform: rotate(45deg) !important;
+    /* left: 190px; */
+    overflow: hidden !important;
+}		
+	.aboutpg-twologo-grid .post_image{
+width:150px !important;		
+	}	
+	.w-grid-item-h .Blog-related-post{
+	display:flex !important;
+	align-items:initial !important;	
+	}	
+.page-id-887  .w-grid-item-h  .left-img-post-grid-cat{
+margin-left: Auto!important;
+    margin-bottom: 0 !important;
+    margin-right: Auto!important;
+    position: absolute!important;
+    bottom: 0 !important;
+    right: 0px!important;
+    padding: 3px 40px 3px 40px!important;
+	}			
+.w-grid-item-h .left-img-post-main-wrapper {
+    display: flex !important;
+    align-items: initial  !important;
+}
+
+	.page-id-17 .w-tabs-section-title{
+	font-size:18px !important;	
+	}
+.fa-search:after{
+ content: url(https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/02/search-icon.png);
+    font-family:fontawesome;
+    display: block;
+    position: relative;
+	     width: 100px;
+    height: 8px;
+	  line-height:7px;
+    padding:0.9em  1.1em !important;
+   left:-320px !important;
+    top: -50px;
+	  color:#AEB7C1;
+    z-index: 1;
+    border-radius: 100px; 
+}	
+#us_form_search_s::placeholder{
+color:#B5B5B5 !important;
+position:absolute;
+left:50px;
+top:20px;
+font-weight:500;
+font-size:16px;	
+}		
+.custom-charity-popup .popup-edge-top-right{
+width: 35px;
+height: 35px;
+background-color: #feb500;
+border-radius: 50%;
+padding: 10px;
+ box-sizing: content-box;
+top: 170.5px !important;
+right: 28px !important;
+}	
+.custom-charity-popup .ult_modal-body{
+padding-top:7rem;
+padding-bottom:2rem;
+padding-left:1rem;
+padding-right:1rem;	
+width:100%;
+margin:150px auto;
+border-radius:50px;	
+}		
+.home-choose-us p br{
+display:none !important;	
+} 	
+	.contact-pg-contact-form-sec p span{
+		font-size:14px !important;
+	}	
+	.contact-pg-contact-form-sec {
+--custom-columns: 1fr 3fr 3fr  !important;		
+	}	
+.faq-section .w-tabs-section-header.active:after {
+    content: '';
+    background: #ccc;
+    width: 85%;
+    height: 1px;
+    display: block;
+    position: absolute;
+    top: 72px !important;
+}	
+	h1{
+font-size:30px !important;
+		
+	}	
+	.main-banner-hom .w-form-row{
+width:100% !important;		
+	}	
+	.about-pg-logo-sep{
+margin-bottom:3rem !important;		
+	}
+
+.about-us-logo-sec .w-grid-item{
+	padding:4rem !important;	
+	}	
+	.about-us-logo-sec .w-grid-item:nth-child(2){
+margin-bottom:0 !important;		
+	}	
+	.about-us-logo-sec img{
+	max-width:100% !important;
+	margin:0 auto !important;	
+	}	
+}
+
+@media (min-width:350px) and (max-width:360px){
+.w-search-form .fa-search:after{
+ content: url(https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/02/search-icon.png);
+    font-family:fontawesome;
+    display: block;
+    position: relative;
+	     width: 100px;
+    height: 8px;
+	  line-height:7px;
+    padding:0.9em  1.1em !important;
+  left:-200px !important;
+    top: -50px;
+	  color:#AEB7C1;
+    z-index: 1;
+    border-radius: 100px; 
+}	
+}
+
+@media (max-width:320px){
+header .header-logo {
+height:30px !important;		
+	}	
+	.post-leftimg-timedate time{
+	line-height:3 !important;
+	font-size:12px !important;	
+	}
+.page-id-17 .fa-search:before {
+    background-color: orange !important;
+    content: "Search";
+    display: block;
+    position: relative;
+    width: 100px;
+    height: 8px;
+    line-height: 7px;
+    padding: 0.9em 0.2em !important;
+    left: 32px !important;
+    top: -2px;
+    color: #ffff;
+    z-index: 1;
+    border-radius: 100px;
+}	
+#us_form_search_s::placeholder{
+color:#B5B5B5 !important;
+position:absolute;
+left:50px;
+top:20px;
+font-weight:500;
+font-size:12px !important;	
+}		
+.page-id-17	.fa-search:after {
+    content: url(https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/02/search-icon.png);
+    font-family: fontawesome;
+    display: block;
+    position: relative;
+    width: 100px;
+    height: 8px;
+    line-height: 7px;
+    padding: 0.9em 1.1em !important;
+    left: -168px !important;
+    top: -50px;
+    color: #AEB7C1;
+    z-index: 1;
+    border-radius: 100px;
+}
+.page-id-887 .w-grid-item-h .post-leftimg-timedate{
+font-size:10px !important;
+line-height:1.2 !important;	
+	}	
+.page-id-887  .w-grid-item-h  .left-img-post-grid-cat{
+margin-left: Auto!important;
+    margin-bottom: 0 !important;
+    margin-right: Auto!important;
+    position: absolute!important;
+    bottom: 0px !important;
+    right: 0px!important;
+    padding: 3px 40px 3px 40px!important;
+	}	
+}
+
+@media (max-width:600px){
+.header_hor .l-subheader-cell.at_right>* {
+    margin-left: 0 !important;
+}
+.get-started-tabs .w-tabs-section-title:first-line{
+text-align:left;
+color:#fff !important;
+font-weight:700 !important;
+font-size:16px;	
+}
+.get-started-tabs  button{
+ background: linear-gradient(-90deg,#00528F,#0097C7) !important;
+color:#fff !important;	
+}
+	.get-started-tabs .w-tabs-section{
+	border:none !important;	
+	}	
+.get-started-tabs .w-tabs-section.active button{
+background:#FEB200 !important;
+border:none !important;
+width:100% !important;
+border:none !important;	
+overflow:visible !important;
+}
+	button.w-tabs-section-header.active {
+		position:relative;
+	}
+.get-started-tabs .w-tabs-section.active button:after {
+       display: none;
+    
+}	
+	
+.main-banner-content h1{
+font-size:40px !important;	
+}	
+	.aboutpg-twologo-grid .post_image{
+width:initial !important;		
+	}		
+	#check-icon .w-iconbox-icon{
+	font-size:75px !important;	
+	}	
+	.home-choose-us #conv-icon .w-iconbox-icon{
+	font-size:75px !important;	
+	}	
+.Blog-related-post	.rel-post-inner-wrapper{
+padding:1rem !important;		
+	}	
+.fa-search:after{
+ content: url(https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/02/search-icon.png);
+    font-family:fontawesome;
+    display: block;
+    position: relative;
+	     width: 100px;
+    height: 8px;
+	  line-height:7px;
+    padding:0.9em  1.1em !important;
+   left:-219px !important;
+    top: -50px;
+	  color:#AEB7C1;
+    z-index: 1;
+    border-radius: 100px; 
+}	
+#us_form_search_s::placeholder{
+color:#B5B5B5 !important;
+position:absolute;
+left:50px;
+top:20px;
+font-weight:500;
+font-size:14px;	
+}	
+.custom-charity-popup .popup-edge-top-right{
+width: 35px;
+height: 35px;
+background-color: #feb500;
+border-radius: 50%;
+padding: 10px;
+ box-sizing: content-box;
+top: 170.5px !important;
+right: 28px !important;
+}	
+.custom-charity-popup .ult_modal-body{
+padding-top:7rem;
+padding-bottom:2rem;
+padding-left:1rem;
+padding-right:1rem;	
+width:100%;
+margin:150px auto;
+border-radius:50px;	
+}	
+
+.home-choose-us p br{
+display:none !important;	
+} 
+.testimonial-main-wrapper.right-img{
+	display:flex !important;
+	flex-direction:column-reverse !important;	
+	}	
+	.testimonial-main-wrapper{
+display:block !important;	
+flex-direction:column-reverse !important;		
+	}	
+.faq-section .w-tabs-section-header.active:after{
+content:'';
+background:#ccc;
+width:85%;
+height:1px;
+display:block;
+position:absolute;
+top:80px !important;
+}	
+.orange-sep-text p:after{
+content:'';
+background:#FEB100;
+display:block;
+width:140px;
+height:1px;
+margin:0 auto;
+margin-bottom:15px !important;
+position:relative;
+top:7px;	
+}	
+	
+.about-us-logo-sec .w-grid-item{
+	padding:0 !important;	
+	}		 
+	.about-us-logo-sec .w-grid-item:nth-child(2){
+margin-bottom:3rem !important;		
+	}	
+	.about-us-logo-sec img{
+	max-width:60% !important;
+	margin:0 auto !important;	
+	}	
+}

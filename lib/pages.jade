@@ -1,0 +1,100 @@
+template(name='get_started_layout')
+    // +page key='get_started'
+    +nav
+    .global_container.home_bg    
+        .ui.center.aligned.basic.segment
+            .ui.breadcrumb
+                a.section.fly_left(href="/") Home
+                .divider 
+                    i.chevron.right.icon
+                .active.section 
+                    |Get Started
+            .ui.massive.center.aligned.header 
+                |Get Started with CoinBox
+            .ui.small.header 
+                |Begin creating your secure account with CoinBox by following the four simple steps below, start by entering the information requested below!
+        .ui.center.aligned.basic.segment
+            .ui.steps
+                a.step(href="/get_started/1")
+                    .content 
+                        .title Step 1
+                        .description 
+                            |Sign Up with CoinBox
+                a.step(href="/get_started/2")
+                    .content 
+                        .title Step 2
+                        .description 
+                            |Confirm Email Account
+                a.step(href="/get_started/3")
+                    .content 
+                        .title Step 3
+                        .description 
+                            |Create Password
+                a.step(href="/get_started/4")
+                    .content 
+                        .title Step 4
+                        .description 
+                            |Request Mailer
+        +yield
+                
+    
+    
+template(name='get_started1')    
+    .ui.center.aligned.basic.segment 
+        .ui.massive.header 
+            |Register & Request your coin mailer!
+    .ui.centered.grid 
+        .eight.wide.column
+            +add_user_segment        
+    
+template(name='get_started2')    
+    .ui.center.aligned.basic.segment 
+        .ui.massive.header 
+            |To confirm your email, click the link we've sent you via email to continue creating your account!
+    
+template(name='get_started3')    
+    .ui.center.aligned.basic.segment 
+        .ui.massive.header 
+            |Create New Password
+        .ui.input
+            .ui.small.header Enter Password
+            input(type='password' placeholder='Password')
+        .ui.input
+            .ui.small.header Confirm Password
+            input(type='password' placeholder='Password')
+
+template(name='get_started4')    
+    .ui.center.aligned.basic.segment 
+        .ui.massive.header 
+            |Your coin mailer is being sent to
+        .ui.blue.rounded.button
+            |Track Mailer
+        .ui.blue.rounded.button
+            |My Account
+        .ui.big.blue.button 
+            |How to Package your Coins
+    
+template(name='terms')
+    +page key='about'
+template(name='about')
+    +page key='about'
+    .ui.center.aligned.blue.massive.header CoinBoxforCash.com is a web-based consumer service company providing coin deposit counting services to consumer and commercial clients.
+
+template(name='contact')
+    .ui.header contact us
+    +page key='contact'
+
+
+template(name='page')
+    .ui.hidden.divider
+    .ui.container
+        with page_doc 
+            |!{content}
+            if currentUser 
+                a.ui.icon.button(href="/post/#{_id}/edit")
+                    i.large.pencil.icon
+                    |edit (admin)
+        else 
+            .ui.button.create_doc
+                i.shield.icon
+                |create '#{key}' page doc

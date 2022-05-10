@@ -1,0 +1,1373 @@
+<template name='home'>
+    <head>
+        <style id="wp-custom-css">
+            .get-started-tabs .w-tabs-item .active span{
+            position:relative;
+            left:0 !important;
+            }
+            .get-started-tabs .w-tabs-item span{
+            position:relative;
+            left:45px !important;
+            }
+            .get-started-tabs .w-tabs-item:first-line{
+            text-align:left;
+            color:#fff !important;
+            font-weight:700 !important;
+            font-size:22px;	
+            }
+            .get-started-tabs .w-tabs-item{
+            text-align:left;
+            color:#fff !important;	
+            }
+            .get-started-tabs .w-tabs-list-h{
+            background:linear-gradient(-90deg,#00528F,#0097C7)
+            }
+            .get-started-tabs .w-tabs-item.active{
+            background:#FEB200 !important;
+            border:none !important;	
+            }
+            #home-how-work-mob-icon .w-iconbox-meta{
+            margin-top:-26px;	
+            }
+            .main-banner-content h1{
+            font-size:60px !important;	
+            }
+            .footer-logos .w-grid-item{
+            padding-bottom:2px !important;	
+            }
+            .page-id-17 input[type="text"]{
+            padding-left:60px !important;	
+            }
+            .page-id-17 .w-tabs-section-header{
+            height:64px !important;	
+            }
+            .page-id-17 #us_form_search_s{
+            height:64px !important;
+            box-shadow:0 0 16px #ccc;	
+            }
+            .custom-charity-popup .ult_modal-content{
+            box-shadow:none !important;	
+            border:none !important;
+            }
+            .custom-charity-popup .popup-edge-top-right:after{
+            content:'\f00d';
+            width:10%;
+            height:80%;
+            font-family:fontawesome;
+            font-weight:100 !important;
+            font-size:25px;	
+            color:#000 !important;
+            display:block;
+            position:absolute;
+            font-style:light !important;	
+            left:13px;
+            top:23px;	
+            z-index:1;	
+            }
+            .custom-charity-popup .ult-overlay-close-inside{
+            display:none;
+            position:relative;
+            z-index:-1;	
+            }
+            .custom-charity-popup .popup-edge-top-right{
+            width: 35px;
+            height: 35px;
+            background-color: #feb500;
+            border-radius: 50%;
+            padding: 10px;
+            box-sizing: content-box;
+            top: 27% !important;
+            right: 107.5px !important;
+            }
+            .custom-charity-popup .ult_modal-body{
+            padding-top:7rem;
+            padding-bottom:2rem;
+            padding-left:3rem;
+            padding-right:3rem;	
+            width:80%;
+            margin:40% auto;
+            border-radius:50px;	
+            }
+            .home-choose-us h4{
+            font-weight:700 !important;
+            color:#000 !important;
+            }
+            .orange-sep-text p{
+            font-weight:500;
+            font-style:bold !important;	
+            }
+            .orange-sep-text h2{
+            font-size:34px;	
+            }
+            .page-id-407 .w-socials-list i{
+            font-size:14px !important;	
+            }
+            .page-id-407 .w-socials-list .fa-facebook:before{
+            content:'\f39e' !important;   
+            }
+            header{
+            box-shadow: 10px 22px 16px #eceded;	
+            transition: box-shadow 0.3s ease-in-out;
+            }
+            header.sticky {
+            box-shadow: none;
+            transition: box-shadow 0.3s ease-in-out;
+            }
+            form 
+            ::-webkit-input-placeholder{
+            color:#000  !important;
+            opacity:1;	
+            }
+            .contact-pg-main-wrapper form .w-form-row.cols_2{
+            margin-bottom:22px !important;	
+            }
+            .contact-pg-main-wrapper form .w-form-row{
+            margin-bottom:30px !important;	
+            }
+            .contact-pg-main-wrapper form textarea{
+            border-radius:0px !important;
+            border:1px solid #B7BFC8 !important;	
+            }
+            .contact-pg-main-wrapper form input{
+            border-radius:0px !important;
+            border:1px solid #B7BFC8 !important;
+            --inputs-height:2.3rem !important;
+            }
+            #us_form_search_s::placeholder{
+            color:#B5B5B5 !important;
+            position:absolute;
+            left:65px;
+            top:20px;
+            font-weight:500;
+            font-size:20px;	
+            }
+            #us_form_search_s ::placeholder:before{
+            content:'\f010';
+            font-size:40px;
+            font-family:font-awesome;
+            width:90px;
+            height:50px;
+            display:block;
+            }
+            .fa-search:after{
+            content: url(https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/02/search-icon.png);
+            font-family:fontawesome;
+            display: block;
+            position: relative;
+            width: 100px;
+            height: 8px;
+            line-height:7px;
+            padding:0.9em  1.1em !important;
+            right:448%;
+            top: -50px;
+            color:#AEB7C1;
+            z-index: 1;
+            border-radius: 100px; 
+            }
+            .fa-search:before {
+            background-color: orange !important;
+            content: "Search";
+            display: block;
+            position: relative;
+            width: 100px;
+            height: 8px;
+            line-height:7px;
+            padding:0.9em  1.1em !important;
+            left: 5px;
+            top: -2px;
+            color:#ffff;
+            z-index: 1;
+            border-radius: 100px; 
+            font-family: var(--font-body);
+            font-weight: normal;
+            }
+            .faq-section .w-tabs-section-header:focus{
+            background:transparent !important;
+            }
+            .faq-section .w-tabs-section-header:hover{
+            background:transparent !important;
+            }
+            .faq-section .w-tabs-section-header.active{
+            position:relative;	
+            }
+            .faq-section .w-tabs-section-header.active:after{
+            content:'';
+            background:#ccc;
+            width:85%;
+            height:1px;
+            display:block;
+            position:absolute;
+            top:70px;
+            }
+            .faq-section .w-tabs-section .w-tabs-section-content{
+            box-shadow:none !important;	
+            }
+            .faq-section .w-tabs-section .active{
+            color:#000 !important;
+            }
+            .faq-section .w-tabs-section .w-tabs-section-control{
+            color:#FEB304 !important;
+            font-weight:400 !important;
+            font-size:16px;	
+            }
+            .faq-section .w-tabs-section{
+            border:none !important;
+            box-shadow:0 0 5px #ccc;
+            background:#fff !important;
+            margin-bottom:1rem !important;	
+            }
+            .custom-search-bar input{
+            border-radius:100px !important;	
+            }
+            .g-breadcrumbs li{
+            margin:0 2px;	
+            }
+            .custom-footer h4:after{
+            content:'';
+            background:#FEB100;
+            display:block;
+            width:140px;
+            height:1px;
+            position:relative;
+            top:7px;	
+            }
+            .orange-sep-text p:after{
+            content:'';
+            background:#FEB100;
+            display:block;
+            width:140px;
+            height:1px;
+            margin:0 auto;
+            position:relative;
+            top:7px;	
+            }
+            @media (max-width:1024px){
+            .aboutpg-twologo-grid .post_image{
+            width:150px !important;		
+            }	
+            .page-id-887  .w-grid-item-h  .left-img-post-grid-cat{
+            margin-left: Auto!important;
+            margin-bottom: 0 !important;
+            margin-right: Auto!important;
+            position: absolute!important;
+            bottom: -25px !important;
+            right: 0px!important;
+            padding: 3px 40px 3px 40px!important;
+            }		
+            .fa-search:after{
+            content: url(https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/02/search-icon.png);
+            font-family:fontawesome;
+            display: block;
+            position: relative;
+            width: 100px;
+            height: 8px;
+            line-height:7px;
+            padding:0.9em  1.1em !important;
+            right:351% !important;
+            top: -50px;
+            color:#AEB7C1;
+            z-index: 1;
+            border-radius: 100px; 
+            }	
+            #us_form_search_s::placeholder{
+            color:#B5B5B5 !important;
+            position:absolute;
+            left:50px;
+            top:20px;
+            font-weight:500;
+            font-size:16px;	
+            }			
+            .custom-charity-popup .popup-edge-top-right{
+            width: 35px;
+            height: 35px;
+            background-color: #feb500;
+            border-radius: 50%;
+            padding: 10px;
+            box-sizing: content-box;
+            top: 22% !important;
+            right: 107.5px !important;
+            }
+            .home-choose-us p br{
+            display:none !important;	
+            }
+            }
+            @media (max-width:768px){
+            .get-started-tabs .w-tabs-section-title:first-line{
+            text-align:left;
+            color:#fff !important;
+            font-weight:700 !important;
+            font-size:16px;	
+            }
+            .get-started-tabs  button{
+            background: linear-gradient(-90deg,#00528F,#0097C7) !important;
+            color:#fff !important;	
+            }
+            .get-started-tabs .w-tabs-section{
+            border:none !important;	
+            }	
+            .get-started-tabs .w-tabs-section.active button{
+            background:#FEB200 !important;
+            border:none !important;
+            width:272px !important;
+            border:none !important;	
+            overflow:hidden !important;
+            }
+            .get-started-tabs .w-tabs-section.active button:after {
+            content: '';
+            background: #FEB200 !important;
+            width: 52px;
+            border: 2px solid #FEB200;
+            height: 52px;
+            display: block;
+            right: 26px;
+            position: absolute !important;
+            transform: rotate(45deg) !important;
+            /* left: 190px; */
+            overflow: hidden !important;
+            }		
+            .aboutpg-twologo-grid .post_image{
+            width:150px !important;		
+            }	
+            .w-grid-item-h .Blog-related-post{
+            display:flex !important;
+            align-items:initial !important;	
+            }	
+            .page-id-887  .w-grid-item-h  .left-img-post-grid-cat{
+            margin-left: Auto!important;
+            margin-bottom: 0 !important;
+            margin-right: Auto!important;
+            position: absolute!important;
+            bottom: 0 !important;
+            right: 0px!important;
+            padding: 3px 40px 3px 40px!important;
+            }			
+            .w-grid-item-h .left-img-post-main-wrapper {
+            display: flex !important;
+            align-items: initial  !important;
+            }
+            .page-id-17 .w-tabs-section-title{
+            font-size:18px !important;	
+            }
+            .fa-search:after{
+            content: url(https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/02/search-icon.png);
+            font-family:fontawesome;
+            display: block;
+            position: relative;
+            width: 100px;
+            height: 8px;
+            line-height:7px;
+            padding:0.9em  1.1em !important;
+            left:-320px !important;
+            top: -50px;
+            color:#AEB7C1;
+            z-index: 1;
+            border-radius: 100px; 
+            }	
+            #us_form_search_s::placeholder{
+            color:#B5B5B5 !important;
+            position:absolute;
+            left:50px;
+            top:20px;
+            font-weight:500;
+            font-size:16px;	
+            }		
+            .custom-charity-popup .popup-edge-top-right{
+            width: 35px;
+            height: 35px;
+            background-color: #feb500;
+            border-radius: 50%;
+            padding: 10px;
+            box-sizing: content-box;
+            top: 170.5px !important;
+            right: 28px !important;
+            }	
+            .custom-charity-popup .ult_modal-body{
+            padding-top:7rem;
+            padding-bottom:2rem;
+            padding-left:1rem;
+            padding-right:1rem;	
+            width:100%;
+            margin:150px auto;
+            border-radius:50px;	
+            }		
+            .home-choose-us p br{
+            display:none !important;	
+            } 	
+            .contact-pg-contact-form-sec p span{
+            font-size:14px !important;
+            }	
+            .contact-pg-contact-form-sec {
+            --custom-columns: 1fr 3fr 3fr  !important;		
+            }	
+            .faq-section .w-tabs-section-header.active:after {
+            content: '';
+            background: #ccc;
+            width: 85%;
+            height: 1px;
+            display: block;
+            position: absolute;
+            top: 72px !important;
+            }	
+            h1{
+            font-size:30px !important;
+            }	
+            .main-banner-hom .w-form-row{
+            width:100% !important;		
+            }	
+            .about-pg-logo-sep{
+            margin-bottom:3rem !important;		
+            }
+            .about-us-logo-sec .w-grid-item{
+            padding:4rem !important;	
+            }	
+            .about-us-logo-sec .w-grid-item:nth-child(2){
+            margin-bottom:0 !important;		
+            }	
+            .about-us-logo-sec img{
+            max-width:100% !important;
+            margin:0 auto !important;	
+            }	
+            }
+            @media (min-width:350px) and (max-width:360px){
+            .w-search-form .fa-search:after{
+            content: url(https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/02/search-icon.png);
+            font-family:fontawesome;
+            display: block;
+            position: relative;
+            width: 100px;
+            height: 8px;
+            line-height:7px;
+            padding:0.9em  1.1em !important;
+            left:-200px !important;
+            top: -50px;
+            color:#AEB7C1;
+            z-index: 1;
+            border-radius: 100px; 
+            }	
+            }
+            @media (max-width:320px){
+            header .header-logo {
+            height:30px !important;		
+            }	
+            .post-leftimg-timedate time{
+            line-height:3 !important;
+            font-size:12px !important;	
+            }
+            .page-id-17 .fa-search:before {
+            background-color: orange !important;
+            content: "Search";
+            display: block;
+            position: relative;
+            width: 100px;
+            height: 8px;
+            line-height: 7px;
+            padding: 0.9em 0.2em !important;
+            left: 32px !important;
+            top: -2px;
+            color: #ffff;
+            z-index: 1;
+            border-radius: 100px;
+            }	
+            #us_form_search_s::placeholder{
+            color:#B5B5B5 !important;
+            position:absolute;
+            left:50px;
+            top:20px;
+            font-weight:500;
+            font-size:12px !important;	
+            }		
+            .page-id-17	.fa-search:after {
+            content: url(https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/02/search-icon.png);
+            font-family: fontawesome;
+            display: block;
+            position: relative;
+            width: 100px;
+            height: 8px;
+            line-height: 7px;
+            padding: 0.9em 1.1em !important;
+            left: -168px !important;
+            top: -50px;
+            color: #AEB7C1;
+            z-index: 1;
+            border-radius: 100px;
+            }
+            .page-id-887 .w-grid-item-h .post-leftimg-timedate{
+            font-size:10px !important;
+            line-height:1.2 !important;	
+            }	
+            .page-id-887  .w-grid-item-h  .left-img-post-grid-cat{
+            margin-left: Auto!important;
+            margin-bottom: 0 !important;
+            margin-right: Auto!important;
+            position: absolute!important;
+            bottom: 0px !important;
+            right: 0px!important;
+            padding: 3px 40px 3px 40px!important;
+            }	
+            }
+            @media (max-width:600px){
+            .header_hor .l-subheader-cell.at_right>* {
+            margin-left: 0 !important;
+            }
+            .get-started-tabs .w-tabs-section-title:first-line{
+            text-align:left;
+            color:#fff !important;
+            font-weight:700 !important;
+            font-size:16px;	
+            }
+            .get-started-tabs  button{
+            background: linear-gradient(-90deg,#00528F,#0097C7) !important;
+            color:#fff !important;	
+            }
+            .get-started-tabs .w-tabs-section{
+            border:none !important;	
+            }	
+            .get-started-tabs .w-tabs-section.active button{
+            background:#FEB200 !important;
+            border:none !important;
+            width:100% !important;
+            border:none !important;	
+            overflow:visible !important;
+            }
+            button.w-tabs-section-header.active {
+            position:relative;
+            }
+            .get-started-tabs .w-tabs-section.active button:after {
+            display: none;
+            }	
+            .main-banner-content h1{
+            font-size:40px !important;	
+            }	
+            .aboutpg-twologo-grid .post_image{
+            width:initial !important;		
+            }		
+            #check-icon .w-iconbox-icon{
+            font-size:75px !important;	
+            }	
+            .home-choose-us #conv-icon .w-iconbox-icon{
+            font-size:75px !important;	
+            }	
+            .Blog-related-post	.rel-post-inner-wrapper{
+            padding:1rem !important;		
+            }	
+            .fa-search:after{
+            content: url(https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/02/search-icon.png);
+            font-family:fontawesome;
+            display: block;
+            position: relative;
+            width: 100px;
+            height: 8px;
+            line-height:7px;
+            padding:0.9em  1.1em !important;
+            left:-219px !important;
+            top: -50px;
+            color:#AEB7C1;
+            z-index: 1;
+            border-radius: 100px; 
+            }	
+            #us_form_search_s::placeholder{
+            color:#B5B5B5 !important;
+            position:absolute;
+            left:50px;
+            top:20px;
+            font-weight:500;
+            font-size:14px;	
+            }	
+            .custom-charity-popup .popup-edge-top-right{
+            width: 35px;
+            height: 35px;
+            background-color: #feb500;
+            border-radius: 50%;
+            padding: 10px;
+            box-sizing: content-box;
+            top: 170.5px !important;
+            right: 28px !important;
+            }	
+            .custom-charity-popup .ult_modal-body{
+            padding-top:7rem;
+            padding-bottom:2rem;
+            padding-left:1rem;
+            padding-right:1rem;	
+            width:100%;
+            margin:150px auto;
+            border-radius:50px;	
+            }	
+            .home-choose-us p br{
+            display:none !important;	
+            } 
+            .testimonial-main-wrapper.right-img{
+            display:flex !important;
+            flex-direction:column-reverse !important;	
+            }	
+            .testimonial-main-wrapper{
+            display:block !important;	
+            flex-direction:column-reverse !important;		
+            }	
+            .faq-section .w-tabs-section-header.active:after{
+            content:'';
+            background:#ccc;
+            width:85%;
+            height:1px;
+            display:block;
+            position:absolute;
+            top:80px !important;
+            }	
+            .orange-sep-text p:after{
+            content:'';
+            background:#FEB100;
+            display:block;
+            width:140px;
+            height:1px;
+            margin:0 auto;
+            margin-bottom:15px !important;
+            position:relative;
+            top:7px;	
+            }	
+            .about-us-logo-sec .w-grid-item{
+            padding:0 !important;	
+            }		 
+            .about-us-logo-sec .w-grid-item:nth-child(2){
+            margin-bottom:3rem !important;		
+            }	
+            .about-us-logo-sec img{
+            max-width:60% !important;
+            margin:0 auto !important;	
+            }	
+            }
+        </style>
+        <style type="text/css" data-type="vc_custom-css">.home-steps-sec h4{
+            font-weight:500 !important;
+            color:#222A41 !important;
+            }
+            .home-choose-us h4{
+            font-weight:500 !important;
+            color:#000 !important;
+            }
+        </style>
+        <noscript>
+            <style> .wpb_animate_when_almost_visible { opacity: 1; }</style>
+        </noscript>
+        <style id="us-icon-fonts">@font-face{font-display:block;font-style:normal;font-family:"fontawesome";font-weight:900;src:url("https://asimbalochtech.com/tundaasega/wp-content/themes/Impreza/fonts/fa-solid-900.woff2?ver=8.5.1") format("woff2"),url("https://asimbalochtech.com/tundaasega/wp-content/themes/Impreza/fonts/fa-solid-900.woff?ver=8.5.1") format("woff")}.fas{font-family:"fontawesome";font-weight:900}@font-face{font-display:block;font-style:normal;font-family:"fontawesome";font-weight:400;src:url("https://asimbalochtech.com/tundaasega/wp-content/themes/Impreza/fonts/fa-regular-400.woff2?ver=8.5.1") format("woff2"),url("https://asimbalochtech.com/tundaasega/wp-content/themes/Impreza/fonts/fa-regular-400.woff?ver=8.5.1") format("woff")}.far{font-family:"fontawesome";font-weight:400}@font-face{font-display:block;font-style:normal;font-family:"fontawesome";font-weight:300;src:url("https://asimbalochtech.com/tundaasega/wp-content/themes/Impreza/fonts/fa-light-300.woff2?ver=8.5.1") format("woff2"),url("https://asimbalochtech.com/tundaasega/wp-content/themes/Impreza/fonts/fa-light-300.woff?ver=8.5.1") format("woff")}.fal{font-family:"fontawesome";font-weight:300}@font-face{font-display:block;font-style:normal;font-family:"Font Awesome 5 Duotone";font-weight:900;src:url("https://asimbalochtech.com/tundaasega/wp-content/themes/Impreza/fonts/fa-duotone-900.woff2?ver=8.5.1") format("woff2"),url("https://asimbalochtech.com/tundaasega/wp-content/themes/Impreza/fonts/fa-duotone-900.woff?ver=8.5.1") format("woff")}.fad{font-family:"Font Awesome 5 Duotone";font-weight:900}.fad{position:relative}.fad:before{position:absolute}.fad:after{opacity:0.4}@font-face{font-display:block;font-style:normal;font-family:"Font Awesome 5 Brands";font-weight:400;src:url("https://asimbalochtech.com/tundaasega/wp-content/themes/Impreza/fonts/fa-brands-400.woff2?ver=8.5.1") format("woff2"),url("https://asimbalochtech.com/tundaasega/wp-content/themes/Impreza/fonts/fa-brands-400.woff?ver=8.5.1") format("woff")}.fab{font-family:"Font Awesome 5 Brands";font-weight:400}@font-face{font-display:block;font-style:normal;font-family:"Material Icons";font-weight:400;src:url("https://asimbalochtech.com/tundaasega/wp-content/themes/Impreza/fonts/material-icons.woff2?ver=8.5.1") format("woff2"),url("https://asimbalochtech.com/tundaasega/wp-content/themes/Impreza/fonts/material-icons.woff?ver=8.5.1") format("woff")}.material-icons{font-family:"Material Icons";font-weight:400}</style>
+        <style id="us-theme-options-css">:root{--color-header-middle-bg:#fff;--color-header-middle-bg-grad:#fff;--color-header-middle-text:#00528F;--color-header-middle-text-hover:#FFAB00 ;--color-header-transparent-bg:transparent;--color-header-transparent-bg-grad:transparent;--color-header-transparent-text:#fff;--color-header-transparent-text-hover:#fff;--color-chrome-toolbar:#f5f5f5;--color-chrome-toolbar-grad:#f5f5f5;--color-header-top-bg:#f5f5f5;--color-header-top-bg-grad:linear-gradient(0deg,#f5f5f5,#fff);--color-header-top-text:#00528F;--color-header-top-text-hover:#ffab00;--color-header-top-transparent-bg:rgba(0,0,0,0.2);--color-header-top-transparent-bg-grad:rgba(0,0,0,0.2);--color-header-top-transparent-text:rgba(255,255,255,0.66);--color-header-top-transparent-text-hover:#fff;--color-content-bg:#fff;--color-content-bg-grad:#fff;--color-content-bg-alt:#f5f5f5;--color-content-bg-alt-grad:#f5f5f5;--color-content-border:#e8e8e8;--color-content-heading:#000000;--color-content-heading-grad:#000000;--color-content-text:#000000;--color-content-link:#10A8D3;--color-content-link-hover:#ffab00;--color-content-primary:#00528F;--color-content-primary-grad:linear-gradient(90deg,#00528F,#0097C7);--color-content-secondary:#FFAB00 ;--color-content-secondary-grad:linear-gradient(135deg,#FFAB00 ,#FDC200);--color-content-faded:#999;--color-content-overlay:rgba(0,0,0,0.75);--color-content-overlay-grad:rgba(0,0,0,0.75);--color-alt-content-bg:#f5f5f5;--color-alt-content-bg-grad:#f5f5f5;--color-alt-content-bg-alt:#fff;--color-alt-content-bg-alt-grad:#fff;--color-alt-content-border:#ddd;--color-alt-content-heading:#000000;--color-alt-content-heading-grad:#000000;--color-alt-content-text:#000000;--color-alt-content-link:#10A8D3;--color-alt-content-link-hover:#ffab00;--color-alt-content-primary:#00528F;--color-alt-content-primary-grad:linear-gradient(90deg,#00528F,#0097C7);--color-alt-content-secondary:#FFAB00 ;--color-alt-content-secondary-grad:linear-gradient(135deg,#FFAB00 ,#FDC200);--color-alt-content-faded:#999;--color-alt-content-overlay:#00528F;--color-alt-content-overlay-grad:linear-gradient(90deg,#00528F,#0097C7);--color-footer-bg:#000000;--color-footer-bg-grad:#000000;--color-footer-bg-alt:#000000;--color-footer-bg-alt-grad:#000000;--color-footer-border:#000000;--color-footer-heading:#ccc;--color-footer-heading-grad:#ccc;--color-footer-text:#999;--color-footer-link:#ffffff;--color-footer-link-hover:#ffab00;--color-subfooter-bg:#1a1a1a;--color-subfooter-bg-grad:#1a1a1a;--color-subfooter-bg-alt:#222;--color-subfooter-bg-alt-grad:#222;--color-subfooter-border:#282828;--color-subfooter-heading:#ccc;--color-subfooter-heading-grad:#ccc;--color-subfooter-text:#bbb;--color-subfooter-link:#ffffff;--color-subfooter-link-hover:#ffab00;--color-content-primary-faded:rgba(0,82,143,0.15);--box-shadow:0 5px 15px rgba(0,0,0,.15);--box-shadow-up:0 -5px 15px rgba(0,0,0,.15);--site-content-width:1140px;--inputs-font-size:14px;--inputs-height:2.8rem;--inputs-padding:0.8rem;--inputs-border-width:0px;--inputs-text-color:#1a1a1a;--font-body:"Breeze Sans Regular";--font-h1:"Breeze Sans Bold";--font-h2:"Breeze Sans Bold";--font-h3:"Breeze Sans Bold";--font-h4:"Breeze Sans Bold";--font-h5:"Breeze Sans Bold";--font-h6:"Breeze Sans Bold"}.w-counter.color_primary .w-counter-value,.w-iconbox.color_primary.style_default .w-iconbox-icon i:not(.fad){background:var(--color-content-primary-grad);-webkit-background-clip:text;color:transparent}.w-counter.color_secondary .w-counter-value,.w-iconbox.color_secondary.style_default .w-iconbox-icon i:not(.fad){background:var(--color-content-secondary-grad);-webkit-background-clip:text;color:transparent}html,.l-header .widget,.menu-item-object-us_page_block{font-family:var(--font-body);font-weight:;font-size:18px;line-height:28px}@font-face{font-display:block;font-style:normal;font-family:"Breeze Sans Bold";font-weight:700;src:url(https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/BreezeSans-Bold_20150728.woff) format("woff")}@font-face{font-display:block;font-style:normal;font-family:"Breeze Sans Regular";font-weight:400;src:url(https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/BreezeSans-Regular_20150728.woff) format("woff")}@font-face{font-display:block;font-style:normal;font-family:"Breeze Sans Light";font-weight:700;src:url(https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/BreezeSans-Light_20150728.woff) format("woff")}@font-face{font-display:block;font-style:normal;font-family:"Breeze Sans Medium";font-weight:600;src:url(https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/BreezeSans-Medium_20150728.woff) format("woff")}h1{font-family:var(--font-h1);font-weight:700;font-size:max( 3rem,3vw );line-height:1.2;letter-spacing:0;margin-bottom:0.6em}h2{font-family:var(--font-h2);font-weight:400;font-size:max( 1.8rem,1.8vw );line-height:1.2;letter-spacing:0;margin-bottom:0.6em}h3{font-family:var(--font-h3);font-weight:600;font-size:max( 1.4rem,1.4vw );line-height:1.2;letter-spacing:0;margin-bottom:0.6em}.widgettitle,h4{font-family:var(--font-h4);font-weight:700;font-size:;line-height:1.2;letter-spacing:0;margin-bottom:0.6em}h5{font-family:var(--font-h5);font-weight:400;font-size:max( 1.1rem,1.1vw );line-height:1.2;letter-spacing:0;margin-bottom:0.6em}h6{font-family:var(--font-h6);font-weight:400;font-size:max( 1rem,1vw );line-height:1.2;letter-spacing:0;margin-bottom:0.6em}@media (max-width:600px){html{font-size:16px;line-height:28px}h1{font-size:30px}h1.vc_custom_heading:not([class*="us_custom_"]){font-size:30px!important}h2{font-size:24px}h2.vc_custom_heading:not([class*="us_custom_"]){font-size:24px!important}}body{background:var(--color-content-bg-alt)}.l-canvas.type_boxed,.l-canvas.type_boxed .l-subheader,.l-canvas.type_boxed~.l-footer{max-width:1300px}.l-subheader-h,.l-section-h,.l-main .aligncenter,.w-tabs-section-content-h{max-width:1140px}.post-password-form{max-width:calc(1140px + 5rem)}@media screen and (max-width:1230px){.l-main .aligncenter{max-width:calc(100vw - 5rem)}}@media (min-width:1281px){body.usb_preview .hide_on_default{opacity:0.25!important}body:not(.usb_preview) .hide_on_default{display:none!important}}@media (min-width:1025px) and (max-width:1280px){body.usb_preview .hide_on_laptops{opacity:0.25!important}body:not(.usb_preview) .hide_on_laptops{display:none!important}}@media (min-width:601px) and (max-width:1024px){body.usb_preview .hide_on_tablets{opacity:0.25!important}body:not(.usb_preview) .hide_on_tablets{display:none!important}}@media (max-width:600px){body.usb_preview .hide_on_mobiles{opacity:0.25!important}body:not(.usb_preview) .hide_on_mobiles{display:none!important}}@media (max-width:767px){.l-canvas{overflow:hidden}.g-cols.via_flex.reversed{flex-direction:column-reverse}.g-cols.via_grid.reversed>div:last-of-type{order:-1}.g-cols.via_flex>div:not([class*=" vc_col-"]){width:100%;margin:0 0 1.5rem}.g-cols.via_grid.tablets-cols_inherit.mobiles-cols_1{grid-template-columns:100%}.g-cols.via_flex.type_boxes>div,.g-cols.via_flex.reversed>div:first-child,.g-cols.via_flex:not(.reversed)>div:last-child,.g-cols.via_flex>div.has_bg_color{margin-bottom:0}.g-cols.via_flex.type_default>.wpb_column.stretched{margin-left:-1rem;margin-right:-1rem}.g-cols.via_grid>.wpb_column.stretched,.g-cols.via_flex.type_boxes>.wpb_column.stretched{margin-left:-2.5rem;margin-right:-2.5rem;width:auto}.vc_column-inner.type_sticky>.wpb_wrapper,.vc_column_container.type_sticky>.vc_column-inner{top:0!important}}@media (min-width:768px){body:not(.rtl) .l-section.for_sidebar.at_left>div>.l-sidebar,.rtl .l-section.for_sidebar.at_right>div>.l-sidebar{order:-1}.vc_column_container.type_sticky>.vc_column-inner,.vc_column-inner.type_sticky>.wpb_wrapper{position:-webkit-sticky;position:sticky}.l-section.type_sticky{position:-webkit-sticky;position:sticky;top:0;z-index:11;transform:translateZ(0); transition:top 0.3s cubic-bezier(.78,.13,.15,.86) 0.1s}.admin-bar .l-section.type_sticky{top:32px}.l-section.type_sticky>.l-section-h{transition:padding-top 0.3s}.header_hor .l-header.pos_fixed:not(.down)~.l-main .l-section.type_sticky:not(:first-of-type){top:var(--header-sticky-height)}.admin-bar.header_hor .l-header.pos_fixed:not(.down)~.l-main .l-section.type_sticky:not(:first-of-type){top:calc( var(--header-sticky-height) + 32px )}.header_hor .l-header.pos_fixed.sticky:not(.down)~.l-main .l-section.type_sticky:first-of-type>.l-section-h{padding-top:var(--header-sticky-height)}}@media screen and (min-width:1230px){.g-cols.via_flex.type_default>.wpb_column.stretched:first-of-type{margin-left:calc( var(--site-content-width) / 2 + 0px / 2 + 1.5rem - 50vw)}.g-cols.via_flex.type_default>.wpb_column.stretched:last-of-type{margin-right:calc( var(--site-content-width) / 2 + 0px / 2 + 1.5rem - 50vw)}.l-main .alignfull, .w-separator.width_screen,.g-cols.via_grid>.wpb_column.stretched:first-of-type,.g-cols.via_flex.type_boxes>.wpb_column.stretched:first-of-type{margin-left:calc( var(--site-content-width) / 2 + 0px / 2 - 50vw )}.l-main .alignfull, .w-separator.width_screen,.g-cols.via_grid>.wpb_column.stretched:last-of-type,.g-cols.via_flex.type_boxes>.wpb_column.stretched:last-of-type{margin-right:calc( var(--site-content-width) / 2 + 0px / 2 - 50vw )}}@media (max-width:600px){.w-form-row.for_submit .w-btn{font-size:var(--btn-size-mobiles)!important}}a,button,input[type="submit"],.ui-slider-handle{outline:none!important}.w-toplink,.w-header-show{background:rgba(0,0,0,0.3)}.no-touch .w-toplink.active:hover,.no-touch .w-header-show:hover{background:var(--color-content-primary-grad)}button[type="submit"]:not(.w-btn),input[type="submit"]{font-family:var(--font-body);font-size:16px;line-height:1.2!important;font-weight:700;font-style:normal;text-transform:none;letter-spacing:0em;border-radius:0.3em;padding:0.8em 1.8em;box-shadow:0 0em 0em rgba(0,0,0,0.2);background:var(--color-content-primary-grad);border-color:transparent;color:#ffffff!important}button[type="submit"]:not(.w-btn):before,input[type="submit"]{border-width:0px}.no-touch button[type="submit"]:not(.w-btn):hover,.no-touch input[type="submit"]:hover{box-shadow:0 0em 0em rgba(0,0,0,0.2);background:var(--color-content-secondary-grad);border-color:transparent;color:#ffffff!important}.us-nav-style_1>*,.navstyle_1>.owl-nav div,.us-btn-style_1{font-family:var(--font-body);font-size:16px;line-height:1.2!important;font-weight:700;font-style:normal;text-transform:none;letter-spacing:0em;border-radius:0.3em;padding:0.8em 1.8em;background:var(--color-content-primary-grad);border-color:transparent;color:#ffffff!important;box-shadow:0 0em 0em rgba(0,0,0,0.2)}.us-nav-style_1>*:before,.navstyle_1>.owl-nav div:before,.us-btn-style_1:before{border-width:0px}.us-nav-style_1>span.current,.no-touch .us-nav-style_1>a:hover,.no-touch .navstyle_1>.owl-nav div:hover,.no-touch .us-btn-style_1:hover{box-shadow:0 0em 0em rgba(0,0,0,0.2);background:var(--color-content-secondary-grad);border-color:transparent;color:#ffffff!important}.us-nav-style_1>*{min-width:calc(1.2em + 2 * 0.8em)}.us-btn-style_1{overflow:hidden;-webkit-transform:translateZ(0)}.us-btn-style_1>*{position:relative;z-index:1}.no-touch .us-btn-style_1:hover{background:var(--color-content-primary-grad)}.no-touch .us-btn-style_1:after{content:"";position:absolute;top:0;left:0;right:0;bottom:0;opacity:0;transition:opacity 0.3s;background:var(--color-content-secondary-grad)}.no-touch .us-btn-style_1:hover:after{opacity:1}.us-nav-style_2>*,.navstyle_2>.owl-nav div,.us-btn-style_2{font-family:var(--font-body);font-size:16px;line-height:1.2!important;font-weight:700;font-style:normal;text-transform:none;letter-spacing:0em;border-radius:0.3em;padding:0.8em 1.8em;background:var(--color-content-border);border-color:transparent;color:var(--color-content-text)!important;box-shadow:0 0em 0em rgba(0,0,0,0.2)}.us-nav-style_2>*:before,.navstyle_2>.owl-nav div:before,.us-btn-style_2:before{border-width:0px}.us-nav-style_2>span.current,.no-touch .us-nav-style_2>a:hover,.no-touch .navstyle_2>.owl-nav div:hover,.no-touch .us-btn-style_2:hover{box-shadow:0 0em 0em rgba(0,0,0,0.2);background:var(--color-content-text);border-color:transparent;color:var(--color-content-bg)!important}.us-nav-style_2>*{min-width:calc(1.2em + 2 * 0.8em)}.us-nav-style_3>*,.navstyle_3>.owl-nav div,.us-btn-style_3{font-family:var(--font-body);font-size:1rem;line-height:1.2!important;font-weight:400;font-style:normal;text-transform:none;letter-spacing:0em;border-radius:4em;padding:0.9em 2.1em;background:linear-gradient(90deg,#00528F,#0097C7);border-color:transparent;color:#ffffff!important;box-shadow:0 0em 0em rgba(0,0,0,0.2)}.us-nav-style_3>*:before,.navstyle_3>.owl-nav div:before,.us-btn-style_3:before{border-width:2px}.us-nav-style_3>span.current,.no-touch .us-nav-style_3>a:hover,.no-touch .navstyle_3>.owl-nav div:hover,.no-touch .us-btn-style_3:hover{box-shadow:0 0em 0em rgba(0,0,0,0.2);background:linear-gradient(135deg,#FFAB00 ,#FDC200);border-color:transparent;color:#ffffff!important}.us-nav-style_3>*{min-width:calc(1.2em + 2 * 0.9em)}.us-btn-style_3{overflow:hidden;-webkit-transform:translateZ(0)}.us-btn-style_3>*{position:relative;z-index:1}.no-touch .us-btn-style_3:hover{background:linear-gradient(90deg,#00528F,#0097C7)}.no-touch .us-btn-style_3:after{content:"";position:absolute;top:0;left:0;right:0;bottom:0;opacity:0;transition:opacity 0.3s;background:linear-gradient(135deg,#FFAB00 ,#FDC200)}.no-touch .us-btn-style_3:hover:after{opacity:1}.us-nav-style_8>*,.navstyle_8>.owl-nav div,.us-btn-style_8{font-family:var(--font-body);font-size:1rem;line-height:1.20!important;font-weight:400;font-style:normal;text-transform:none;letter-spacing:0em;border-radius:4em;padding:0.9em 2.1em;background:#109DDB;border-color:transparent;color:#ffffff!important;box-shadow:0 0em 0em rgba(0,0,0,0.2)}.us-nav-style_8>*:before,.navstyle_8>.owl-nav div:before,.us-btn-style_8:before{border-width:2px}.us-nav-style_8>span.current,.no-touch .us-nav-style_8>a:hover,.no-touch .navstyle_8>.owl-nav div:hover,.no-touch .us-btn-style_8:hover{box-shadow:0 0em 0em rgba(0,0,0,0.2);background:linear-gradient(135deg,#FFAB00 ,#FDC200);border-color:transparent;color:#ffffff!important}.us-nav-style_8>*{min-width:calc(1.20em + 2 * 0.9em)}.us-btn-style_8{overflow:hidden;-webkit-transform:translateZ(0)}.us-btn-style_8>*{position:relative;z-index:1}.no-touch .us-btn-style_8:hover{background:#109DDB}.no-touch .us-btn-style_8:after{content:"";position:absolute;top:0;left:0;right:0;bottom:0;opacity:0;transition:opacity 0.3s;background:linear-gradient(135deg,#FFAB00 ,#FDC200)}.no-touch .us-btn-style_8:hover:after{opacity:1}.us-nav-style_4>*,.navstyle_4>.owl-nav div,.us-btn-style_4{font-family:var(--font-body);font-size:1rem;line-height:1.20!important;font-weight:400;font-style:normal;text-transform:none;letter-spacing:0em;border-radius:4em;padding:0.9em 2.1em;background:linear-gradient(135deg,#FFAB00 ,#FDC200);border-color:transparent;color:#ffffff!important;box-shadow:0 0em 0em rgba(0,0,0,0.2)}.us-nav-style_4>*:before,.navstyle_4>.owl-nav div:before,.us-btn-style_4:before{border-width:2px}.us-nav-style_4>span.current,.no-touch .us-nav-style_4>a:hover,.no-touch .navstyle_4>.owl-nav div:hover,.no-touch .us-btn-style_4:hover{box-shadow:0 0em 0em rgba(0,0,0,0.2);background:linear-gradient(90deg,#00528F,#0097C7);border-color:transparent;color:#ffffff!important}.us-nav-style_4>*{min-width:calc(1.20em + 2 * 0.9em)}.us-btn-style_4{overflow:hidden;-webkit-transform:translateZ(0)}.us-btn-style_4>*{position:relative;z-index:1}.no-touch .us-btn-style_4:hover{background:linear-gradient(135deg,#FFAB00 ,#FDC200)}.no-touch .us-btn-style_4:after{content:"";position:absolute;top:0;left:0;right:0;bottom:0;opacity:0;transition:opacity 0.3s;background:linear-gradient(90deg,#00528F,#0097C7)}.no-touch .us-btn-style_4:hover:after{opacity:1}.us-nav-style_5>*,.navstyle_5>.owl-nav div,.us-btn-style_5{font-family:var(--font-body);font-size:1rem;line-height:1.20!important;font-weight:400;font-style:normal;text-transform:none;letter-spacing:0em;border-radius:4em;padding:0.6em 2.6em;background:linear-gradient(135deg,#FFAB00 ,#FDC200);border-color:transparent;color:#ffffff!important;box-shadow:0 0em 0em rgba(0,0,0,0.2)}.us-nav-style_5>*:before,.navstyle_5>.owl-nav div:before,.us-btn-style_5:before{border-width:2px}.us-nav-style_5>span.current,.no-touch .us-nav-style_5>a:hover,.no-touch .navstyle_5>.owl-nav div:hover,.no-touch .us-btn-style_5:hover{box-shadow:0 0em 0em rgba(0,0,0,0.2);background:linear-gradient(90deg,#00528F,#0097C7);border-color:transparent;color:#ffffff!important}.us-nav-style_5>*{min-width:calc(1.20em + 2 * 0.6em)}.us-btn-style_5{overflow:hidden;-webkit-transform:translateZ(0)}.us-btn-style_5>*{position:relative;z-index:1}.no-touch .us-btn-style_5:hover{background:linear-gradient(135deg,#FFAB00 ,#FDC200)}.no-touch .us-btn-style_5:after{content:"";position:absolute;top:0;left:0;right:0;bottom:0;opacity:0;transition:opacity 0.3s;background:linear-gradient(90deg,#00528F,#0097C7)}.no-touch .us-btn-style_5:hover:after{opacity:1}.us-nav-style_7>*,.navstyle_7>.owl-nav div,.us-btn-style_7{font-family:var(--font-body);font-size:1rem;line-height:1.20!important;font-weight:400;font-style:normal;text-transform:none;letter-spacing:0em;border-radius:4em;padding:0.6em 3.1em;background:linear-gradient(135deg,#FFAB00 ,#FDC200);border-color:transparent;color:#ffffff!important;box-shadow:0 0em 0em rgba(0,0,0,0.2)}.us-nav-style_7>*:before,.navstyle_7>.owl-nav div:before,.us-btn-style_7:before{border-width:2px}.us-nav-style_7>span.current,.no-touch .us-nav-style_7>a:hover,.no-touch .navstyle_7>.owl-nav div:hover,.no-touch .us-btn-style_7:hover{box-shadow:0 0em 0em rgba(0,0,0,0.2);background:linear-gradient(90deg,#00528F,#0097C7);border-color:transparent;color:#ffffff!important}.us-nav-style_7>*{min-width:calc(1.20em + 2 * 0.6em)}.us-btn-style_7{overflow:hidden;-webkit-transform:translateZ(0)}.us-btn-style_7>*{position:relative;z-index:1}.no-touch .us-btn-style_7:hover{background:linear-gradient(135deg,#FFAB00 ,#FDC200)}.no-touch .us-btn-style_7:after{content:"";position:absolute;top:0;left:0;right:0;bottom:0;opacity:0;transition:opacity 0.3s;background:linear-gradient(90deg,#00528F,#0097C7)}.no-touch .us-btn-style_7:hover:after{opacity:1}.us-nav-style_6>*,.navstyle_6>.owl-nav div,.us-btn-style_6{font-family:var(--font-body);font-size:14px;line-height:1.2!important;font-weight:400;font-style:normal;text-transform:none;letter-spacing:0em;border-radius:0.3em;padding:0.4em 0.4em;background:var(--color-content-secondary-grad);border-color:transparent;color:#ffffff!important;box-shadow:0 0em 0em rgba(0,0,0,0.2)}.us-nav-style_6>*:before,.navstyle_6>.owl-nav div:before,.us-btn-style_6:before{border-width:2px}.us-nav-style_6>span.current,.no-touch .us-nav-style_6>a:hover,.no-touch .navstyle_6>.owl-nav div:hover,.no-touch .us-btn-style_6:hover{box-shadow:0 0em 0em rgba(0,0,0,0.2);background:var(--color-content-secondary-grad);border-image:var(--color-content-secondary-grad) 1;color:#ffffff!important}.us-nav-style_6>*{min-width:calc(1.2em + 2 * 0.4em)}.us-btn-style_6{overflow:hidden;-webkit-transform:translateZ(0)}.us-btn-style_6>*{position:relative;z-index:1}.no-touch .us-btn-style_6:hover{background:var(--color-content-secondary-grad)}.no-touch .us-btn-style_6:after{content:"";position:absolute;top:0;left:0;right:0;bottom:0;opacity:0;transition:opacity 0.3s;background:var(--color-content-secondary-grad)}.no-touch .us-btn-style_6:hover:after{opacity:1}.w-filter.state_desktop.style_drop_default .w-filter-item-title,.select2-selection,select,textarea,input:not([type="submit"]),.w-form-checkbox,.w-form-radio{font-weight:400;letter-spacing:0em;border-radius:7px;background:#ffffff;color:#1a1a1a;box-shadow:0px 1px 0px 0px rgba(0,0,0,0.08) inset}.w-filter.state_desktop.style_drop_default .w-filter-item-title:focus,.select2-container--open .select2-selection,select:focus,textarea:focus,input:not([type="submit"]):focus,input:focus + .w-form-checkbox,input:focus + .w-form-radio{box-shadow:0px 0px 0px 2px var(--color-content-primary)}.w-form-row.move_label .w-form-row-label{font-size:14px;top:calc(2.8rem/2 + 0px - 0.7em);margin:0 0.8rem;background-color:#ffffff;color:#1a1a1a}.w-form-row.with_icon.move_label .w-form-row-label{margin-left:calc(1.6em + 0.8rem)}.style_phone6-1>*{background-image:url(https://asimbalochtech.com/tundaasega/wp-content/themes/Impreza/img/phone-6-black-real.png)}.style_phone6-2>*{background-image:url(https://asimbalochtech.com/tundaasega/wp-content/themes/Impreza/img/phone-6-white-real.png)}.style_phone6-3>*{background-image:url(https://asimbalochtech.com/tundaasega/wp-content/themes/Impreza/img/phone-6-black-flat.png)}.style_phone6-4>*{background-image:url(https://asimbalochtech.com/tundaasega/wp-content/themes/Impreza/img/phone-6-white-flat.png)}.leaflet-default-icon-path{background-image:url(https://asimbalochtech.com/tundaasega/wp-content/themes/Impreza/common/css/vendor/images/marker-icon.png)}</style>
+        <style id="us-header-css"> .l-subheader.at_middle,.l-subheader.at_middle .w-dropdown-list,.l-subheader.at_middle .type_mobile .w-nav-list.level_1{background:var(--color-header-middle-bg);color:#00528F}.no-touch .l-subheader.at_middle a:hover,.no-touch .l-header.bg_transparent .l-subheader.at_middle .w-dropdown.opened a:hover{color:var(--color-header-middle-text-hover)}.l-header.bg_transparent:not(.sticky) .l-subheader.at_middle{background:var(--color-header-transparent-bg);color:var(--color-header-transparent-text)}.no-touch .l-header.bg_transparent:not(.sticky) .at_middle .w-cart-link:hover,.no-touch .l-header.bg_transparent:not(.sticky) .at_middle .w-text a:hover,.no-touch .l-header.bg_transparent:not(.sticky) .at_middle .w-html a:hover,.no-touch .l-header.bg_transparent:not(.sticky) .at_middle .w-nav>a:hover,.no-touch .l-header.bg_transparent:not(.sticky) .at_middle .w-menu a:hover,.no-touch .l-header.bg_transparent:not(.sticky) .at_middle .w-search>a:hover,.no-touch .l-header.bg_transparent:not(.sticky) .at_middle .w-dropdown a:hover,.no-touch .l-header.bg_transparent:not(.sticky) .at_middle .type_desktop .menu-item.level_1:hover>a{color:var(--color-header-transparent-text-hover)}.header_ver .l-header{background:var(--color-header-middle-bg);color:#00528F}@media (min-width:1281px){.hidden_for_default{display:none!important}.l-subheader.at_top{display:none}.l-subheader.at_bottom{display:none}.l-header{position:relative;z-index:111;width:100%}.l-subheader{margin:0 auto}.l-subheader.width_full{padding-left:1.5rem;padding-right:1.5rem}.l-subheader-h{display:flex;align-items:center;position:relative;margin:0 auto;height:inherit}.w-header-show{display:none}.l-header.pos_fixed{position:fixed;left:0}.l-header.pos_fixed:not(.notransition) .l-subheader{transition-property:transform,background,box-shadow,line-height,height;transition-duration:0.3s;transition-timing-function:cubic-bezier(.78,.13,.15,.86)}.header_hor .l-header.sticky_auto_hide{transition:transform 0.3s cubic-bezier(.78,.13,.15,.86) 0.1s}.header_hor .l-header.sticky_auto_hide.down{transform:translateY(-110%)}.l-header.bg_transparent:not(.sticky) .l-subheader{box-shadow:none!important;background:none}.l-header.bg_transparent~.l-main .l-section.width_full.height_auto:first-of-type>.l-section-h{padding-top:0!important;padding-bottom:0!important}.l-header.pos_static.bg_transparent{position:absolute;left:0}.l-subheader.width_full .l-subheader-h{max-width:none!important}.l-header.shadow_thin .l-subheader.at_middle,.l-header.shadow_thin .l-subheader.at_bottom{box-shadow:0 1px 0 rgba(0,0,0,0.08)}.l-header.shadow_wide .l-subheader.at_middle,.l-header.shadow_wide .l-subheader.at_bottom{box-shadow:0 3px 5px -1px rgba(0,0,0,0.1),0 2px 1px -1px rgba(0,0,0,0.05)}.header_hor .l-subheader-cell>.w-cart{margin-left:0;margin-right:0}:root{--header-height:78px;--header-sticky-height:78px}.l-header:before{content:'78'}.l-header.sticky:before{content:'78'}.l-subheader.at_top{line-height:40px;height:40px}.l-header.sticky .l-subheader.at_top{line-height:40px;height:40px}.l-subheader.at_middle{line-height:78px;height:78px}.l-header.sticky .l-subheader.at_middle{line-height:78px;height:78px}.l-subheader.at_bottom{line-height:50px;height:50px}.l-header.sticky .l-subheader.at_bottom{line-height:50px;height:50px}.headerinpos_above .l-header.pos_fixed{overflow:hidden;transition:transform 0.3s;transform:translate3d(0,-100%,0)}.headerinpos_above .l-header.pos_fixed.sticky{overflow:visible;transform:none}.headerinpos_above .l-header.pos_fixed~.l-section>.l-section-h,.headerinpos_above .l-header.pos_fixed~.l-main .l-section:first-of-type>.l-section-h{padding-top:0!important}.headerinpos_below .l-header.pos_fixed:not(.sticky){position:absolute;top:100%}.headerinpos_below .l-header.pos_fixed~.l-main>.l-section:first-of-type>.l-section-h{padding-top:0!important}.headerinpos_below .l-header.pos_fixed~.l-main .l-section.full_height:nth-of-type(2){min-height:100vh}.headerinpos_below .l-header.pos_fixed~.l-main>.l-section:nth-of-type(2)>.l-section-h{padding-top:var(--header-height)}.headerinpos_bottom .l-header.pos_fixed:not(.sticky){position:absolute;top:100vh}.headerinpos_bottom .l-header.pos_fixed~.l-main>.l-section:first-of-type>.l-section-h{padding-top:0!important}.headerinpos_bottom .l-header.pos_fixed~.l-main>.l-section:first-of-type>.l-section-h{padding-bottom:var(--header-height)}.headerinpos_bottom .l-header.pos_fixed.bg_transparent~.l-main .l-section.valign_center:not(.height_auto):first-of-type>.l-section-h{top:calc( var(--header-height) / 2 )}.headerinpos_bottom .l-header.pos_fixed:not(.sticky) .w-cart-dropdown,.headerinpos_bottom .l-header.pos_fixed:not(.sticky) .w-nav.type_desktop .w-nav-list.level_2{bottom:100%;transform-origin:0 100%}.headerinpos_bottom .l-header.pos_fixed:not(.sticky) .w-nav.type_mobile.m_layout_dropdown .w-nav-list.level_1{top:auto;bottom:100%;box-shadow:var(--box-shadow-up)}.headerinpos_bottom .l-header.pos_fixed:not(.sticky) .w-nav.type_desktop .w-nav-list.level_3,.headerinpos_bottom .l-header.pos_fixed:not(.sticky) .w-nav.type_desktop .w-nav-list.level_4{top:auto;bottom:0;transform-origin:0 100%}.headerinpos_bottom .l-header.pos_fixed:not(.sticky) .w-dropdown-list{top:auto;bottom:-0.4em;padding-top:0.4em;padding-bottom:2.4em}.admin-bar .l-header.pos_static.bg_solid~.l-main .l-section.full_height:first-of-type{min-height:calc( 100vh - var(--header-height) - 32px )}.admin-bar .l-header.pos_fixed:not(.sticky_auto_hide)~.l-main .l-section.full_height:not(:first-of-type){min-height:calc( 100vh - var(--header-sticky-height) - 32px )}.admin-bar.headerinpos_below .l-header.pos_fixed~.l-main .l-section.full_height:nth-of-type(2){min-height:calc(100vh - 32px)}}@media (min-width:1025px) and (max-width:1280px){.hidden_for_default{display:none!important}.l-subheader.at_top{display:none}.l-subheader.at_bottom{display:none}.l-header{position:relative;z-index:111;width:100%}.l-subheader{margin:0 auto}.l-subheader.width_full{padding-left:1.5rem;padding-right:1.5rem}.l-subheader-h{display:flex;align-items:center;position:relative;margin:0 auto;height:inherit}.w-header-show{display:none}.l-header.pos_fixed{position:fixed;left:0}.l-header.pos_fixed:not(.notransition) .l-subheader{transition-property:transform,background,box-shadow,line-height,height;transition-duration:0.3s;transition-timing-function:cubic-bezier(.78,.13,.15,.86)}.header_hor .l-header.sticky_auto_hide{transition:transform 0.3s cubic-bezier(.78,.13,.15,.86) 0.1s}.header_hor .l-header.sticky_auto_hide.down{transform:translateY(-110%)}.l-header.bg_transparent:not(.sticky) .l-subheader{box-shadow:none!important;background:none}.l-header.bg_transparent~.l-main .l-section.width_full.height_auto:first-of-type>.l-section-h{padding-top:0!important;padding-bottom:0!important}.l-header.pos_static.bg_transparent{position:absolute;left:0}.l-subheader.width_full .l-subheader-h{max-width:none!important}.l-header.shadow_thin .l-subheader.at_middle,.l-header.shadow_thin .l-subheader.at_bottom{box-shadow:0 1px 0 rgba(0,0,0,0.08)}.l-header.shadow_wide .l-subheader.at_middle,.l-header.shadow_wide .l-subheader.at_bottom{box-shadow:0 3px 5px -1px rgba(0,0,0,0.1),0 2px 1px -1px rgba(0,0,0,0.05)}.header_hor .l-subheader-cell>.w-cart{margin-left:0;margin-right:0}:root{--header-height:100px;--header-sticky-height:60px}.l-header:before{content:'100'}.l-header.sticky:before{content:'60'}.l-subheader.at_top{line-height:40px;height:40px}.l-header.sticky .l-subheader.at_top{line-height:40px;height:40px}.l-subheader.at_middle{line-height:100px;height:100px}.l-header.sticky .l-subheader.at_middle{line-height:60px;height:60px}.l-subheader.at_bottom{line-height:50px;height:50px}.l-header.sticky .l-subheader.at_bottom{line-height:50px;height:50px}.headerinpos_above .l-header.pos_fixed{overflow:hidden;transition:transform 0.3s;transform:translate3d(0,-100%,0)}.headerinpos_above .l-header.pos_fixed.sticky{overflow:visible;transform:none}.headerinpos_above .l-header.pos_fixed~.l-section>.l-section-h,.headerinpos_above .l-header.pos_fixed~.l-main .l-section:first-of-type>.l-section-h{padding-top:0!important}.headerinpos_below .l-header.pos_fixed:not(.sticky){position:absolute;top:100%}.headerinpos_below .l-header.pos_fixed~.l-main>.l-section:first-of-type>.l-section-h{padding-top:0!important}.headerinpos_below .l-header.pos_fixed~.l-main .l-section.full_height:nth-of-type(2){min-height:100vh}.headerinpos_below .l-header.pos_fixed~.l-main>.l-section:nth-of-type(2)>.l-section-h{padding-top:var(--header-height)}.headerinpos_bottom .l-header.pos_fixed:not(.sticky){position:absolute;top:100vh}.headerinpos_bottom .l-header.pos_fixed~.l-main>.l-section:first-of-type>.l-section-h{padding-top:0!important}.headerinpos_bottom .l-header.pos_fixed~.l-main>.l-section:first-of-type>.l-section-h{padding-bottom:var(--header-height)}.headerinpos_bottom .l-header.pos_fixed.bg_transparent~.l-main .l-section.valign_center:not(.height_auto):first-of-type>.l-section-h{top:calc( var(--header-height) / 2 )}.headerinpos_bottom .l-header.pos_fixed:not(.sticky) .w-cart-dropdown,.headerinpos_bottom .l-header.pos_fixed:not(.sticky) .w-nav.type_desktop .w-nav-list.level_2{bottom:100%;transform-origin:0 100%}.headerinpos_bottom .l-header.pos_fixed:not(.sticky) .w-nav.type_mobile.m_layout_dropdown .w-nav-list.level_1{top:auto;bottom:100%;box-shadow:var(--box-shadow-up)}.headerinpos_bottom .l-header.pos_fixed:not(.sticky) .w-nav.type_desktop .w-nav-list.level_3,.headerinpos_bottom .l-header.pos_fixed:not(.sticky) .w-nav.type_desktop .w-nav-list.level_4{top:auto;bottom:0;transform-origin:0 100%}.headerinpos_bottom .l-header.pos_fixed:not(.sticky) .w-dropdown-list{top:auto;bottom:-0.4em;padding-top:0.4em;padding-bottom:2.4em}.admin-bar .l-header.pos_static.bg_solid~.l-main .l-section.full_height:first-of-type{min-height:calc( 100vh - var(--header-height) - 32px )}.admin-bar .l-header.pos_fixed:not(.sticky_auto_hide)~.l-main .l-section.full_height:not(:first-of-type){min-height:calc( 100vh - var(--header-sticky-height) - 32px )}.admin-bar.headerinpos_below .l-header.pos_fixed~.l-main .l-section.full_height:nth-of-type(2){min-height:calc(100vh - 32px)}}@media (min-width:601px) and (max-width:1024px){.hidden_for_default{display:none!important}.l-subheader.at_top{display:none}.l-subheader.at_bottom{display:none}.l-header{position:relative;z-index:111;width:100%}.l-subheader{margin:0 auto}.l-subheader.width_full{padding-left:1.5rem;padding-right:1.5rem}.l-subheader-h{display:flex;align-items:center;position:relative;margin:0 auto;height:inherit}.w-header-show{display:none}.l-header.pos_fixed{position:fixed;left:0}.l-header.pos_fixed:not(.notransition) .l-subheader{transition-property:transform,background,box-shadow,line-height,height;transition-duration:0.3s;transition-timing-function:cubic-bezier(.78,.13,.15,.86)}.header_hor .l-header.sticky_auto_hide{transition:transform 0.3s cubic-bezier(.78,.13,.15,.86) 0.1s}.header_hor .l-header.sticky_auto_hide.down{transform:translateY(-110%)}.l-header.bg_transparent:not(.sticky) .l-subheader{box-shadow:none!important;background:none}.l-header.bg_transparent~.l-main .l-section.width_full.height_auto:first-of-type>.l-section-h{padding-top:0!important;padding-bottom:0!important}.l-header.pos_static.bg_transparent{position:absolute;left:0}.l-subheader.width_full .l-subheader-h{max-width:none!important}.l-header.shadow_thin .l-subheader.at_middle,.l-header.shadow_thin .l-subheader.at_bottom{box-shadow:0 1px 0 rgba(0,0,0,0.08)}.l-header.shadow_wide .l-subheader.at_middle,.l-header.shadow_wide .l-subheader.at_bottom{box-shadow:0 3px 5px -1px rgba(0,0,0,0.1),0 2px 1px -1px rgba(0,0,0,0.05)}.header_hor .l-subheader-cell>.w-cart{margin-left:0;margin-right:0}:root{--header-height:80px;--header-sticky-height:60px}.l-header:before{content:'80'}.l-header.sticky:before{content:'60'}.l-subheader.at_top{line-height:40px;height:40px}.l-header.sticky .l-subheader.at_top{line-height:40px;height:40px}.l-subheader.at_middle{line-height:80px;height:80px}.l-header.sticky .l-subheader.at_middle{line-height:60px;height:60px}.l-subheader.at_bottom{line-height:50px;height:50px}.l-header.sticky .l-subheader.at_bottom{line-height:50px;height:50px}}@media (max-width:600px){.hidden_for_default{display:none!important}.l-subheader.at_top{display:none}.l-subheader.at_bottom{display:none}.l-header{position:relative;z-index:111;width:100%}.l-subheader{margin:0 auto}.l-subheader.width_full{padding-left:1.5rem;padding-right:1.5rem}.l-subheader-h{display:flex;align-items:center;position:relative;margin:0 auto;height:inherit}.w-header-show{display:none}.l-header.pos_fixed{position:fixed;left:0}.l-header.pos_fixed:not(.notransition) .l-subheader{transition-property:transform,background,box-shadow,line-height,height;transition-duration:0.3s;transition-timing-function:cubic-bezier(.78,.13,.15,.86)}.header_hor .l-header.sticky_auto_hide{transition:transform 0.3s cubic-bezier(.78,.13,.15,.86) 0.1s}.header_hor .l-header.sticky_auto_hide.down{transform:translateY(-110%)}.l-header.bg_transparent:not(.sticky) .l-subheader{box-shadow:none!important;background:none}.l-header.bg_transparent~.l-main .l-section.width_full.height_auto:first-of-type>.l-section-h{padding-top:0!important;padding-bottom:0!important}.l-header.pos_static.bg_transparent{position:absolute;left:0}.l-subheader.width_full .l-subheader-h{max-width:none!important}.l-header.shadow_thin .l-subheader.at_middle,.l-header.shadow_thin .l-subheader.at_bottom{box-shadow:0 1px 0 rgba(0,0,0,0.08)}.l-header.shadow_wide .l-subheader.at_middle,.l-header.shadow_wide .l-subheader.at_bottom{box-shadow:0 3px 5px -1px rgba(0,0,0,0.1),0 2px 1px -1px rgba(0,0,0,0.05)}.header_hor .l-subheader-cell>.w-cart{margin-left:0;margin-right:0}:root{--header-height:60px;--header-sticky-height:60px}.l-header:before{content:'60'}.l-header.sticky:before{content:'60'}.l-subheader.at_top{line-height:40px;height:40px}.l-header.sticky .l-subheader.at_top{line-height:40px;height:40px}.l-subheader.at_middle{line-height:60px;height:60px}.l-header.sticky .l-subheader.at_middle{line-height:60px;height:60px}.l-subheader.at_bottom{line-height:50px;height:50px}.l-header.sticky .l-subheader.at_bottom{line-height:50px;height:50px}}@media (min-width:1281px){.ush_image_1{height:70px!important}.l-header.sticky .ush_image_1{height:70px!important}}@media (min-width:1025px) and (max-width:1280px){.ush_image_1{height:70px!important}.l-header.sticky .ush_image_1{height:40px!important}}@media (min-width:601px) and (max-width:1024px){.ush_image_1{height:70px!important}.l-header.sticky .ush_image_1{height:35px!important}}@media (max-width:600px){.ush_image_1{height:40px!important}.l-header.sticky .ush_image_1{height:32px!important}}.header_hor .ush_menu_1.type_desktop .menu-item.level_1>a:not(.w-btn){padding-left:20px;padding-right:20px}.header_hor .ush_menu_1.type_desktop .menu-item.level_1>a.w-btn{margin-left:20px;margin-right:20px}.header_hor .ush_menu_1.type_desktop.align-edges>.w-nav-list.level_1{margin-left:-20px;margin-right:-20px}.header_ver .ush_menu_1.type_desktop .menu-item.level_1>a:not(.w-btn){padding-top:20px;padding-bottom:20px}.header_ver .ush_menu_1.type_desktop .menu-item.level_1>a.w-btn{margin-top:20px;margin-bottom:20px}.ush_menu_1.type_desktop .menu-item:not(.level_1){font-size:1rem}.ush_menu_1.type_mobile .w-nav-anchor.level_1,.ush_menu_1.type_mobile .w-nav-anchor.level_1 + .w-nav-arrow{font-size:1.1rem}.ush_menu_1.type_mobile .w-nav-anchor:not(.level_1),.ush_menu_1.type_mobile .w-nav-anchor:not(.level_1) + .w-nav-arrow{font-size:0.9rem}@media (min-width:1281px){.ush_menu_1 .w-nav-icon{font-size:36px}}@media (min-width:1025px) and (max-width:1280px){.ush_menu_1 .w-nav-icon{font-size:32px}}@media (min-width:601px) and (max-width:1024px){.ush_menu_1 .w-nav-icon{font-size:28px}}@media (max-width:600px){.ush_menu_1 .w-nav-icon{font-size:24px}}.ush_menu_1 .w-nav-icon>div{border-width:3px}@media screen and (max-width:899px){.w-nav.ush_menu_1>.w-nav-list.level_1{display:none}.ush_menu_1 .w-nav-control{display:block}}.ush_menu_1 .menu-item.level_1>a:not(.w-btn):focus,.no-touch .ush_menu_1 .menu-item.level_1.opened>a:not(.w-btn),.no-touch .ush_menu_1 .menu-item.level_1:hover>a:not(.w-btn){background:transparent;color:var(--color-header-middle-text-hover)}.ush_menu_1 .menu-item.level_1.current-menu-item>a:not(.w-btn),.ush_menu_1 .menu-item.level_1.current-menu-ancestor>a:not(.w-btn),.ush_menu_1 .menu-item.level_1.current-page-ancestor>a:not(.w-btn){background:transparent;color:var(--color-header-middle-text-hover)}.l-header.bg_transparent:not(.sticky) .ush_menu_1.type_desktop .menu-item.level_1.current-menu-item>a:not(.w-btn),.l-header.bg_transparent:not(.sticky) .ush_menu_1.type_desktop .menu-item.level_1.current-menu-ancestor>a:not(.w-btn),.l-header.bg_transparent:not(.sticky) .ush_menu_1.type_desktop .menu-item.level_1.current-page-ancestor>a:not(.w-btn){background:transparent;color:var(--color-header-transparent-text-hover)}.ush_menu_1 .w-nav-list:not(.level_1){background:var(--color-header-middle-bg);color:var(--color-header-middle-text)}.no-touch .ush_menu_1 .menu-item:not(.level_1)>a:focus,.no-touch .ush_menu_1 .menu-item:not(.level_1):hover>a{background:transparent;color:var(--color-header-middle-text-hover)}.ush_menu_1 .menu-item:not(.level_1).current-menu-item>a,.ush_menu_1 .menu-item:not(.level_1).current-menu-ancestor>a,.ush_menu_1 .menu-item:not(.level_1).current-page-ancestor>a{background:transparent;color:var(--color-header-middle-text-hover)}.ush_menu_1{font-weight:600!important}@media (max-width:600px){.ush_btn_1{font-size:12px!important}}</style>
+        <style id="us-custom-css">#reg-form .w-form-row.for_agreement.required span:not(.w-form-checkbox){font-size:14px;line-height:1}div.wpforms-container-full .wpforms-form input,div.wpforms-container-full .wpforms-form select{border-radius:5px!important}#reg-form input::-webkit-input-placeholder,#wpforms-form-1429 input::-webkit-input-placeholder{opacity:0.5}#wpforms-form-1429 .wpforms-field-label{font-weight:400;color:#007aaf}#wpforms-form-1429 input{border-color:#fdbd00!important}#reg-form .wpforms-field-label{font-size:14px;font-weight:normal}#reg-form .wpforms-form .wpforms-field{padding:6px 0}#reg-form .wpforms-form ul.wpforms-image-choices-modern label:not(.wpforms-error){background:none!important;padding:5px 0 0!important;border:1px solid transparent!important;text-align:left}div.wpforms-container-full .wpforms-form ul.wpforms-image-choices-modern .wpforms-image-choices-image:after{text-align:center}#wpforms-1377-field_12-container,#wpforms-1377-field_14-container,#wpforms-1392-field_12-container,#wpforms-1392-field_14-container{text-align:center;color:#FEB200}div#wpforms-1377-field_14-container,div#wpforms-1392-field_14-container{border-left:1px solid}.wpforms-image-choices-label{display:none!important}.wpforms-conditional-hide{display:block!important;opacity:0.5}div.wpforms-container-full .wpforms-form label.wpforms-error{clear:both}ul#wpforms-1377-field_16 li label.wpforms-field-label-inline,ul#wpforms-1377-field_17 li label.wpforms-field-label-inline,ul#wpforms-1392-field_16 li label.wpforms-field-label-inline,ul#wpforms-1392-field_17 li label.wpforms-field-label-inline{font-size:12px;display:block;line-height:1!important;float:right;width:94%}.wpforms-submit-container{text-align:center}.wpforms-submit-container .wpforms-submit{font-size:1rem!important;line-height:1.20!important;font-weight:700!important;font-style:normal!important;text-transform:none!important;letter-spacing:0em!important;border-radius:4em!important;padding:0.9em 2.1em!important;background:linear-gradient(135deg,#FFAB00 ,#FDC200)!important;border-color:transparent!important;color:#ffffff!important;box-shadow:0 5px 9px 0 rgba(0,0,0,0.20)!important}.wpforms-submit-container .wpforms-submit:hover{box-shadow:0 0em 0em rgb(0 0 0 / 20%)!important}.formMod img{-webkit-filter:drop-shadow(0px 6px 5px #ccc);filter:drop-shadow(0px 6px 5px #ccc)}#banner .w-popup-trigger img{-webkit-filter:drop-shadow(0px 7px 8px #ccc);;filter:drop-shadow(0px 7px 8px #ccc)}.orange-sep-text p{margin-bottom:0}.orange-sep-text h2{padding-top:0.7rem}.shadow-btn:hover{box-shadow:none!important}.get-started-tabs .w-tabs-item span{z-index:2}.get-started-tabs .w-tabs-item:not(.active):hover{opacity:1;transition:all 0.2s ease-in}.get-started-tabs .w-tabs-item:after{content:'';background:#FEB200!important;width:62px;border:2px solid #FEB200;height:62px;display:block;right:-34px;top:14px;position:absolute;transform:rotate(45deg)!important; overflow:hidden;opacity:0}.get-started-tabs .w-tabs-item.active:after{opacity:1}.w-tabs-list.align_justify .w-tabs-item:not(last-child){overflow:visible}.w-tabs-list.align_justify .w-tabs-item:last-child{overflow:hidden}</style>
+        <style id="us-design-options-css">.us_custom_945edc80{padding-top:2rem!important;padding-bottom:2rem!important;background:url(https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/Main-Bnner-1440.png) no-repeat 0px 17px / 100%!important}.us_custom_5757737c{font-weight:500!important;margin-bottom:12px!important}.us_custom_70d128a7{font-weight:900!important;font-size:20px!important}.us_custom_1a31206a{box-shadow:0 5px 9px 0 rgba(0,0,0,0.20)!important}.us_custom_2027a5f8{padding:2rem!important}.us_custom_6e8e3d4e{color:#ffffff!important;border-radius:40px!important;padding:2rem!important;background:linear-gradient(45deg,#006f8d,#004081)!important}.us_custom_4735b956{background:url(https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/02/01___home-Copy-3.png) no-repeat center / cover!important}.us_custom_064d3121{font-weight:600!important}.us_custom_c950a7c4{color:#6D7783!important}.us_custom_d1e98a3d{box-shadow:0 5px 9px 0 rgba(0,0,0,0.20)!important}.us_custom_0fc5639a{background:url(https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/02/01___home-Copy-3.png) no-repeat center / cover!important}.us_custom_db2992b4{margin-left:auto!important;margin-right:auto!important}.us_custom_401f8b1c{padding-left:4.5rem!important}.us_custom_9de27741{margin-left:auto!important;margin-right:auto!important;padding-left:0!important;padding-right:0!important}.us_custom_d944e056{padding-left:4.5rem!important}.us_custom_451db532{background:#F5FDFF url(https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/02/03___about-Copy-1.png) no-repeat center / contain!important}.us_custom_f11072ed{margin-bottom:-6px!important}.us_custom_19737bc8{padding-bottom:0!important}.us_custom_d92e0977{background:url(https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/footer-bg.png) no-repeat center / cover!important}.us_custom_ac4da421{padding-left:4rem!important}.us_custom_6df4bc3a{color:#ffffff!important}@media (min-width:1025px) and (max-width:1280px){.us_custom_2027a5f8{padding:2rem!important}.us_custom_6e8e3d4e{padding:2rem!important}.us_custom_db2992b4{margin-left:auto!important;margin-right:auto!important}.us_custom_401f8b1c{padding-left:4.5rem!important}.us_custom_d944e056{padding-left:4.5rem!important}.us_custom_451db532{background:#F5FDFF url(https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/02/03___about-Copy-1.png) no-repeat center / contain!important}.us_custom_ac4da421{padding-left:4rem!important}}@media (min-width:601px) and (max-width:1024px){.us_custom_1a31206a{font-size:13px!important}.us_custom_dd96ccde{font-size:13px!important}.us_custom_2027a5f8{padding:2rem 0.5rem 2rem 0.5rem!important}.us_custom_6e8e3d4e{padding:2rem!important}.us_custom_0fc5639a{padding-left:0.5rem!important;padding-right:0.5rem!important}.us_custom_db2992b4{margin-left:auto!important;margin-right:auto!important;padding-left:0!important;padding-right:0!important}.us_custom_401f8b1c{padding-left:0.5rem!important}.us_custom_d944e056{padding-left:0!important}.us_custom_451db532{background:#F5FDFF url(https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/02/03___about-Copy-1.png) no-repeat center / contain!important}.us_custom_ac4da421{padding-left:2rem!important}}@media (max-width:600px){.us_custom_1a31206a{font-size:14px!important}.us_custom_dd96ccde{font-size:14px!important}.us_custom_2027a5f8{padding:1rem 0 1rem 0!important}.us_custom_6e8e3d4e{padding:2rem 1rem 2rem 1rem!important}.us_custom_695d6eff{margin-bottom:20px!important}.us_custom_db2992b4{margin-left:auto!important;margin-right:auto!important}.us_custom_401f8b1c{margin-bottom:30px!important;padding-left:0!important}.us_custom_b4cbb77a{margin-bottom:30px!important}.us_custom_d944e056{margin-bottom:30px!important;padding-left:0!important}.us_custom_451db532{background:#F5FDFF url(https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/02/03___about-Copy-1.png) no-repeat center / contain!important}.us_custom_ac4da421{padding-left:1.5rem!important}}</style>
+    </head>
+    <body class="home page-template-default page page-id-11 wp-embed-responsive l-body Impreza_8.5.1 us-core_8.5.2 header_hor headerinpos_top state_default wpb-js-composer js-comp-ver-6.8.0 vc_responsive" itemscope itemtype="https://schema.org/WebPage">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" >
+            <defs>
+                <filter id="wp-duotone-dark-grayscale">
+                    <feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " />
+                    <feComponentTransfer color-interpolation-filters="sRGB" >
+                        <feFuncR type="table" tableValues="0 0.49803921568627" />
+                        <feFuncG type="table" tableValues="0 0.49803921568627" />
+                        <feFuncB type="table" tableValues="0 0.49803921568627" />
+                        <feFuncA type="table" tableValues="1 1" />
+                    </feComponentTransfer>
+                    <feComposite in2="SourceGraphic" operator="in" />
+                </filter>
+            </defs>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" >
+            <defs>
+                <filter id="wp-duotone-grayscale">
+                    <feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " />
+                    <feComponentTransfer color-interpolation-filters="sRGB" >
+                        <feFuncR type="table" tableValues="0 1" />
+                        <feFuncG type="table" tableValues="0 1" />
+                        <feFuncB type="table" tableValues="0 1" />
+                        <feFuncA type="table" tableValues="1 1" />
+                    </feComponentTransfer>
+                    <feComposite in2="SourceGraphic" operator="in" />
+                </filter>
+            </defs>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" >
+            <defs>
+                <filter id="wp-duotone-purple-yellow">
+                    <feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " />
+                    <feComponentTransfer color-interpolation-filters="sRGB" >
+                        <feFuncR type="table" tableValues="0.54901960784314 0.98823529411765" />
+                        <feFuncG type="table" tableValues="0 1" />
+                        <feFuncB type="table" tableValues="0.71764705882353 0.25490196078431" />
+                        <feFuncA type="table" tableValues="1 1" />
+                    </feComponentTransfer>
+                    <feComposite in2="SourceGraphic" operator="in" />
+                </filter>
+            </defs>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" >
+            <defs>
+                <filter id="wp-duotone-blue-red">
+                    <feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " />
+                    <feComponentTransfer color-interpolation-filters="sRGB" >
+                        <feFuncR type="table" tableValues="0 1" />
+                        <feFuncG type="table" tableValues="0 0.27843137254902" />
+                        <feFuncB type="table" tableValues="0.5921568627451 0.27843137254902" />
+                        <feFuncA type="table" tableValues="1 1" />
+                    </feComponentTransfer>
+                    <feComposite in2="SourceGraphic" operator="in" />
+                </filter>
+            </defs>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" >
+            <defs>
+                <filter id="wp-duotone-midnight">
+                    <feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " />
+                    <feComponentTransfer color-interpolation-filters="sRGB" >
+                        <feFuncR type="table" tableValues="0 0" />
+                        <feFuncG type="table" tableValues="0 0.64705882352941" />
+                        <feFuncB type="table" tableValues="0 1" />
+                        <feFuncA type="table" tableValues="1 1" />
+                    </feComponentTransfer>
+                    <feComposite in2="SourceGraphic" operator="in" />
+                </filter>
+            </defs>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" >
+            <defs>
+                <filter id="wp-duotone-magenta-yellow">
+                    <feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " />
+                    <feComponentTransfer color-interpolation-filters="sRGB" >
+                        <feFuncR type="table" tableValues="0.78039215686275 1" />
+                        <feFuncG type="table" tableValues="0 0.94901960784314" />
+                        <feFuncB type="table" tableValues="0.35294117647059 0.47058823529412" />
+                        <feFuncA type="table" tableValues="1 1" />
+                    </feComponentTransfer>
+                    <feComposite in2="SourceGraphic" operator="in" />
+                </filter>
+            </defs>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" >
+            <defs>
+                <filter id="wp-duotone-purple-green">
+                    <feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " />
+                    <feComponentTransfer color-interpolation-filters="sRGB" >
+                        <feFuncR type="table" tableValues="0.65098039215686 0.40392156862745" />
+                        <feFuncG type="table" tableValues="0 1" />
+                        <feFuncB type="table" tableValues="0.44705882352941 0.4" />
+                        <feFuncA type="table" tableValues="1 1" />
+                    </feComponentTransfer>
+                    <feComposite in2="SourceGraphic" operator="in" />
+                </filter>
+            </defs>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" >
+            <defs>
+                <filter id="wp-duotone-blue-orange">
+                    <feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " />
+                    <feComponentTransfer color-interpolation-filters="sRGB" >
+                        <feFuncR type="table" tableValues="0.098039215686275 1" />
+                        <feFuncG type="table" tableValues="0 0.66274509803922" />
+                        <feFuncB type="table" tableValues="0.84705882352941 0.41960784313725" />
+                        <feFuncA type="table" tableValues="1 1" />
+                    </feComponentTransfer>
+                    <feComposite in2="SourceGraphic" operator="in" />
+                </filter>
+            </defs>
+        </svg>
+        <div class="l-canvas type_wide">
+            <header id="page-header" class="l-header pos_fixed shadow_wide bg_solid id_13" itemscope itemtype="https://schema.org/WPHeader">
+                <div class="l-subheader at_middle">
+                    <div class="l-subheader-h">
+                        <div class="l-subheader-cell at_left">
+                            <div class="w-image ush_image_1 header-logo"><a href="https://asimbalochtech.com/tundaasega/" aria-label="Link" class="w-image-h"><img width="319" height="70" src="https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/02/logo.png" class="attachment-full size-full" alt="" loading="lazy" srcset="https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/02/logo.png 319w, https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/02/logo-300x66.png 300w" sizes="(max-width: 319px) 100vw, 319px" /></a></div>
+                        </div>
+                        <div class="l-subheader-cell at_center"></div>
+                        <div class="l-subheader-cell at_right">
+                            <nav class="w-nav type_desktop ush_menu_1 dropdown_height m_align_none m_layout_dropdown" itemscope itemtype="https://schema.org/SiteNavigationElement">
+                                <a class="w-nav-control" aria-label="Menu" href="javascript:void(0);">
+                                    <div class="w-nav-icon">
+                                        <div></div>
+                                    </div>
+                                </a>
+                                <ul class="w-nav-list level_1 hide_for_mobiles hover_simple">
+                                    <li id="menu-item-1260" class="menu-item menu-item-type-post_type menu-item-object-page w-nav-item level_1 menu-item-1260"><a class="w-nav-anchor level_1" href="https://asimbalochtech.com/tundaasega/get-started/"><span class="w-nav-title">Get Started</span><span class="w-nav-arrow"></span></a></li>
+                                    <li id="menu-item-24" class="menu-item menu-item-type-post_type menu-item-object-page w-nav-item level_1 menu-item-24"><a class="w-nav-anchor level_1" href="https://asimbalochtech.com/tundaasega/faqs/"><span class="w-nav-title">FAQs</span><span class="w-nav-arrow"></span></a></li>
+                                    <li id="menu-item-23" class="menu-item menu-item-type-post_type menu-item-object-page w-nav-item level_1 menu-item-23"><a class="w-nav-anchor level_1" href="https://asimbalochtech.com/tundaasega/about/"><span class="w-nav-title">About</span><span class="w-nav-arrow"></span></a></li>
+                                    <li class="w-nav-close"></li>
+                                </ul>
+                                <div class="w-nav-options hidden" onclick='return {&quot;mobileWidth&quot;:900,&quot;mobileBehavior&quot;:0}'></div>
+                            </nav>
+                            <a class="w-btn us-btn-style_7 ush_btn_1" href="#"><span class="w-btn-label">Login</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="l-subheader for_hidden hidden"></div>
+            </header>
+            <main id="page-content" class="l-main" itemprop="mainContentOfPage">
+                <section class="l-section wpb_row us_custom_945edc80 main-banner-hom height_medium full_height valign_center" id="banner">
+                    <div class="l-section-h i-cf">
+                        <div class="g-cols vc_row via_flex valign_top type_default">
+                            <div class="vc_col-sm-6 wpb_column vc_column_container">
+                                <div class="vc_column-inner">
+                                    <div class="wpb_wrapper">
+                                        <div class="ult-spacer spacer-625889f1a9f74" data-id="625889f1a9f74" data-height="80" data-height-mobile="0" data-height-tab="0" data-height-tab-portrait="0" data-height-mobile-landscape="0" style="clear:both;display:block;"></div>
+                                        <div class="wpb_text_column us_custom_5757737c main-banner-content">
+                                            <div class="wpb_wrapper">
+                                                <h1><span style="color: #fdc700;"><strong>Change Your<br />
+                                                    <span style="color: #feb100;">Coins To Cash!<br />
+                                                    </span></strong></span>
+                                                </h1>
+                                                <p>Do you need cash? Do you have coins just sitting around?<br />
+                                                    Here&#8217;s an easy way to turn your coins into cash!
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="wpb_text_column us_custom_70d128a7">
+                                            <div class="wpb_wrapper">
+                                                <h4><strong><span style="color: #004081;">Coin Box for Cash is a safe, <span style="color: #0097c7;"><span style="color: #0075ac;">reliable</span> and secure coin </span>counting service.</span></strong></h4>
+                                            </div>
+                                        </div>
+                                        <div class="w-separator size_small"></div>
+                                        <div class="w-hwrapper align_none valign_top">
+                                            <div class="w-btn-wrapper align_none"><a class="w-btn us-btn-style_3 us_custom_1a31206a shadow-btn" href="https://asimbalochtech.com/tundaasega/about/"><span class="w-btn-label">Learn More</span></a></div>
+                                            <div class="w-btn-wrapper align_none"><a class="w-btn us-btn-style_4 us_custom_dd96ccde" href="#"><span class="w-btn-label">Login or Register</span></a></div>
+                                        </div>
+                                        <div class="ult-spacer spacer-625889f1aad75" data-id="625889f1aad75" data-height="100" data-height-mobile="60" data-height-tab="60" data-height-tab-portrait="60" data-height-mobile-landscape="60" style="clear:both;display:block;"></div>
+                                        <div class="w-popup align_none">
+                                            <a class="w-popup-trigger type_image" aria-label="Popup" href="javascript:void(0)"><img width="542" height="360" src="https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/video-thumbnail-1-1.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/video-thumbnail-1-1.png 542w, https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/video-thumbnail-1-1-300x199.png 300w, https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/video-thumbnail-1-1-100x66.png 100w, https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/video-thumbnail-1-1-400x266.png 400w" sizes="(max-width: 542px) 100vw, 542px" /></a>
+                                            <div class="w-popup-overlay" style="background:rgba(0,0,0,0.85);"></div>
+                                            <div class="w-popup-wrap">
+                                                <div class="w-popup-box animation_fadeIn without_title" style="width:600px;">
+                                                    <div class="w-popup-box-h">
+                                                        <div class="w-popup-box-content" style="background:var(--color-content-bg);color:var(--color-content-text);">
+                                                            <div style="width: 640px;" class="wp-video">
+                                                                <!--[if lt IE 9]><script>document.createElement('video');</script><![endif]-->
+                                                                <video class="wp-video-shortcode" id="video-11-1" width="640" height="360" poster="https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/video-thumbnail-1.png" preload="auto" controls="controls">
+                                                                    <source type="video/mp4" src="https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/CB4C-Animation-Video-1.mp4?_=1" />
+                                                                    <a href="https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/CB4C-Animation-Video-1.mp4">https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/CB4C-Animation-Video-1.mp4</a>
+                                                                </video>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="w-popup-closer" style="background:var(--color-content-bg);color:var(--color-content-text);"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="vc_col-sm-6 wpb_column vc_column_container">
+                                <div class="vc_column-inner us_custom_2027a5f8">
+                                    <div class="wpb_wrapper">
+                                        <div class="wpb_text_column us_custom_6e8e3d4e has_text_color" id="reg-form">
+                                            <div class="wpb_wrapper">
+                                                <div class="wpforms-container wpforms-container-full" id="wpforms-1377">
+                                                    <form id="wpforms-form-1377" class="wpforms-validate wpforms-form wpforms-ajax-form" data-formid="1377" method="post" enctype="multipart/form-data" action="/tundaasega/" data-token="0353d2a66f16361f457f0a77d1222ae7">
+                                                        <noscript class="wpforms-error-noscript">Please enable JavaScript in your browser to complete this form.</noscript>
+                                                        <div class="wpforms-field-container">
+                                                            <div id="wpforms-1377-field_3-container" class="wpforms-field wpforms-field-text wpforms-one-half wpforms-first" data-field-id="3"><label class="wpforms-field-label" for="wpforms-1377-field_3">First Name</label><input type="text" id="wpforms-1377-field_3" class="wpforms-field-large" name="wpforms[fields][3]" placeholder="First Name" ></div>
+                                                            <div id="wpforms-1377-field_4-container" class="wpforms-field wpforms-field-text wpforms-one-half" data-field-id="4"><label class="wpforms-field-label" for="wpforms-1377-field_4">Last Name</label><input type="text" id="wpforms-1377-field_4" class="wpforms-field-large" name="wpforms[fields][4]" placeholder="Last Name" ></div>
+                                                            <div id="wpforms-1377-field_5-container" class="wpforms-field wpforms-field-email" data-field-id="5"><label class="wpforms-field-label" for="wpforms-1377-field_5">Email Address <span class="wpforms-required-label">*</span></label><input type="email" id="wpforms-1377-field_5" class="wpforms-field-large wpforms-field-required" name="wpforms[fields][5]" placeholder="Email Address" required></div>
+                                                            <div id="wpforms-1377-field_6-container" class="wpforms-field wpforms-field-phone" data-field-id="6"><label class="wpforms-field-label" for="wpforms-1377-field_6">Phone Number</label><input type="tel" id="wpforms-1377-field_6" class="wpforms-field-large wpforms-masked-input" data-inputmask="&#039;mask&#039;: &#039;(999) 999-9999&#039;" data-rule-us-phone-field="true" data-inputmask-inputmode="tel" name="wpforms[fields][6]" placeholder="Phone Number" ></div>
+                                                            <div id="wpforms-1377-field_7-container" class="wpforms-field wpforms-field-text wpforms-one-half wpforms-first" data-field-id="7"><label class="wpforms-field-label" for="wpforms-1377-field_7">Street Address</label><input type="text" id="wpforms-1377-field_7" class="wpforms-field-large" name="wpforms[fields][7]" placeholder="Street Address" ></div>
+                                                            <div id="wpforms-1377-field_8-container" class="wpforms-field wpforms-field-text wpforms-one-half" data-field-id="8"><label class="wpforms-field-label" for="wpforms-1377-field_8">Suite/Apt#</label><input type="text" id="wpforms-1377-field_8" class="wpforms-field-large" name="wpforms[fields][8]" placeholder="if applicable" ></div>
+                                                            <div id="wpforms-1377-field_9-container" class="wpforms-field wpforms-field-text wpforms-one-third wpforms-first" data-field-id="9"><label class="wpforms-field-label" for="wpforms-1377-field_9">City</label><input type="text" id="wpforms-1377-field_9" class="wpforms-field-large" name="wpforms[fields][9]" placeholder="City" ></div>
+                                                            <div id="wpforms-1377-field_18-container" class="wpforms-field wpforms-field-select wpforms-one-third wpforms-field-select-style-classic" data-field-id="18">
+                                                                <label class="wpforms-field-label" for="wpforms-1377-field_18">State</label>
+                                                                <select id="wpforms-1377-field_18" class="wpforms-field-large" name="wpforms[fields][18]">
+                                                                    <option value="" class="placeholder" disabled  selected='selected'>State</option>
+                                                                    <option value="Alabama" >Alabama</option>
+                                                                    <option value="Alaska" >Alaska</option>
+                                                                    <option value="Arizona" >Arizona</option>
+                                                                    <option value="Arkansas" >Arkansas</option>
+                                                                    <option value="California" >California</option>
+                                                                    <option value="Colorado" >Colorado</option>
+                                                                    <option value="Connecticut" >Connecticut</option>
+                                                                    <option value="Delaware" >Delaware</option>
+                                                                    <option value="Florida" >Florida</option>
+                                                                    <option value="Georgia" >Georgia</option>
+                                                                    <option value="Hawaii" >Hawaii</option>
+                                                                    <option value="Idaho" >Idaho</option>
+                                                                    <option value="IllinoisIndiana" >IllinoisIndiana</option>
+                                                                    <option value="Iowa" >Iowa</option>
+                                                                    <option value="Kansas" >Kansas</option>
+                                                                    <option value="Kentucky" >Kentucky</option>
+                                                                    <option value="Louisiana" >Louisiana</option>
+                                                                    <option value="Maine" >Maine</option>
+                                                                    <option value="Maryland" >Maryland</option>
+                                                                    <option value="Massachusetts" >Massachusetts</option>
+                                                                    <option value="Michigan" >Michigan</option>
+                                                                    <option value="Minnesota" >Minnesota</option>
+                                                                    <option value="Mississippi" >Mississippi</option>
+                                                                    <option value="Missouri" >Missouri</option>
+                                                                    <option value="MontanaNebraska" >MontanaNebraska</option>
+                                                                    <option value="Nevada" >Nevada</option>
+                                                                    <option value="New Hampshire" >New Hampshire</option>
+                                                                    <option value="New Jersey" >New Jersey</option>
+                                                                    <option value="New Mexico" >New Mexico</option>
+                                                                    <option value="New York" >New York</option>
+                                                                    <option value="North Carolina" >North Carolina</option>
+                                                                    <option value="North Dakota" >North Dakota</option>
+                                                                    <option value="Ohio" >Ohio</option>
+                                                                    <option value="Oklahoma" >Oklahoma</option>
+                                                                    <option value="Oregon" >Oregon</option>
+                                                                    <option value="PennsylvaniaRhode Island" >PennsylvaniaRhode Island</option>
+                                                                    <option value="South Carolina" >South Carolina</option>
+                                                                    <option value="South Dakota" >South Dakota</option>
+                                                                    <option value="Tennessee" >Tennessee</option>
+                                                                    <option value="Texas" >Texas</option>
+                                                                    <option value="Utah" >Utah</option>
+                                                                    <option value="Vermont" >Vermont</option>
+                                                                    <option value="Virginia" >Virginia</option>
+                                                                    <option value="Washington" >Washington</option>
+                                                                    <option value="West Virginia" >West Virginia</option>
+                                                                    <option value="Wisconsin" >Wisconsin</option>
+                                                                    <option value="Wyoming" >Wyoming</option>
+                                                                </select>
+                                                            </div>
+                                                            <div id="wpforms-1377-field_11-container" class="wpforms-field wpforms-field-text wpforms-one-third" data-field-id="11"><label class="wpforms-field-label" for="wpforms-1377-field_11">Zip</label><input type="text" id="wpforms-1377-field_11" class="wpforms-field-large" name="wpforms[fields][11]" placeholder="77662" ></div>
+                                                            <div id="wpforms-1377-field_13-container" class="wpforms-field wpforms-field-html" data-field-id="13">
+                                                                <div id="wpforms-1377-field_13">
+                                                                    <p style="dislay:block;font-size:14px; line-height:14px;">Payment Information</p>
+                                                                    <small style="font-size:12px">Preferred Payment Received Method <span style="margin-left:20px;">(Select One)</span></small>
+                                                                </div>
+                                                            </div>
+                                                            <div id="wpforms-1377-field_12-container" class="wpforms-field wpforms-field-checkbox wpforms-one-half wpforms-first wpforms-list-2-columns wpforms-conditional-field wpforms-conditional-hide wpforms-conditional-trigger" data-field-id="12">
+                                                                <label class="wpforms-field-label" for="wpforms-1377-field_12">Mobile Payment Services</label>
+                                                                <ul id="wpforms-1377-field_12" class="wpforms-image-choices wpforms-image-choices-modern" data-choice-limit="1">
+                                                                    <li class="choice-1 depth-1 wpforms-image-choices-item"><label class="wpforms-field-label-inline" for="wpforms-1377-field_12_1" tabindex="0"><span class="wpforms-image-choices-image"><img src="https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/Rectangle-17-1.png" alt="Apple pay" title="Apple pay"></span><input type="checkbox" id="wpforms-1377-field_12_1" class="wpforms-screen-reader-element" data-rule-check-limit="true" name="wpforms[fields][12][]" value="Apple pay" tabindex="-1"  ><span class="wpforms-image-choices-label">Apple pay</span></label></li>
+                                                                    <li class="choice-2 depth-1 wpforms-image-choices-item"><label class="wpforms-field-label-inline" for="wpforms-1377-field_12_2" tabindex="0"><span class="wpforms-image-choices-image"><img src="https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/Rectangle-13-2.png" alt="PayPal" title="PayPal"></span><input type="checkbox" id="wpforms-1377-field_12_2" class="wpforms-screen-reader-element" data-rule-check-limit="true" name="wpforms[fields][12][]" value="PayPal" tabindex="-1"  ><span class="wpforms-image-choices-label">PayPal</span></label></li>
+                                                                    <li class="choice-3 depth-1 wpforms-image-choices-item"><label class="wpforms-field-label-inline" for="wpforms-1377-field_12_3" tabindex="0"><span class="wpforms-image-choices-image"><img src="https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/Rectangle-11-1.png" alt="Zelle" title="Zelle"></span><input type="checkbox" id="wpforms-1377-field_12_3" class="wpforms-screen-reader-element" data-rule-check-limit="true" name="wpforms[fields][12][]" value="Zelle" tabindex="-1"  ><span class="wpforms-image-choices-label">Zelle</span></label></li>
+                                                                    <li class="choice-4 depth-1 wpforms-image-choices-item"><label class="wpforms-field-label-inline" for="wpforms-1377-field_12_4" tabindex="0"><span class="wpforms-image-choices-image"><img src="https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/Rectangle-16-1.png" alt="Cash App" title="Cash App"></span><input type="checkbox" id="wpforms-1377-field_12_4" class="wpforms-screen-reader-element" data-rule-check-limit="true" name="wpforms[fields][12][]" value="Cash App" tabindex="-1"  ><span class="wpforms-image-choices-label">Cash App</span></label></li>
+                                                                    <li class="choice-5 depth-1 wpforms-image-choices-item"><label class="wpforms-field-label-inline" for="wpforms-1377-field_12_5" tabindex="0"><span class="wpforms-image-choices-image"><img src="https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/Group-21.png" alt="Venmo" title="Venmo"></span><input type="checkbox" id="wpforms-1377-field_12_5" class="wpforms-screen-reader-element" data-rule-check-limit="true" name="wpforms[fields][12][]" value="Venmo" tabindex="-1"  ><span class="wpforms-image-choices-label">Venmo</span></label></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div id="wpforms-1377-field_14-container" class="wpforms-field wpforms-field-checkbox wpforms-one-half wpforms-list-inline wpforms-conditional-field wpforms-conditional-hide wpforms-conditional-trigger" data-field-id="14">
+                                                                <label class="wpforms-field-label" for="wpforms-1377-field_14">Mailed Payment Service</label>
+                                                                <ul id="wpforms-1377-field_14" class="wpforms-image-choices wpforms-image-choices-modern">
+                                                                    <li class="choice-1 depth-1 wpforms-image-choices-item"><label class="wpforms-field-label-inline" for="wpforms-1377-field_14_1" tabindex="0"><span class="wpforms-image-choices-image"><img src="https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/company-check-2.png" alt="Company Check" title="Company Check"></span><input type="checkbox" id="wpforms-1377-field_14_1" class="wpforms-screen-reader-element" name="wpforms[fields][14][]" value="Company Check" tabindex="-1"  ><span class="wpforms-image-choices-label">Company Check</span></label></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div id="wpforms-1377-field_15-container" class="wpforms-field wpforms-field-email" data-field-id="15"><label class="wpforms-field-label" for="wpforms-1377-field_15">Usernname <span class="wpforms-required-label">*</span></label><input type="email" id="wpforms-1377-field_15" class="wpforms-field-large wpforms-field-required" name="wpforms[fields][15]" placeholder="Email Address" required></div>
+                                                            <div id="wpforms-1377-field_16-container" class="wpforms-field wpforms-field-checkbox" data-field-id="16">
+                                                                <label class="wpforms-field-label wpforms-label-hide" for="wpforms-1377-field_16">Consent <span class="wpforms-required-label">*</span></label>
+                                                                <ul id="wpforms-1377-field_16" class="wpforms-field-required">
+                                                                    <li class="choice-1 depth-1"><input type="checkbox" id="wpforms-1377-field_16_1" name="wpforms[fields][16][]" value="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore  et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut  aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse  cillum dolore eu fugiat nulla pariatur." required ><label class="wpforms-field-label-inline" for="wpforms-1377-field_16_1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore  et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut  aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse  cillum dolore eu fugiat nulla pariatur.</label></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div id="wpforms-1377-field_17-container" class="wpforms-field wpforms-field-checkbox" data-field-id="17">
+                                                                <label class="wpforms-field-label wpforms-label-hide" for="wpforms-1377-field_17">Consent 2 <span class="wpforms-required-label">*</span></label>
+                                                                <ul id="wpforms-1377-field_17" class="wpforms-field-required">
+                                                                    <li class="choice-1 depth-1"><input type="checkbox" id="wpforms-1377-field_17_1" name="wpforms[fields][17][]" value="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore  et dolore magna aliqua. " required ><label class="wpforms-field-label-inline" for="wpforms-1377-field_17_1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore  et dolore magna aliqua. </label></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="wpforms-submit-container"><input type="hidden" name="wpforms[id]" value="1377"><input type="hidden" name="wpforms[author]" value="1"><input type="hidden" name="wpforms[post_id]" value="11"><button type="submit" name="wpforms[submit]" id="wpforms-submit-1377" class="wpforms-submit" data-alt-text="Sending..." data-submit-text="GET CASH NOW" aria-live="assertive" value="wpforms-submit">GET CASH NOW</button><img src="https://asimbalochtech.com/tundaasega/wp-content/plugins/wpforms/assets/images/submit-spin.svg" class="wpforms-submit-spinner" style="display: none;" width="26" height="26" alt=""></div>
+                                                    </form>
+                                                </div>
+                                                <!-- .wpforms-container -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="l-section wpb_row us_custom_4735b956 height_medium">
+                    <div class="l-section-h i-cf">
+                        <div class="g-cols vc_row via_flex valign_top type_default">
+                            <div class="vc_col-sm-12 wpb_column vc_column_container">
+                                <div class="vc_column-inner">
+                                    <div class="wpb_wrapper">
+                                        <div class="wpb_text_column us_custom_064d3121 orange-sep-text">
+                                            <div class="wpb_wrapper">
+                                                <p style="text-align: center;">How it works?</p>
+                                                <h2 style="text-align: center;"><strong><span style="color: #007ab0;">Find out what works, and do more of that</span></strong></h2>
+                                            </div>
+                                        </div>
+                                        <div class="w-separator size_small"></div>
+                                        <div class="g-cols wpb_row home-steps-sec via_flex valign_top type_default">
+                                            <div class="vc_col-sm-4 wpb_column vc_column_container">
+                                                <div class="vc_column-inner">
+                                                    <div class="wpb_wrapper">
+                                                        <div class="w-iconbox us_custom_c950a7c4 has_text_color iconpos_top style_default color_primary align_center icontype_img">
+                                                            <div class="w-iconbox-icon" style="font-size:100px;"><img width="106" height="91" src="https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/Step1HomePage-Copy.png" class="attachment-full size-full" alt="" loading="lazy" srcset="https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/Step1HomePage-Copy.png 106w, https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/Step1HomePage-Copy-100x86.png 100w" sizes="(max-width: 106px) 100vw, 106px" /></div>
+                                                            <div class="w-iconbox-meta">
+                                                                <h4 class="w-iconbox-title" style="font-size:28px;">Step 1</h4>
+                                                                <div class="w-iconbox-text">
+                                                                    <p>Log In or Register and request<br />
+                                                                        your free coin mailer!
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="vc_col-sm-4 wpb_column vc_column_container">
+                                                <div class="vc_column-inner">
+                                                    <div class="wpb_wrapper">
+                                                        <div class="w-iconbox us_custom_c950a7c4 has_text_color iconpos_top style_default color_primary align_center icontype_img">
+                                                            <div class="w-iconbox-icon" style="font-size:75px;"><img width="75" height="85" src="https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/Step2HomePage.png" class="attachment-full size-full" alt="" loading="lazy" /></div>
+                                                            <div class="w-iconbox-meta">
+                                                                <h4 class="w-iconbox-title" style="font-size:28px;">Step 2</h4>
+                                                                <div class="w-iconbox-text">
+                                                                    <p style="text-align: center;">Place and seal your coins in the<br />
+                                                                        return mailer and send it to us<br />
+                                                                        free of charge!
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="vc_col-sm-4 wpb_column vc_column_container">
+                                                <div class="vc_column-inner">
+                                                    <div class="wpb_wrapper">
+                                                        <div class="w-iconbox us_custom_c950a7c4 has_text_color iconpos_top style_default color_primary align_center icontype_img" id="home-how-work-mob-icon">
+                                                            <div class="w-iconbox-icon" style="font-size:55px;"><img width="68" height="138" src="https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/Step3HomePage.png" class="attachment-full size-full" alt="" loading="lazy" srcset="https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/Step3HomePage.png 68w, https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/Step3HomePage-49x100.png 49w" sizes="(max-width: 68px) 100vw, 68px" /></div>
+                                                            <div class="w-iconbox-meta">
+                                                                <h4 class="w-iconbox-title" style="font-size:28px;">Step 3</h4>
+                                                                <div class="w-iconbox-text">
+                                                                    <p style="text-align: center;">We will pay you the value of<br />
+                                                                        your coins
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="w-separator size_small"></div>
+                                        <div class="w-btn-wrapper align_center"><a class="w-btn us-btn-style_4 us_custom_d1e98a3d shadow-btn" href="#"><span class="w-btn-label">How to Package</span></a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="l-section wpb_row us_custom_0fc5639a home-choose-us height_medium">
+                    <div class="l-section-h i-cf">
+                        <div class="g-cols vc_row via_flex valign_top type_default">
+                            <div class="vc_col-sm-12 wpb_column vc_column_container">
+                                <div class="vc_column-inner">
+                                    <div class="wpb_wrapper">
+                                        <div class="wpb_text_column us_custom_064d3121 orange-sep-text">
+                                            <div class="wpb_wrapper">
+                                                <p style="text-align: center;">Why Choose Us?</p>
+                                                <h2 style="text-align: center;"><strong><span style="color: #007ab0;">Find out why you chose us</span></strong></h2>
+                                            </div>
+                                        </div>
+                                        <div class="w-separator us_custom_695d6eff size_small"></div>
+                                        <div class="g-cols wpb_row us_custom_db2992b4 via_flex valign_top type_default">
+                                            <div class="vc_col-sm-6 wpb_column vc_column_container">
+                                                <div class="vc_column-inner us_custom_401f8b1c">
+                                                    <div class="wpb_wrapper">
+                                                        <div class="w-iconbox us_custom_c950a7c4 has_text_color iconpos_left style_default color_primary align_left icontype_img">
+                                                            <div class="w-iconbox-icon" style="font-size:95px;"><img width="101" height="97" src="https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/02/1-removebg-preview-2.png" class="attachment-full size-full" alt="" loading="lazy" /></div>
+                                                            <div class="w-iconbox-meta">
+                                                                <h4 class="w-iconbox-title" style="font-size:28px;">Easy</h4>
+                                                                <div class="w-iconbox-text">
+                                                                    <p>No heavy lifting! No hauling<br />
+                                                                        jars, bags or bulky containers<br />
+                                                                        of coins ever again.
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="vc_col-sm-6 wpb_column vc_column_container">
+                                                <div class="vc_column-inner us_custom_b4cbb77a">
+                                                    <div class="wpb_wrapper">
+                                                        <div class="w-iconbox us_custom_c950a7c4 has_text_color iconpos_left style_default color_primary align_left icontype_img" id="conv-icon">
+                                                            <div class="w-iconbox-icon" style="font-size:95px;"><img width="107" height="100" src="https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/02/2-removebg-preview-1.png" class="attachment-full size-full" alt="" loading="lazy" /></div>
+                                                            <div class="w-iconbox-meta">
+                                                                <h4 class="w-iconbox-title" style="font-size:28px;">Convenient</h4>
+                                                                <div class="w-iconbox-text">
+                                                                    <p>24 hour, 7 day a week service and<br />
+                                                                        customer support. Order and<br />
+                                                                        schedule your shipment any time!
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="w-separator size_small"></div>
+                                        <div class="g-cols wpb_row us_custom_9de27741 via_flex valign_top type_default">
+                                            <div class="vc_col-sm-6 wpb_column vc_column_container">
+                                                <div class="vc_column-inner us_custom_d944e056">
+                                                    <div class="wpb_wrapper">
+                                                        <div class="w-iconbox us_custom_c950a7c4 has_text_color iconpos_left style_default color_primary align_left icontype_img">
+                                                            <div class="w-iconbox-icon" style="font-size:95px;"><img width="97" height="98" src="https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/02/3-removebg-preview.png" class="attachment-full size-full" alt="" loading="lazy" /></div>
+                                                            <div class="w-iconbox-meta">
+                                                                <h4 class="w-iconbox-title" style="font-size:28px;">Private</h4>
+                                                                <div class="w-iconbox-text">
+                                                                    <p>No loud, noisy machines<br />
+                                                                        involved. No standing in<br />
+                                                                        long lines or need to carry<br />
+                                                                        money outside the comfort<br />
+                                                                        of your home.
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="vc_col-sm-6 wpb_column vc_column_container">
+                                                <div class="vc_column-inner">
+                                                    <div class="wpb_wrapper">
+                                                        <div class="w-iconbox us_custom_c950a7c4 has_text_color iconpos_left style_default color_primary align_left icontype_img" id="check-icon">
+                                                            <div class="w-iconbox-icon" style="font-size:95px;"><img width="90" height="114" src="https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/02/tick-removebg-preview-1.png" class="attachment-full size-full" alt="" loading="lazy" /></div>
+                                                            <div class="w-iconbox-meta">
+                                                                <h4 class="w-iconbox-title" style="font-size:28px;">Secure</h4>
+                                                                <div class="w-iconbox-text">
+                                                                    <p>Our secure sealed mailer includes a unique<br />
+                                                                        tracking and transaction system. Coin Box<br />
+                                                                        provides a safe, accurate and protected<br />
+                                                                        transport for your coins. Plus all transactions are insured for up to $500 with our CoinBox4Cash Guarantee!
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="l-section wpb_row us_custom_451db532 height_medium">
+                    <div class="l-section-h i-cf">
+                        <div class="g-cols vc_row via_flex valign_top type_default">
+                            <div class="vc_col-sm-12 wpb_column vc_column_container">
+                                <div class="vc_column-inner">
+                                    <div class="wpb_wrapper">
+                                        <div class="wpb_text_column us_custom_064d3121 orange-sep-text">
+                                            <div class="wpb_wrapper">
+                                                <p style="text-align: center;">Testimonials</p>
+                                                <h2 style="text-align: center;"><strong><span style="color: #007ab0;">What People Say About Us</span></strong></h2>
+                                            </div>
+                                        </div>
+                                        <div class="w-separator size_small"></div>
+                                        <div class="w-image us_custom_f11072ed align_center">
+                                            <div class="w-image-h"><img width="79" height="70" src="https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/02/test_icon-removebg-preview.png" class="attachment-medium size-medium" alt="" loading="lazy" /></div>
+                                        </div>
+                                        <div class="g-cols wpb_row us_custom_19737bc8 via_flex valign_top type_default">
+                                            <div class="vc_col-sm-2 wpb_column vc_column_container">
+                                                <div class="vc_column-inner">
+                                                    <div class="wpb_wrapper"></div>
+                                                </div>
+                                            </div>
+                                            <div class="vc_col-sm-8 wpb_column vc_column_container">
+                                                <div class="vc_column-inner us_custom_19737bc8">
+                                                    <div class="wpb_wrapper">
+                                                        <div class="w-grid type_grid layout_127" id="us_grid_1" data-filterable="true">
+                                                            <style>#us_grid_1 .w-grid-item:not(:last-child){margin-bottom:1.5rem}#us_grid_1 .g-loadmore{margin-top:1.5rem}.layout_127 .w-grid-item-h{}.layout_127 .usg_vwrapper_1{transition-duration:0.3s;transform-origin:50% 50%;transform:scale(1) translate(0%,0%)}.layout_127 .w-grid-item-h:hover .usg_vwrapper_1{transform:scale(1) translate(0%,0%);opacity:1;border-color:var(--color-content-primary)!important}.layout_127 .usg_vwrapper_1{padding:2rem!important}.layout_127 .usg_post_content_1{font-weight:500!important;font-size:22px!important}.layout_127 .usg_hwrapper_1{margin-bottom:1rem!important}.layout_127 .usg_post_image_1{width:105px!important;margin-left:0!important;margin-right:1rem!important}.layout_127 .usg_post_custom_field_1{font-weight:700!important;line-height:1.5!important;margin-bottom:0!important}.layout_127 .usg_post_custom_field_2{color:#000000!important;font-weight:400!important;font-size:1rem!important;line-height:1.5!important}@media (min-width:1025px) and (max-width:1280px){.layout_127 .usg_vwrapper_1{padding:2rem!important}.layout_127 .usg_post_image_1{width:105px!important}.layout_127 .usg_post_custom_field_2{color:#000000!important;font-weight:400!important;font-size:1rem!important;line-height:1.5!important}}@media (min-width:601px) and (max-width:1024px){.layout_127 .usg_vwrapper_1{padding:2rem!important}.layout_127 .usg_post_image_1{width:105px!important}.layout_127 .usg_post_custom_field_2{color:#000000!important;font-weight:400!important;font-size:1rem!important;line-height:1.5!important}}@media (max-width:600px){.layout_127 .usg_vwrapper_1{padding:0 2rem 0 2rem!important}.layout_127 .usg_post_custom_field_2{color:#000000!important;font-weight:400!important;font-size:14px!important;line-height:1.5!important}}</style>
+                                                            <div class="w-grid-list">
+                                                                <article class="w-grid-item post-116 us_testimonial type-us_testimonial status-publish has-post-thumbnail hentry us_testimonial_category-home-testimonial" data-id="116">
+                                                                    <div class="w-grid-item-h">
+                                                                        <div class="w-vwrapper usg_vwrapper_1 align_center valign_top">
+                                                                            <div class="w-post-elm post_content usg_post_content_1">
+                                                                                <p style="text-align: center;">&#8220;Lean startup metrics venture innovator assets angel investor learning curve incubator branding advisor termsheet. IPad ecosystem conversion android advisor.&#8221;</p>
+                                                                            </div>
+                                                                            <div class="w-hwrapper usg_hwrapper_1 align_center valign_middle" style="--hwrapper-gap:1.20rem">
+                                                                                <div class="w-post-elm post_image usg_post_image_1 as_circle has_width"><img width="105" height="110" src="https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/02/01___home_-_Copy__4_-removebg-preview-1.png" class="attachment-full size-full wp-post-image" alt="" loading="lazy" srcset="https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/02/01___home_-_Copy__4_-removebg-preview-1.png 105w, https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/02/01___home_-_Copy__4_-removebg-preview-1-95x100.png 95w" sizes="(max-width: 105px) 100vw, 105px" /></div>
+                                                                                <div class="w-vwrapper usg_vwrapper_2 align_left valign_top">
+                                                                                    <div class="w-post-elm post_custom_field usg_post_custom_field_1 type_text"><span class="w-post-elm-value">Silvia Natalia</span></div>
+                                                                                    <div class="w-post-elm post_custom_field usg_post_custom_field_2 type_text"><span class="w-post-elm-value">Owner Tanahcon</span></div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </article>
+                                                            </div>
+                                                            <div class="w-grid-preloader">
+                                                                <div class="g-preloader type_1">
+                                                                    <div></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="w-grid-json hidden" onclick='return {&quot;action&quot;:&quot;us_ajax_grid&quot;,&quot;ajax_url&quot;:&quot;https:\/\/asimbalochtech.com\/tundaasega\/wp-admin\/admin-ajax.php&quot;,&quot;infinite_scroll&quot;:0,&quot;max_num_pages&quot;:1,&quot;pagination&quot;:&quot;none&quot;,&quot;permalink_url&quot;:&quot;https:\/\/asimbalochtech.com\/tundaasega&quot;,&quot;template_vars&quot;:{&quot;columns&quot;:&quot;1&quot;,&quot;exclude_items&quot;:&quot;none&quot;,&quot;img_size&quot;:&quot;default&quot;,&quot;ignore_items_size&quot;:false,&quot;items_layout&quot;:&quot;127&quot;,&quot;items_offset&quot;:&quot;1&quot;,&quot;load_animation&quot;:&quot;none&quot;,&quot;overriding_link&quot;:&quot;none&quot;,&quot;post_id&quot;:11,&quot;query_args&quot;:{&quot;post_type&quot;:[&quot;us_testimonial&quot;],&quot;tax_query&quot;:[{&quot;taxonomy&quot;:&quot;us_testimonial_category&quot;,&quot;field&quot;:&quot;slug&quot;,&quot;terms&quot;:[&quot;home-testimonial&quot;]}],&quot;post_status&quot;:[&quot;publish&quot;],&quot;post__not_in&quot;:[11],&quot;posts_per_page&quot;:&quot;1&quot;},&quot;orderby_query_args&quot;:{&quot;orderby&quot;:{&quot;date&quot;:&quot;DESC&quot;}},&quot;type&quot;:&quot;grid&quot;,&quot;us_grid_ajax_index&quot;:1,&quot;us_grid_filter_params&quot;:null,&quot;us_grid_index&quot;:1,&quot;_us_grid_post_type&quot;:&quot;us_testimonial&quot;}}'></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="vc_col-sm-2 wpb_column vc_column_container">
+                                                <div class="vc_column-inner">
+                                                    <div class="wpb_wrapper"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+        <footer id="page-footer" class="l-footer" itemscope itemtype="https://schema.org/WPFooter">
+            <style data-type="us_custom-css">.custom-footer a{color:#fff!important}</style>
+            <section class="l-section wpb_row us_custom_d92e0977 custom-footer height_medium">
+                <div class="l-section-h i-cf">
+                    <div class="g-cols vc_row via_flex valign_top type_default">
+                        <div class="vc_col-sm-4 wpb_column vc_column_container">
+                            <div class="vc_column-inner">
+                                <div class="wpb_wrapper">
+                                    <div class="w-image align_none">
+                                        <div class="w-image-h"><img width="500" height="86" src="https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/Group-52-2.png" class="attachment-full size-full" alt="" loading="lazy" srcset="https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/Group-52-2.png 500w, https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/Group-52-2-300x52.png 300w, https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/Group-52-2-100x17.png 100w, https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/Group-52-2-400x69.png 400w" sizes="(max-width: 500px) 100vw, 500px" /></div>
+                                    </div>
+                                    <div class="w-separator size_small"></div>
+                                    <div class="w-hwrapper align_none valign_top" style="--hwrapper-gap:5rem">
+                                        <div class="w-image align_none">
+                                            <div class="w-image-h"><img width="72" height="33" src="https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/Rectangle-17.png" class="attachment-full size-full" alt="" loading="lazy" /></div>
+                                        </div>
+                                        <div class="w-image align_none">
+                                            <div class="w-image-h"><img width="138" height="33" src="https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/Rectangle-13.png" class="attachment-full size-full" alt="" loading="lazy" srcset="https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/Rectangle-13.png 138w, https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/Rectangle-13-100x24.png 100w" sizes="(max-width: 138px) 100vw, 138px" /></div>
+                                        </div>
+                                    </div>
+                                    <div class="w-separator size_small"></div>
+                                    <div class="w-hwrapper align_none valign_top" style="--hwrapper-gap:3.5rem">
+                                        <div class="w-image align_none">
+                                            <div class="w-image-h"><img width="96" height="39" src="https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/Rectangle-11.png" class="attachment-full size-full" alt="" loading="lazy" /></div>
+                                        </div>
+                                        <div class="w-image align_none">
+                                            <div class="w-image-h"><img width="150" height="32" src="https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/Rectangle-16.png" class="attachment-full size-full" alt="" loading="lazy" srcset="https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/Rectangle-16.png 150w, https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/Rectangle-16-100x21.png 100w" sizes="(max-width: 150px) 100vw, 150px" /></div>
+                                        </div>
+                                    </div>
+                                    <div class="w-separator size_small"></div>
+                                    <div class="w-hwrapper align_none valign_top" style="--hwrapper-gap:2rem">
+                                        <div class="w-image align_none">
+                                            <div class="w-image-h"><img width="120" height="21" src="https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/Rectangle-14.png" class="attachment-full size-full" alt="" loading="lazy" srcset="https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/Rectangle-14.png 120w, https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/Rectangle-14-100x18.png 100w" sizes="(max-width: 120px) 100vw, 120px" /></div>
+                                        </div>
+                                        <div class="w-image align_none">
+                                            <div class="w-image-h"><img width="142" height="25" src="https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/Rectangle-12.png" class="attachment-full size-full" alt="" loading="lazy" srcset="https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/Rectangle-12.png 142w, https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/03/Rectangle-12-100x18.png 100w" sizes="(max-width: 142px) 100vw, 142px" /></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vc_col-sm-4 wpb_column vc_column_container">
+                            <div class="vc_column-inner us_custom_ac4da421">
+                                <div class="wpb_wrapper">
+                                    <div class="w-separator size_custom" style="height:8"></div>
+                                    <div class="wpb_text_column us_custom_6df4bc3a has_text_color">
+                                        <div class="wpb_wrapper">
+                                            <h4>Customer Care</h4>
+                                        </div>
+                                    </div>
+                                    <div class="w-separator size_small"></div>
+                                    <div class="wpb_text_column us_custom_6df4bc3a has_text_color">
+                                        <div class="wpb_wrapper">
+                                            <p><a href="#">My Account</a><br />
+                                                <a href="#">Privacy Policy</a><br />
+                                                <a href="#">Terms &amp; Conditions</a><br />
+                                                <a href="https://asimbalochtech.com/tundaasega/faqs/">FAQ&#8217;s</a><br />
+                                                <a href="https://asimbalochtech.com/tundaasega/blog">Blog</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vc_col-sm-4 wpb_column vc_column_container">
+                            <div class="vc_column-inner">
+                                <div class="wpb_wrapper">
+                                    <div class="w-separator size_custom" style="height:8"></div>
+                                    <div class="wpb_text_column us_custom_6df4bc3a has_text_color">
+                                        <div class="wpb_wrapper">
+                                            <h4>Company Information</h4>
+                                        </div>
+                                    </div>
+                                    <div class="w-separator size_small"></div>
+                                    <div class="wpb_text_column us_custom_6df4bc3a has_text_color">
+                                        <div class="wpb_wrapper">
+                                            <p><a href="https://asimbalochtech.com/tundaasega/contact-us/">Contact Us<br />
+                                                </a><a href="https://asimbalochtech.com/tundaasega/about/">About Us</a><a href="https://asimbalochtech.com/tundaasega/contact-us/"><br />
+                                                </a><a href="https://asimbalochtech.com/tundaasega/testimonials/">Testimonials</a><a href="#"><br />
+                                                Corporate Services</a><br />
+                                                <a href="https://asimbalochtech.com/tundaasega/charity/">Charities</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </footer>
+        <a class="w-toplink pos_right" href="#" title="Back to top" aria-label="Back to top"><span></span></a>	<a id="w-header-show" class="w-header-show" aria-label="Menu" href="javascript:void(0);"><span>Menu</span></a>
+        <div class="w-header-overlay"></div>
+        <script>
+            // Store some global theme options used in JS
+            if ( window.$us === undefined ) {
+            	window.$us = {};
+            }
+            $us.canvasOptions = ( $us.canvasOptions || {} );
+            $us.canvasOptions.disableEffectsWidth = 900;
+            $us.canvasOptions.columnsStackingWidth = 768;
+            $us.canvasOptions.backToTopDisplay = 100;
+            $us.canvasOptions.scrollDuration = 1000;
+            
+            $us.langOptions = ( $us.langOptions || {} );
+            $us.langOptions.magnificPopup = ( $us.langOptions.magnificPopup || {} );
+            $us.langOptions.magnificPopup.tPrev = 'Previous (Left arrow key)';
+            $us.langOptions.magnificPopup.tNext = 'Next (Right arrow key)';
+            $us.langOptions.magnificPopup.tCounter = '%curr% of %total%';
+            
+            $us.navOptions = ( $us.navOptions || {} );
+            $us.navOptions.mobileWidth = 900;
+            $us.navOptions.togglable = true;
+            $us.ajaxLoadJs = true;
+            $us.templateDirectoryUri = 'https://asimbalochtech.com/tundaasega/wp-content/themes/Impreza';
+        </script>
+        <script>if ( window.$us === undefined ) window.$us = {};$us.headerSettings = {"default":{"options":{"custom_breakpoint":false,"breakpoint":"","orientation":"hor","sticky":true,"sticky_auto_hide":false,"scroll_breakpoint":"1px","transparent":false,"width":"300px","elm_align":"center","shadow":"wide","top_show":false,"top_height":"40px","top_sticky_height":"40px","top_fullwidth":false,"top_centering":false,"top_bg_color":"_header_top_bg","top_text_color":"_header_top_text","top_text_hover_color":"_header_top_text_hover","top_transparent_bg_color":"_header_top_transparent_bg","top_transparent_text_color":"_header_top_transparent_text","top_transparent_text_hover_color":"_header_top_transparent_text_hover","middle_height":"78px","middle_sticky_height":"78px","middle_fullwidth":false,"middle_centering":false,"elm_valign":"top","bg_img":"","bg_img_wrapper_start":"","bg_img_size":"cover","bg_img_repeat":"repeat","bg_img_position":"top left","bg_img_attachment":true,"bg_img_wrapper_end":"","middle_bg_color":"_header_middle_bg","middle_text_color":"#00528F","middle_text_hover_color":"_header_middle_text_hover","middle_transparent_bg_color":"_header_transparent_bg","middle_transparent_text_color":"_header_transparent_text","middle_transparent_text_hover_color":"_header_transparent_text_hover","bottom_show":false,"bottom_height":"50px","bottom_sticky_height":"50px","bottom_fullwidth":false,"bottom_centering":false,"bottom_bg_color":"_header_middle_bg","bottom_text_color":"_header_middle_text","bottom_text_hover_color":"_header_middle_text_hover","bottom_transparent_bg_color":"_header_transparent_bg","bottom_transparent_text_color":"_header_transparent_text","bottom_transparent_text_hover_color":"_header_transparent_text_hover"},"layout":{"top_left":[],"top_center":[],"top_right":[],"middle_left":["image:1"],"middle_center":[],"middle_right":["menu:1","btn:1"],"bottom_left":[],"bottom_center":[],"bottom_right":[],"hidden":[]}},"laptops":{"options":{"custom_breakpoint":false,"breakpoint":"1280px","orientation":"hor","sticky":true,"sticky_auto_hide":false,"scroll_breakpoint":"1px","transparent":false,"width":"300px","elm_align":"center","shadow":"thin","top_show":false,"top_height":"40px","top_sticky_height":"40px","top_fullwidth":false,"top_centering":false,"top_bg_color":"_header_top_bg","top_text_color":"_header_top_text","top_text_hover_color":"_header_top_text_hover","top_transparent_bg_color":"_header_top_transparent_bg","top_transparent_text_color":"_header_top_transparent_text","top_transparent_text_hover_color":"_header_top_transparent_text_hover","middle_height":"100px","middle_sticky_height":"60px","middle_fullwidth":false,"middle_centering":false,"elm_valign":"top","bg_img":"","bg_img_wrapper_start":"","bg_img_size":"cover","bg_img_repeat":"repeat","bg_img_position":"top left","bg_img_attachment":true,"bg_img_wrapper_end":"","middle_bg_color":"_header_middle_bg","middle_text_color":"_header_middle_text","middle_text_hover_color":"_header_middle_text_hover","middle_transparent_bg_color":"_header_transparent_bg","middle_transparent_text_color":"_header_transparent_text","middle_transparent_text_hover_color":"_header_transparent_text_hover","bottom_show":false,"bottom_height":"50px","bottom_sticky_height":"50px","bottom_fullwidth":false,"bottom_centering":false,"bottom_bg_color":"_header_middle_bg","bottom_text_color":"_header_middle_text","bottom_text_hover_color":"_header_middle_text_hover","bottom_transparent_bg_color":"_header_transparent_bg","bottom_transparent_text_color":"_header_transparent_text","bottom_transparent_text_hover_color":"_header_transparent_text_hover"},"layout":{"top_left":[],"top_center":[],"top_right":[],"middle_left":["image:1"],"middle_center":[],"middle_right":["menu:1","btn:1"],"bottom_left":[],"bottom_center":[],"bottom_right":[],"hidden":[]}},"tablets":{"options":{"custom_breakpoint":false,"breakpoint":"1024px","orientation":"hor","sticky":true,"sticky_auto_hide":false,"scroll_breakpoint":"1px","transparent":false,"width":"300px","elm_align":"center","shadow":"thin","top_show":false,"top_height":"40px","top_sticky_height":"40px","top_fullwidth":false,"top_centering":false,"top_bg_color":"_header_top_bg","top_text_color":"_header_top_text","top_text_hover_color":"_header_top_text_hover","top_transparent_bg_color":"_header_top_transparent_bg","top_transparent_text_color":"_header_top_transparent_text","top_transparent_text_hover_color":"_header_top_transparent_text_hover","middle_height":"80px","middle_sticky_height":"60px","middle_fullwidth":false,"middle_centering":false,"elm_valign":"top","bg_img":"","bg_img_wrapper_start":"","bg_img_size":"cover","bg_img_repeat":"repeat","bg_img_position":"top left","bg_img_attachment":true,"bg_img_wrapper_end":"","middle_bg_color":"_header_middle_bg","middle_text_color":"_header_middle_text","middle_text_hover_color":"_header_middle_text_hover","middle_transparent_bg_color":"_header_transparent_bg","middle_transparent_text_color":"_header_transparent_text","middle_transparent_text_hover_color":"_header_transparent_text_hover","bottom_show":false,"bottom_height":"50px","bottom_sticky_height":"50px","bottom_fullwidth":false,"bottom_centering":false,"bottom_bg_color":"_header_middle_bg","bottom_text_color":"_header_middle_text","bottom_text_hover_color":"_header_middle_text_hover","bottom_transparent_bg_color":"_header_transparent_bg","bottom_transparent_text_color":"_header_transparent_text","bottom_transparent_text_hover_color":"_header_transparent_text_hover"},"layout":{"top_left":[],"top_center":[],"top_right":[],"middle_left":["image:1"],"middle_center":[],"middle_right":["menu:1","btn:1"],"bottom_left":[],"bottom_center":[],"bottom_right":[],"hidden":[]}},"mobiles":{"options":{"custom_breakpoint":false,"breakpoint":"600px","orientation":"hor","sticky":true,"sticky_auto_hide":false,"scroll_breakpoint":"1px","transparent":false,"width":"300px","elm_align":"center","shadow":"thin","top_show":false,"top_height":"40px","top_sticky_height":"40px","top_fullwidth":false,"top_centering":false,"top_bg_color":"_header_top_bg","top_text_color":"_header_top_text","top_text_hover_color":"_header_top_text_hover","top_transparent_bg_color":"_header_top_transparent_bg","top_transparent_text_color":"_header_top_transparent_text","top_transparent_text_hover_color":"_header_top_transparent_text_hover","middle_height":"60px","middle_sticky_height":"60px","middle_fullwidth":false,"middle_centering":false,"elm_valign":"top","bg_img":"","bg_img_wrapper_start":"","bg_img_size":"cover","bg_img_repeat":"repeat","bg_img_position":"top left","bg_img_attachment":true,"bg_img_wrapper_end":"","middle_bg_color":"_header_middle_bg","middle_text_color":"_header_middle_text","middle_text_hover_color":"_header_middle_text_hover","middle_transparent_bg_color":"_header_transparent_bg","middle_transparent_text_color":"_header_transparent_text","middle_transparent_text_hover_color":"_header_transparent_text_hover","bottom_show":false,"bottom_height":"50px","bottom_sticky_height":"50px","bottom_fullwidth":false,"bottom_centering":false,"bottom_bg_color":"_header_middle_bg","bottom_text_color":"_header_middle_text","bottom_text_hover_color":"_header_middle_text_hover","bottom_transparent_bg_color":"_header_transparent_bg","bottom_transparent_text_color":"_header_transparent_text","bottom_transparent_text_hover_color":"_header_transparent_text_hover"},"layout":{"top_left":[],"top_center":[],"top_right":[],"middle_left":["image:1"],"middle_center":[],"middle_right":["menu:1","btn:1"],"bottom_left":[],"bottom_center":[],"bottom_right":[],"hidden":[]}},"header_id":"13"};</script>
+        <script>
+            window.RS_MODULES = window.RS_MODULES || {};
+            window.RS_MODULES.modules = window.RS_MODULES.modules || {};
+            window.RS_MODULES.waiting = window.RS_MODULES.waiting || [];
+            window.RS_MODULES.defered = true;
+            window.RS_MODULES.moduleWaiting = window.RS_MODULES.moduleWaiting || {};
+            window.RS_MODULES.type = 'compiled';
+        </script>
+        <link rel='stylesheet' id='mediaelement-css'  href='https://asimbalochtech.com/tundaasega/wp-includes/js/mediaelement/mediaelementplayer-legacy.min.css?ver=4.2.16' media='all' />
+        <link rel='stylesheet' id='wp-mediaelement-css'  href='https://asimbalochtech.com/tundaasega/wp-includes/js/mediaelement/wp-mediaelement.min.css?ver=5.9.3' media='all' />
+        <link rel='stylesheet' id='rs-plugin-settings-css'  href='https://asimbalochtech.com/tundaasega/wp-content/plugins/revslider/public/assets/css/rs6.css?ver=6.5.15' media='all' />
+        <style id='rs-plugin-settings-inline-css'>
+            #rs-demo-id {}
+        </style>
+        <script src='https://asimbalochtech.com/tundaasega/wp-content/plugins/revslider/public/assets/js/rbtools.min.js?ver=6.5.15' defer async id='tp-tools-js'></script>
+        <script src='https://asimbalochtech.com/tundaasega/wp-content/plugins/revslider/public/assets/js/rs6.min.js?ver=6.5.15' defer async id='revmin-js'></script>
+        <script src='https://asimbalochtech.com/tundaasega/wp-content/themes/Impreza/js/us.core.min.js?ver=8.5.1' id='us-core-js'></script>
+        <script id='mediaelement-core-js-before'>
+            var mejsL10n = {"language":"en","strings":{"mejs.download-file":"Download File","mejs.install-flash":"You are using a browser that does not have Flash player enabled or installed. Please turn on your Flash player plugin or download the latest version from https:\/\/get.adobe.com\/flashplayer\/","mejs.fullscreen":"Fullscreen","mejs.play":"Play","mejs.pause":"Pause","mejs.time-slider":"Time Slider","mejs.time-help-text":"Use Left\/Right Arrow keys to advance one second, Up\/Down arrows to advance ten seconds.","mejs.live-broadcast":"Live Broadcast","mejs.volume-help-text":"Use Up\/Down Arrow keys to increase or decrease volume.","mejs.unmute":"Unmute","mejs.mute":"Mute","mejs.volume-slider":"Volume Slider","mejs.video-player":"Video Player","mejs.audio-player":"Audio Player","mejs.captions-subtitles":"Captions\/Subtitles","mejs.captions-chapters":"Chapters","mejs.none":"None","mejs.afrikaans":"Afrikaans","mejs.albanian":"Albanian","mejs.arabic":"Arabic","mejs.belarusian":"Belarusian","mejs.bulgarian":"Bulgarian","mejs.catalan":"Catalan","mejs.chinese":"Chinese","mejs.chinese-simplified":"Chinese (Simplified)","mejs.chinese-traditional":"Chinese (Traditional)","mejs.croatian":"Croatian","mejs.czech":"Czech","mejs.danish":"Danish","mejs.dutch":"Dutch","mejs.english":"English","mejs.estonian":"Estonian","mejs.filipino":"Filipino","mejs.finnish":"Finnish","mejs.french":"French","mejs.galician":"Galician","mejs.german":"German","mejs.greek":"Greek","mejs.haitian-creole":"Haitian Creole","mejs.hebrew":"Hebrew","mejs.hindi":"Hindi","mejs.hungarian":"Hungarian","mejs.icelandic":"Icelandic","mejs.indonesian":"Indonesian","mejs.irish":"Irish","mejs.italian":"Italian","mejs.japanese":"Japanese","mejs.korean":"Korean","mejs.latvian":"Latvian","mejs.lithuanian":"Lithuanian","mejs.macedonian":"Macedonian","mejs.malay":"Malay","mejs.maltese":"Maltese","mejs.norwegian":"Norwegian","mejs.persian":"Persian","mejs.polish":"Polish","mejs.portuguese":"Portuguese","mejs.romanian":"Romanian","mejs.russian":"Russian","mejs.serbian":"Serbian","mejs.slovak":"Slovak","mejs.slovenian":"Slovenian","mejs.spanish":"Spanish","mejs.swahili":"Swahili","mejs.swedish":"Swedish","mejs.tagalog":"Tagalog","mejs.thai":"Thai","mejs.turkish":"Turkish","mejs.ukrainian":"Ukrainian","mejs.vietnamese":"Vietnamese","mejs.welsh":"Welsh","mejs.yiddish":"Yiddish"}};
+        </script>
+        <script src='https://asimbalochtech.com/tundaasega/wp-includes/js/mediaelement/mediaelement-and-player.min.js?ver=4.2.16' id='mediaelement-core-js'></script>
+        <script src='https://asimbalochtech.com/tundaasega/wp-includes/js/mediaelement/mediaelement-migrate.min.js?ver=5.9.3' id='mediaelement-migrate-js'></script>
+        <script id='mediaelement-js-extra'>
+            var _wpmejsSettings = {"pluginPath":"\/tundaasega\/wp-includes\/js\/mediaelement\/","classPrefix":"mejs-","stretching":"responsive"};
+        </script>
+        <script src='https://asimbalochtech.com/tundaasega/wp-includes/js/mediaelement/wp-mediaelement.min.js?ver=5.9.3' id='wp-mediaelement-js'></script>
+        <script src='https://asimbalochtech.com/tundaasega/wp-includes/js/mediaelement/renderers/vimeo.min.js?ver=4.2.16' id='mediaelement-vimeo-js'></script>
+        <script src='https://asimbalochtech.com/tundaasega/wp-content/plugins/wpforms/assets/js/wpforms.js?ver=1.7.1' id='wpforms-js'></script>
+        <script src='https://asimbalochtech.com/tundaasega/wp-content/plugins/wpforms/pro/assets/js/wpforms-conditional-logic-fields.js?ver=1.7.1' id='wpforms-builder-conditionals-js'></script>
+        <script src='https://asimbalochtech.com/tundaasega/wp-content/plugins/wpforms/assets/js/jquery.validate.min.js?ver=1.19.3' id='wpforms-validation-js'></script>
+        <script src='https://asimbalochtech.com/tundaasega/wp-content/plugins/wpforms/assets/js/jquery.inputmask.min.js?ver=5.0.6' id='wpforms-maskedinput-js'></script>
+        <script src='https://asimbalochtech.com/tundaasega/wp-content/plugins/wpforms/assets/js/mailcheck.min.js?ver=1.1.2' id='wpforms-mailcheck-js'></script>
+        <script src='https://asimbalochtech.com/tundaasega/wp-content/plugins/wpforms/assets/js/punycode.min.js?ver=1.0.0' id='wpforms-punycode-js'></script>
+        <script type='text/javascript'>
+            /* <![CDATA[ */
+            var wpforms_settings = {"val_required":"This field is required.","val_email":"Please enter a valid email address.","val_email_suggestion":"Did you mean {suggestion}?","val_email_suggestion_title":"Click to accept this suggestion.","val_email_restricted":"This email address is not allowed.","val_number":"Please enter a valid number.","val_number_positive":"Please enter a valid positive number.","val_confirm":"Field values do not match.","val_checklimit":"You have exceeded the number of allowed selections: {#}.","val_limit_characters":"{count} of {limit} max characters.","val_limit_words":"{count} of {limit} max words.","val_recaptcha_fail_msg":"Google reCAPTCHA verification failed, please try again later.","val_empty_blanks":"Please fill out all blanks.","uuid_cookie":"1","locale":"en","wpforms_plugin_url":"https:\/\/asimbalochtech.com\/tundaasega\/wp-content\/plugins\/wpforms\/","gdpr":"","ajaxurl":"https:\/\/asimbalochtech.com\/tundaasega\/wp-admin\/admin-ajax.php","mailcheck_enabled":"1","mailcheck_domains":[],"mailcheck_toplevel_domains":["dev"],"is_ssl":"1","currency_code":"USD","currency_thousands":",","currency_decimals":"2","currency_decimal":".","currency_symbol":"$","currency_symbol_pos":"left","val_requiredpayment":"Payment is required.","val_creditcard":"Please enter a valid credit card number.","val_post_max_size":"The total size of the selected files {totalSize} Mb exceeds the allowed limit {maxSize} Mb.","val_time12h":"Please enter time in 12-hour AM\/PM format (eg 8:45 AM).","val_time24h":"Please enter time in 24-hour format (eg 22:45).","val_time_limit":"Please enter time between {minTime} and {maxTime}.","val_url":"Please enter a valid URL.","val_fileextension":"File type is not allowed.","val_filesize":"File exceeds max size allowed. File was not uploaded.","post_max_size":"541065216","val_password_strength":"A stronger password is required. Consider using upper and lower case letters, numbers, and symbols.","val_phone":"Please enter a valid phone number.","richtext_add_media_button":"","entry_preview_iframe_styles":["https:\/\/asimbalochtech.com\/tundaasega\/wp-includes\/js\/tinymce\/skins\/lightgray\/content.min.css?ver=5.9.3","https:\/\/asimbalochtech.com\/tundaasega\/wp-includes\/css\/dashicons.min.css?ver=5.9.3","https:\/\/asimbalochtech.com\/tundaasega\/wp-includes\/js\/tinymce\/skins\/wordpress\/wp-content.css?ver=5.9.3"]}
+            /* ]]> */
+        </script>
+        <script type='text/javascript'>
+            /* <![CDATA[ */
+            var wpforms_conditional_logic = {"1377":{"12":{"logic":[[{"field":"14","operator":"==","value":"Company Check","type":"checkbox"}]],"action":"hide"},"14":{"logic":[[{"field":"12","operator":"==","value":"Apple pay","type":"checkbox"}],[{"field":"12","operator":"==","value":"PayPal","type":"checkbox"}],[{"field":"12","operator":"==","value":"Zelle","type":"checkbox"}],[{"field":"12","operator":"==","value":"Cash App","type":"checkbox"}],[{"field":"12","operator":"==","value":"Venmo","type":"checkbox"}]],"action":"hide"}}}
+            /* ]]> */
+        </script>
+    </body>
+</template>

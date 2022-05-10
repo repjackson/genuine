@@ -1,0 +1,259 @@
+template(name='tasks')
+    .ui.stackable.padded.grid 
+        .four.wide.column
+            .ui.inline.header 
+                +i name='tasks'
+                |tasks
+            if currentUser
+                .ui.icon.button.add_task
+                    +i name='plus'
+            .ui.compact.button.toggle_yours
+                if viewing_yours
+                    i.undo.green.icon
+                else
+                    i.circle.outline.icon
+                |yours
+            +facet key='tag' model='task'
+            .ui.header
+                +i name='coin'
+                |bounties available
+            .ui.header
+                +i name='clock'
+                |recent activity
+            .ui.animated.large.link.selection.list
+                each log_docs 'task'
+                    a.item.fly_right(href="/task/#{task_id}") #{body} #{when} #{_author_username}
+        .twelve.wide.column
+            +session_set key='view_mode' value='cards' icon='th'
+            +session_set key='view_mode' value='list' icon='list'
+            i.large.sort.icon
+            +session_set key='sort_key' value='_timestamp' label='added' icon='clock'
+            +session_set key='sort_key' value='points' label='points' icon='hashtag'
+            if subs_ready
+                if session_is 'view_mode' 'cards'
+                    .ui.centered.stackable.cards
+                        each model_docs 'task' 
+                            +task_card
+                else 
+                    .ui.divided.animated.selection.list
+                        each model_docs 'task' 
+                            +task_item
+            else
+                i.massive.yin.yang.loading.icon
+
+
+
+template(name='task_card')
+    .ui.card.pointer.fly_right
+        .content
+            with _author
+                .ui.label(title='author')
+                    img.ui.avatar.image(src="{{c.url image_id height=200 width=400 gravity='face' crop='fill'}}" class=currentUser.invert_class)
+                    |#{username}
+            a.ui.inline.header(href="/task/#{_id}") #{title}
+            with _target
+                .ui.label(title='target')
+                    img.ui.avatar.image(src="{{c.url image_id height=200 width=400 gravity='face' crop='fill'}}" class=currentUser.invert_class)
+                    |#{username}
+            if private 
+                +i name='lock'
+            if complete 
+                +i name='checkmark'
+            .ui.small.grey.header #{when}
+            .smallscroll
+                | !{content}
+            +comments_view_small
+            |#{parent_title}
+            +author_info
+            if group_id     
+                +group_info
+            if is_assigned 
+                .ui.label assigned to: #{_assignee.username}
+            i.clock.icon
+            .ui.small.list
+                each log_docs 
+                    .item #{when} #{body}
+        
+template(name='comments_view_small')
+    .ui.input
+        i.chat.icon
+        |chat
+        
+template(name='task_item')
+    .ui.fluid.segment.view_task.pointer
+        a.ui.header(href="/task/#{_id}/view") #{title}
+        div
+        .ui.small.grey.inline.header #{when}
+        .smallscroll
+            | !{content}
+        each tags 
+            .ui.basic.small.label #{this}
+        
+
+template(name='task_view')
+    with current_doc
+        .ui.stackable.padded.grid
+            .row 
+                .sixteen.wide.column
+                    .ui.header #{title}
+                    if link 
+                        a.ui.basic.large.button(href=link target='_window' title='view link')
+                            i.external.icon
+                            |#{link}
+                        // +link_view key='link'
+                .four.wide.column
+                    a.ui.circular.icon.button(href="/tasks" title='tasks')
+                        // i.chevron.left.icon
+                        +i name='task' cl='ui avatar image'
+                        |tasks
+                    if can_edit
+                        a.ui.circular.icon.button.edit_task(href="/task/#{_id}/edit" title='edit')
+                            +i name='pencil'
+                    .ui.segment
+                        .ui.header 
+                            small author
+                        a.ui.header(href="/user/#{_author.username}") 
+                            img.ui.avatar.image(src="{{c.url _author.image_id height=200 width=200 gravity='face' crop='fill'}}" class=currentUser.invert_class)
+                            |#{_author.username}
+                        div
+                        .ui.inline.grey.header 
+                            small added
+                            |{{from_now start_datetime}}
+                    +array_view key='tags' label='tags' direct=true
+                    +voting_full
+                    +array_view key='location_tags' label='location_tags' direct=true
+                    +group_widget
+                .eight.wide.column.scrollin
+                    if parent_id
+                        a.ui.big.button.fly_up(href="/task/#{parent_id}")
+                            |parent:
+                            |#{_parent.title}
+                    .ui.segment
+                        .ui.inline.header
+                            +i name='code'
+                            |subtasks
+                        .ui.icon.button.add_subtask
+                            i.plus.icon
+                            // |add sub task
+                        .ui.large.selection.animated.list
+                            each sub_task_docs
+                                a.item.fly_down(href="/task/#{_id}") #{title}
+                    if complete 
+                        .ui.header completed at {{from_now complete_timestamp}}
+                    +date_view key='due_date' icon='calendar' direct=true
+
+                    img.ui.rounded.image(src="{{c.url image_id }}" class=currentUser.invert_class)
+                    // a.ui.header(href="/user/#{target.username}")
+                    //     |#{target.username}
+                    |!{content}
+                    if watson 
+                        +watson_view
+                    div 
+                    if is_assigned 
+                        .ui.header 
+                            |assigned 
+                            +i name='user'
+                        |#{_assigned.username}
+                    +doc_log_history
+                    +task_posts
+                    
+                    .spacer
+                    .spacer
+                    +comments
+                .four.wide.column   
+                    .ui.header 
+                        +i name='button'
+                        |actions
+                    .ui.icon.compact.button.add_task_post
+                        |join task
+                    unless complete
+                        .ui.button.mark_complete
+                            |complete
+
+                    +view_stats
+                    +visibility_settings
+                    // .ui.fluid.green.button.submit
+                    //     i.checkmark.icon
+                    //     |submit
+
+
+template(name='task_posts')
+    .ui.header 
+        +i name='file'
+        |posts
+    .ui.icon.compact.button.add_task_post
+        i.plus.icon
+
+
+template(name='doc_log_history')
+    .ui.header 
+        +i name='clock'
+        |#{log_docs.count} recent activity
+    .ui.list 
+        each log_docs 
+            .item
+                |#{body} #{when} #{_author_username}
+
+
+template(name='view_stats')
+    .ui.list
+        .item #{views} views
+    each viewers
+        .ui.label #{username
+
+
+template(name='task_edit')
+    with current_doc
+        .ui.stackable.padded.grid
+            .row 
+                .six.wide.column
+                    .ui.inline.header 
+                        +icolor name='news' cl='ui image inline pointer'
+                        |edit task
+                    a.ui.icon.green.big.button(href="/task/#{_id}" title='save')
+                        i.checkmark.big.icon
+                    +text_edit key='title' label='title' direct=true cl='fluid'
+                    .ui.header
+                        |audience
+                    +boolean_edit key='private' label='private' 
+                    if private 
+                        +multi_user_edit key='access_user_ids' label='user picker' direct=true
+                    +group_picker
+                    
+                .five.wide.column
+                    +date_edit key='due_date' label='due date' icon='calendar' direct=true
+                    // +boolean_edit key='has_content' icon='content' direct=true
+                    // if has_content
+                    div
+                    +html_edit key='content' label='content' direct=true
+                    +call_watson key='content'
+                    i.large.link.red.remove.circular.icon.delete_task
+                    .ui.header 
+                        small 
+                            i.user.icon
+                            |author
+                        |#{_author.username}
+                    if is_dev
+                        +single_user_edit key='_author_id' label='author' direct=true
+                    // +boolean_edit key='has_image' icon='image' direct=true
+                    // if has_image[]
+                    +image_edit key='image_id' label='image' direct=true
+                    div 
+                    +array_edit key='tags' label='tags' direct=true icon='tags'
+                    // +boolean_edit key='is_assigned' label='assigned icon='visible' direct=true
+                    // if is_assigned 
+                    +single_user_edit key='_assigned_id' label='assigned to' direct=true
+                .five.wide.column    
+                    +boolean_edit key='complete' icon='checkmark' direct=true
+                    +boolean_edit key='published' icon='visible' direct=true
+                    if is_dev 
+                        +text_edit key='model' label='model' direct=true
+                    +array_edit key='location_tags' label='location tags' icon='marker' direct=true
+                    +link_edit key='link' label='link'
+                    unless published
+                        a.ui.fluid.green.button.submit
+                            i.checkmark.icon
+                            |publish
+                    else
+                        .ui.basic.button.unpublish 
+                            |unpublish

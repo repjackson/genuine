@@ -1,0 +1,249 @@
+template(name='profile_layout')
+    +nav
+    .ui.bottom.attached.pushable.segment.scrolling
+        +topbar
+        +leftbar
+        +rightbar
+        img.ui.fluid.image.checkin_banner(src="{{c.url 'frontrange' width=1000 height=1000 crop='crop'}}")
+        with user_from_username_param
+            .ui.stackable.padded.grid
+                .row
+                    //- img.ui.image.checkin_banner(src="{{c.url banner_image width=1000 height=1000 crop='crop'}}")
+                    .four.wide.column
+                        a.item.mobile.only.inline(href="/user/#{username}")
+                            img.ui.small.image.inline(src="{{c.url image_id height=500 width=500 gravity='face' crop='fill'}}")
+                        a.item.mobile.hidden(href="/user/#{username}")
+                            img.ui.centered.rounded.image(src="{{c.url image_id height=500 width=500 gravity='face' crop='fill'}}")
+                        // .spacer
+                        // a(href="/user/#{username}")
+                        +user_info_small
+                        +user_status
+                        a.ui.large.button.fly_down.no_blink(href="/user/#{username}/edit" title='profile settings')
+                            i.cog.icon
+                            |account
+                        .ui.circular.compact.icon.button.refresh_points(title='refresh point calculation')
+                            i.refresh.large.icon
+                        if admin 
+                            .ui.header 
+                                i.shield.icon
+                                |admin
+                        // else if is_admin
+                        //     a.ui.icon.button(href="/user/#{user_from_username_param.username}/edit" title='profile settings')
+                        //         +i name='settings' cl='ui avatar image'
+                        
+                        if is_current_user
+                            +logout_button
+                            +logout_other_clients_button
+                        if in_dev 
+                            +print_this
+                        +send_points_button
+                        +request_button
+                        i.refresh.link.icon.calc_user_points
+                        if link
+                            a.ui.header(href=link target='_window' title=link) 
+                                i.globe.icon
+                                |Profile Link
+                    .twelve.wide.column
+                        +profile_menu_item key='bank' icon='money'
+                        +profile_menu_item key='social' icon='friends'
+                        +profile_menu_item key='posts' icon='blog'
+                        +profile_menu_item key='shop' icon='shop'
+                        +profile_menu_item key='transfers' icon='exchange'
+                        // +profile_menu_item key='rentals' icon='clock'
+                        // +profile_menu_item key='services' icon='wrench'
+                        .scrolling
+                            +yield
+                            
+           
+           
+
+template(name='user_info_small')           
+    if first_name
+        .ui.inline.header #{first_name}
+    if last_name
+        .ui.inline.header #{last_name}
+    // div
+    if company 
+        .ui.header
+            +i name='business' 
+            |#{company}
+    if linkedin_link
+        .ui.circular.compact.button(href=linkedin_link target='_window')
+            +i name='linkedin'
+    if twitter_link
+        .ui.circular.compact.button(href=twitter_link target='_window')
+            +i name='twitter'
+    .ui.inline.header
+        strong @#{username}
+        //- small @#{user.username}        
+    a.ui.large.link.label(href="/user/#{username}/points" title='points')
+        //- +i name='coins'
+        //- i.coins.icon
+        |#{points} pts
+    // if is_current_user
+           
+                            
+template(name='profile_dashboard')                            
+    .ui.stackable.padded.grid
+        .four.wide.column
+            if bio
+                .ui.small.header 
+                    |!{bio}
+            .ui.header
+                +i name='globe'
+                |#{lbs_carbon_offset} #lbs carbon offset 
+            .ui.header
+                +i name='money'
+                |#{user_fiat_balance} fiat balance 
+            .ui.header
+                +i name='cube'
+                |#{boxcoin_balance} box coin balance 
+            .ui.header
+                +i name='cube'
+                |#{points} points 
+            +user_deposits
+        .eight.wide.column
+            +user_transfers
+        .four.wide.column
+            +profile_checklist
+            +user_posts
+
+
+template(name='user_deposits')
+    .ui.header 
+        +i name='donate'
+        |deposits
+    // |includes 2% points card processing fee
+    .ui.action.input
+        input.deposit_amount(type='number' min='1' placeholder='deposit')
+        .ui.icon.button.add_points   
+            i.right.chevron.icon
+            
+    .ui.large.bulleted.list.smallscroll
+        each deposit_docs
+            .item 
+                .content
+                    .header 
+                        |$#{amount}
+                    .description #{when} {{long_date _timestamp}}
+                    //- if is_dev
+                    +remove_button
+
+
+template(name='profile_checklist')
+    .ui.header 
+        i.grey.chevron.right.icon
+        |getting started
+    .ui.large.list
+        .item    
+            i.circle.outline.large.icon
+            |Fill out your profile
+        .item    
+            i.circle.outline.large.icon
+            |Set a profile picture
+        .item    
+            i.circle.outline.large.icon
+            |Join 3 spaces
+        .item    
+            i.circle.outline.large.icon
+            |Add a comment
+        .item    
+            i.circle.outline.large.icon
+            |Create a post    
+                    
+                    
+template(name='request_button')
+    .ui.button.request
+        |request
+                
+                
+template(name='user_bank')
+    .ui.header 
+        +i name='bank'
+        |user bank 
+    .ui.header 
+        +i name='exit'
+        |deposits
+    .ui.header 
+        +i name='exit'
+        |withdrawals
+    +user_transfers
+    
+                    
+                    
+          
+template(name='profile_menu_item')
+    a.ui.compact.button(href="/user/#{current_user.username}/#{key}")
+        +i name=icon
+        |#{key}
+                 
+template(name='user_social')                 
+    .ui.header user social
+    .ui.header friends
+          
+          
+template(name='user_shop')                 
+    .ui.header user shop
+    .ui.header products
+    .ui.header purchases
+          
+          
+          
+                
+template(name='user_posts')                
+    .ui.header 
+        +i name='blog'
+        |user posts
+    .ui.label #{post_points} post points earned
+    .ui.large.link.list
+        each user_post_docs
+            a.ui.header(href="/post/#{_id}") #{title}            
+                    
+                    
+                    
+                    
+
+
+
+template(name='logout_other_clients_button')
+    .ui.compact.button.logout_other_clients(title='logout other clients')
+        +i name='globe'
+        |log out other clients
+
+
+
+template(name='logout_button')
+    .ui.large.button.logout(title='log out')
+        // i.sign.out.alternate.icon
+        +i name='exit'
+        |log out
+
+
+// template(name='profile_order_item')
+//     .ui.segment.grid
+//         .row
+//             .column
+//                 .ui.header #{rental.title}
+//         .row
+//             .column
+//                 with rental
+//                     //- img.ui.mini.image(src=image)
+//                     +image_view key='image_id'  cl='zoom ui tiny image'
+//             .column
+//                 a.ui.header.inline.lowercase(href="/order/#{_id}/")
+//                     small from 
+//                     |{{cal_time start_datetime}}
+//                 a.ui.header.inline.lowercase(href="/order/#{_id}/")
+//                     small to 
+//                     |{{cal_time end_datetime}}
+//                 div
+//                 .ui.grey.inline.header #{hour_duration} hrs
+//                 .ui.grey.inline.header(title='pointss')
+//                     i.coins.icon
+//                     | #{cost}
+//                 .ui.small.inline.header #{when} by #{_author_username}
+//                 a.ui.large.button(href="/order/#{_id}/")
+//                     |view
+//                     i.right.chevron.icon
+//                 if is_admin
+//                     +remove_button

@@ -1,0 +1,51 @@
+template(name='add')
+    .ui.container 
+        .ui.center.aligned.massive.header 
+            +i name='plus' 
+            |add 
+        .ui.cards
+            +add_button_big model='post' label='post' icon='blog'
+            +add_button_big model='event' label='event' icon='calendar'
+            +add_button_big model='rental' label='rental' icon='clock'
+            +add_button_big model='product' label='product' icon='shop'
+            +add_button_big model='service' label='service' icon='wrench'
+    
+    
+template(name='add_button_big')
+    .ui.massive.link.card.add_model
+        .content
+            +ibig name=icon
+            .ui.inline.header #{label}
+
+
+template(name='admin')
+    .ui.header 
+        +i name='shield'
+        |admin
+    if in_dev
+        .ui.header 
+            +i name='database'
+            |database manager
+        with query_doc
+            .ui.inline.header 
+                |Docs.find {
+            +text_edit key='query_key' label='query key' icon='key'
+            .ui.inline.header :
+            +text_edit key='query_value' label='query value' icon='hashtag'
+            .ui.inline.header },
+            +text_edit key='operator' label='$operator' icon='dollar-key'
+            .ui.inline.header :
+            +text_edit key='modifier_key' label='modifier key' icon='key'
+            .ui.inline.header :
+            +text_edit key='modifier_value' label='modifier_value' icon='hashtag'
+            .ui.inline.header }
+            if query_count 
+                .ui.header test query count #{query_count}
+        .ui.button.test_query
+            +i name='info'
+            |test query
+        .ui.button.run_query
+            +i name='alert'
+            |run query
+        
+            

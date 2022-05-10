@@ -1,0 +1,349 @@
+template(name='transfers')
+    .ui.stackable.padded.grid
+        .four.wide.column
+            .ui.inline.header 
+                +i name='exchange'
+                // i.fire.large.icon
+                |#{transfer_docs.count}
+                |transfers
+            if currentUser
+                a.ui.icon.circular.button.add_transfer(title='add')
+                    i.plus.green.large.icon
+            +facet key='tag' model='transfer'
+            .ui.header 
+                +i name='line-chart'
+                |stats
+            .ui.list 
+                .item #{transfered_out} points transfered out
+                .item #{transfered_in} points transfered in
+        .twelve.wide.column
+            span.sorting_row
+                +search_input key='title'
+                |sort by
+                +set_sort_key key='private' label='available' icon='clock'
+                +set_sort_key key='_timestamp' label='added' icon='clock'
+                +set_sort_key key='comment_count' label='comment count' icon='chat'
+                +sort_direction_toggle
+                |&nbsp;
+            +session_set key='view_mode' value='grid' icon='th'
+            +session_set key='view_mode' value='list' icon='list'
+            if session_is 'view_mode' 'grid'
+                if one_result
+                    .ui.stackable.one.cards.scrolling
+                        each model_docs 'transfer'
+                            +transfer_card
+                else
+                    .ui.stackable.cards.scrolling
+                        each model_docs 'transfer'
+                            +transfer_card
+            if session_is 'view_mode' 'list'
+                .ui.selection.divided.animated.list.scrolling
+                    each model_docs 'transfer' 
+                        +transfer_item
+
+
+template(name='transfer_card')
+    .ui.card.zoomer
+        if image_id
+            a.image.zoomer.fly_right(href="/transfer/#{_id}")
+                img.ui.image(src="{{c.url image_id width=600 height=600}}")
+        .content
+            .header 
+                a(href="/user/#{_author.username}") 
+                    img.ui.avatar.image(src="{{c.url _author.image_id height=500 width=500 gravity='face' crop='fill'}}" class=currentUser.invert_class)
+                    .ui.inline.header.pointer.zoomer
+                        |#{_author.name}
+                i.chevron.right.icon
+                .ui.large.label #{amount}
+                i.chevron.right.icon
+                a.fly_right(href="/user/#{target.username}")
+                    img.ui.avatar.image(src="{{c.url target.image_id height=500 width=500 gravity='face' crop='fill'}}" class=currentUser.invert_class)
+                    .ui.inline.header.pointer.zoomer
+                        |#{target.name}
+    
+            each tags
+                .ui.label #{this}
+            .smallscroll
+                |!{description}
+            //+ismall name='tags' cl='ui inline image'
+            a.ui.icon.button.zoomer.fly_right(href="/transfer/#{_id}")
+                i.chevron.right.icon
+            // if is_admin
+            //     .ui.small.header slug: #{slug}
+            +print_this
+                    
+template(name='transfer_item')
+    .ui.item
+        if image_id
+            a.image.zoomer.fly_right(href="/transfer/#{_id}")
+                img.ui.image(src="{{c.url image_id width=600 height=600}}")
+        .content
+            .header 
+                a(href="/user/#{_author.username}") 
+                    img.ui.avatar.image(src="{{c.url _author.image_id height=500 width=500 gravity='face' crop='fill'}}" class=currentUser.invert_class)
+                    .ui.inline.header.pointer.zoomer
+                        |#{_author.name}
+                i.chevron.right.icon
+                .ui.large.label #{amount}
+                i.chevron.right.icon
+                a.fly_right(href="/user/#{_target.username}")
+                    img.ui.avatar.image(src="{{c.url _target.image_id height=500 width=500 gravity='face' crop='fill'}}" class=currentUser.invert_class)
+                    .ui.inline.header.pointer.zoomer
+                        |#{_target.name}
+    
+            each tags
+                .ui.label #{this}
+            .smallscroll
+                |!{description}
+            //+ismall name='tags' cl='ui inline image'
+            a.ui.icon.button.zoomer.fly_right(href="/transfer/#{_id}")
+                i.chevron.right.icon
+            // if is_admin
+            //     .ui.small.header slug: #{slug}
+            +print_this
+
+template(name='transfer_view')
+    with current_doc
+        .ui.stackable.padded.grid
+            .centered.row 
+                .five.wide.column
+                    a.ui.button.zoomer(href="/transfers")
+                        i.chevron.left.icon
+                        +i name='exchange'
+                        |transfers
+                    a.zoomer(href="/user/#{_author.username}") 
+                        img.ui.circular.centered.pointer.zoom.image(src="{{c.url _author.image_id height=500 width=500 gravity='face' crop='fill'}}" class=currentUser.invert_class)
+                        .ui.large.center.aligned.header.pointer.zoom
+                            |#{_author.name}
+                            small (#{_author.points}pts)
+                        .ui.large.label #{_author.transfer_total_received_amount} total received                    
+                        .ui.large.label #{_author.transfer_total_sent_amount} total sent                    
+                    with _author
+                        +calc_user_stats_button
+
+                .five.wide.column
+                    if in_dev 
+                        a.ui.button(href="/transfer/#{_id}/edit")
+                            i.shield.icon
+                            i.pencil.icon
+                            |edit
+
+                    .ui.huge.center.aligned.header
+                        |#{amount}pts
+                    if is_dev
+                        +remove_button
+                    .f14
+                        |!{description}
+                    +viewed_info
+                    .spacer
+                    +image_view key='image_id' label='image' direct=true
+                    div 
+                    if tags
+                        i.tags.icon
+                        each tags 
+                            .ui.big.basic.circular.label #{this}
+                    +voting_full
+                    .ui.small.header
+                        i.clock.icon
+                        | #{when}
+                    .spacer
+                    .spacer
+                    +comments
+                    //- +array_view key='location_tags' label='location_tags' direct=true
+                .five.wide.column
+                    a.fly_right.zoomer(href="/user/#{_target.username}")
+                        img.ui.circular.centered.fluid.pointer.zoom.image(src="{{c.url _target.image_id height=500 width=500 gravity='face' crop='fill'}}" class=currentUser.invert_class)
+                        .ui.large.center.aligned.header.pointer.zoom
+                            |#{_target.name}
+                            small (#{_target.points}pts)
+                            
+                            .ui.large.label #{_target.transfer_total_received_amount} total received                    
+                            .ui.large.label #{_target.transfer_total_sent_amount} total sent                    
+                    with _target
+                        +calc_user_stats_button
+                           
+
+template(name='viewed_info')                           
+    .ui.header 
+        i.eye.icon
+        |#{views} views
+    .ui.header 
+        |viewed by
+                                
+template(name='calc_user_stats_button')
+    .ui.circular.icon.recalc
+        i.large.refresh.icon
+
+template(name='transfer_edit')
+    with current_doc
+        .ui.stackable.padded.grid
+            .row 
+                .five.wide.column
+                    .ui.header 
+                        +i name='exchange'
+                        |point transfer
+                    .ui.large.fluid.basic.circular.button.cancel_transfer
+                        i.large.remove.red.icon
+                        |cancel
+                    .ui.segment
+                        .ui.inline.grey.header sender
+                        .ui.inline.header
+                            img.ui.small.image(src="{{c.url _author.image_id height=200 width=200 gravity='face' crop='fill'}}" class=currentUser.invert_class)
+                            |#{_author.name}
+                    .ui.segment
+                        .ui.header recipient
+                        with _target
+                            i.large.remove.link.icon.remove_target
+                            a.ui.button(href="/user/#{name}")
+                                img.ui.tiny.inline.image(src="{{c.url image_id height=400 width=400 gravity='face' crop='fill'}}" class=currentUser.invert_class)
+                                .ui.inline.header #{name}
+                                .ui.small.grey.inline.header #{points}
+                        unless _target
+                            .ui.divider
+                            // i.large.user.plus.icon
+                            +single_user_edit key='target_user_id' label='search member' icon='plus' direct=true
+                            // .ui.icon.input
+                            //     i.search.icon
+                            //     input.search_username(type='text' placeholder='username')
+                            // each members
+                            //     .ui.compact.basic.circular.button.add_target
+                            //         // i.plus.icon
+                            //         img.ui.avatar.image(src="{{c.url image_id height=200 width=200 gravity='face' crop='fill'}}" class=currentUser.invert_class)
+                            //         |#{name}
+                            //         small #{points}p
+                    // +boolean_edit key='has_date' label='has date' icon='calendar' direct=true
+                    // if has_date
+                    +date_edit key='date' label='date' direct=true   
+                    // +boolean_edit key='has_time' label='has date' icon='calendar' direct=true
+                    // if has_time
+                    +time_edit key='time' label='time' direct=true   
+                    +array_edit key='location_tags' label='location tags' icon='marker' direct=true
+                .six.wide.column
+                    // +boolean_edit key='has_description' label='has description' icon='content' direct=true
+                    // if has_description
+                    +html_edit key='description' label='description' direct=true
+                    // +boolean_edit key='has_image' label='has image' icon='image' direct=true
+                    // if has_image
+                    +image_edit key='image_id' label='image' direct=true
+                    div
+                    +array_edit key='tags' label='tags'
+                    // .ui.inline.header
+                    //     i.tag.red.icon
+                    //     |tags
+                    // .ui.input
+                    //     input.new_tag(type='text' placeholder='+' autocomplete="off")
+                    //     //- +clear_value                
+                    // each terms 
+                    //     a.ui.large.circular.basic.button.select_term(href='#')
+                    //         if image
+                    //             img.ui.mini.rounded.inline.image(src="{{c.url image height=200 width=200 gravity='face' crop='fill'}}" class=currentUser.invert_class)
+                    //         |#{title}
+                    each tags
+                        .ui.big.basic.circular.label
+                            i.delete.icon.remove_element
+                            |#{this}
+                    // if suggestions
+                    //     .ui.small.inline.header suggestions
+                    // each suggestions
+                    //     a.ui.large.circular.basic.button.select_term(href='#')
+                    //         // if image
+                    //         //     img.ui.mini.rounded.inline.image(src="{{c.url image height=200 width=200 gravity='face' crop='fill'}}" class=currentUser.invert_class)
+                    //         |#{title}
+                    if in_dev
+                        +print_this
+                .five.wide.center.aligned.column
+                    .ui.big.header #{amount} points to transfer
+                    .ui.big.header current balance: #{currentUser.points}
+                    .ui.big.header balance after purchase: #{balance_after_purchase}
+                    .ui.big.input
+                        input.point_amount(type='number' value=amount min='1' max=point_max)
+                    div
+                    +key_value_edit key='amount' value=1
+                    +key_value_edit key='amount' value=5
+                    +key_value_edit key='amount' value=10
+                    +key_value_edit key='amount' value=20
+                    +key_value_edit key='amount' value=50
+                    .spacer
+                    .ui.center.aligned.basic.segment
+                        if can_submit
+                            .ui.green.huge.circular.button.submit
+                                i.big.send.icon
+                                |send
+                        else 
+                            .ui.green.huge.circular.disabled.button
+                                i.send.big.icon
+                                |send
+                                
+                                
+                                
+template(name='user_transfers')
+    .ui.large.label #{current_user.transfer_total_received_amount} total received                    
+    .ui.large.label #{current_user.transfer_total_sent_amount} total sent                    
+
+    .ui.header 
+        +i name='order-history'
+        |#{transfer_out_docs.count} transfers out
+    .ui.divided.animated.list
+        each transfer_out_docs
+            +transfer_out_item
+    .ui.header 
+        +i name='clock'
+        |#{transfer_in_docs.count} transfers in
+    .ui.divided.selection.list
+        each transfer_in_docs
+            +transfer_in_item
+
+template(name='transfer_in_item')
+    a.item(href="/transfer/#{_id}")
+        if image_id
+            img.ui.tiny.image(src="{{c.url image_id width=300 height=300}}")
+        //     a.image.zoomer.fly_right(href="/transfer/#{_id}")
+        .content
+            a.ui.header.zoomer.fly_right(href="/transfer/#{_id}")
+                |(#{amount})
+            +author_info
+            .smallscroll
+                |!{description}
+        .content
+            each seven_tags
+                .ui.label #{this}
+            if location 
+                i.red.marker.icon 
+                |#{location}
+            |#{when}
+            a.zoomer(href="/transfer/#{_id}")
+                i.chevron.right.large.circular.icon
+            // if is_admin
+            //     .ui.small.header slug: #{slug}
+            // if can_edit
+            //     a.ui.circular.icon.button(href="/transfer/#{_id}/edit")
+            //         i.pencil.blue.icon
+                    
+template(name='transfer_out_item')
+    a.item(href="/transfer/#{_id}")
+        if image_id
+            img.ui.tiny.image(src="{{c.url image_id width=300 height=300}}")
+        //     a.image.zoomer.fly_right(href="/transfer/#{_id}")
+        .content
+            img.ui.tiny.image(src="{{c.url target.image_id width=300 height=300}}")
+            a.ui.header.zoomer.fly_right(href="/transfer/#{_id}")
+                |(#{amount})
+                i.chevron.right.icon
+                |#{target_username}
+            .smallscrol
+                |!{description}
+        .content
+            each seven_tags
+                .ui.label #{this}
+            if location 
+                i.red.marker.icon 
+                |#{location}
+            |#{when}
+            a.zoomer(href="/transfer/#{_id}")
+                i.chevron.right.large.circular.icon
+            // if is_admin
+            //     .ui.small.header slug: #{slug}
+            // if can_edit
+            //     a.ui.circular.icon.button(href="/transfer/#{_id}/edit")
+            //         i.pencil.blue.icon
+                    
