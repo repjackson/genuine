@@ -1,77 +1,77 @@
 if Meteor.isClient
-    Template.testimonials_widget.onCreated ->
-        @autorun => @subscribe 'model_docs', 'testimonial', ->
+    Template.reviews_widget.onCreated ->
+        @autorun => @subscribe 'model_docs', 'review', ->
     
     
     
-    Template.testimonials_widget.helpers
-        testimonial_docs: ->
+    Template.reviews_widget.helpers
+        review_docs: ->
             Docs.find   
-                model:'testimonial'
+                model:'review'
 
 
-    Router.route '/testimonials', (->
+    Router.route '/reviews', (->
         @layout 'layout'
-        @render 'testimonials'
-        ), name:'testimonials'
-    Router.route '/testimonial/:doc_id/edit', (->
+        @render 'reviews'
+        ), name:'reviews'
+    Router.route '/review/:doc_id/edit', (->
         @layout 'layout'
-        @render 'testimonial_edit'
-        ), name:'testimonial_edit'
-    Router.route '/testimonial/:doc_id', (->
+        @render 'review_edit'
+        ), name:'review_edit'
+    Router.route '/review/:doc_id', (->
         @layout 'layout'
-        @render 'testimonial_view'
-        ), name:'testimonial_view'
-    Router.route '/testimonial/:doc_id/view', (->
+        @render 'review_view'
+        ), name:'review_view'
+    Router.route '/review/:doc_id/view', (->
         @layout 'layout'
-        @render 'testimonial_view'
-        ), name:'testimonial_view_long'
+        @render 'review_view'
+        ), name:'review_view_long'
     
     
-    # Template.testimonials.onCreated ->
-    #     @autorun => Meteor.subscribe 'model_docs', 'testimonial', ->
-    Template.testimonials.onCreated ->
+    # Template.reviews.onCreated ->
+    #     @autorun => Meteor.subscribe 'model_docs', 'review', ->
+    Template.reviews.onCreated ->
         Session.setDefault 'view_mode', 'list'
         Session.setDefault 'sort_key', 'member_count'
         Session.setDefault 'sort_label', 'available'
         Session.setDefault 'limit', 20
         Session.setDefault 'view_open', true
 
-    Template.testimonials.onCreated ->
-        # @autorun => @subscribe 'model_docs', 'testimonial', ->
+    Template.reviews.onCreated ->
+        # @autorun => @subscribe 'model_docs', 'review', ->
         @autorun => @subscribe 'results',
-            'testimonial'
+            'review'
             picked_tags.array()
             Session.get('current_query')
             Session.get('sort_key')
             Session.get('sort_direction')
             Session.get('limit')
 
-    Template.testimonial_view.onCreated ->
+    Template.review_view.onCreated ->
         @autorun => @subscribe 'related_group',Router.current().params.doc_id, ->
 
         @autorun => Meteor.subscribe 'doc_by_id', Router.current().params.doc_id, ->
-    Template.testimonial_edit.onCreated ->
+    Template.review_edit.onCreated ->
         @autorun => Meteor.subscribe 'doc_by_id', Router.current().params.doc_id, ->
-    Template.testimonial_card.onCreated ->
+    Template.review_card.onCreated ->
         @autorun => Meteor.subscribe 'doc_comments', @data._id, ->
 
 
-    Template.testimonials.events
-        'click .add_testimonial': ->
+    Template.reviews.events
+        'click .add_review': ->
             new_id = 
                 Docs.insert 
-                    model:'testimonial'
-            Router.go "/testimonial/#{new_id}/edit"
-    Template.testimonial_card.events
-        'click .view_testimonial': ->
-            Router.go "/testimonial/#{@_id}"
+                    model:'review'
+            Router.go "/review/#{new_id}/edit"
+    Template.review_card.events
+        'click .view_review': ->
+            Router.go "/review/#{@_id}"
 
     
-    Template.testimonial_edit.events
-        'click .delete_testimonial': ->
+    Template.review_edit.events
+        'click .delete_review': ->
             Swal.fire({
-                title: "delete testimonial?"
+                title: "delete review?"
                 text: "cannot be undone"
                 icon: 'question'
                 confirmButtonText: 'delete'
@@ -85,16 +85,16 @@ if Meteor.isClient
                     Swal.fire(
                         position: 'top-end',
                         icon: 'success',
-                        title: 'testimonial removed',
+                        title: 'review removed',
                         showConfirmButton: false,
                         timer: 1500
                     )
-                    Router.go "/testimonial"
+                    Router.go "/review"
             )
 
         'click .publish': ->
             Swal.fire({
-                title: "publish testimonial?"
+                title: "publish review?"
                 text: "point bounty will be held from your account"
                 icon: 'question'
                 confirmButtonText: 'publish'
@@ -104,11 +104,11 @@ if Meteor.isClient
                 reverseButtons: true
             }).then((result)=>
                 if result.value
-                    Meteor.call 'publish_testimonial', @_id, =>
+                    Meteor.call 'publish_review', @_id, =>
                         Swal.fire(
                             position: 'bottom-end',
                             icon: 'success',
-                            title: 'testimonial published',
+                            title: 'review published',
                             showConfirmButton: false,
                             timer: 1000
                         )
@@ -116,7 +116,7 @@ if Meteor.isClient
 
         'click .unpublish': ->
             Swal.fire({
-                title: "unpublish testimonial?"
+                title: "unpublish review?"
                 text: "point bounty will be returned to your account"
                 icon: 'question'
                 confirmButtonText: 'unpublish'
@@ -126,21 +126,21 @@ if Meteor.isClient
                 reverseButtons: true
             }).then((result)=>
                 if result.value
-                    Meteor.call 'unpublish_testimonial', @_id, =>
+                    Meteor.call 'unpublish_review', @_id, =>
                         Swal.fire(
                             position: 'bottom-end',
                             icon: 'success',
-                            title: 'testimonial unpublished',
+                            title: 'review unpublished',
                             showConfirmButton: false,
                             timer: 1000
                         )
             )
             
 if Meteor.isServer
-    Meteor.publish 'testimonial_count', (
+    Meteor.publish 'review_count', (
         picked_ingredients
         picked_sections
-        testimonial_query
+        review_query
         view_vegan
         view_gf
         )->
@@ -148,7 +148,7 @@ if Meteor.isServer
     
         # console.log picked_ingredients
         self = @
-        match = {model:'testimonial'}
+        match = {model:'review'}
         if picked_ingredients.length > 0
             match.ingredients = $all: picked_ingredients
             # sort = 'price_per_serving'
@@ -163,8 +163,8 @@ if Meteor.isServer
             match.vegan = true
         if view_gf
             match.gluten_free = true
-        if testimonial_query and testimonial_query.length > 1
-            console.log 'searching testimonial_query', testimonial_query
-            match.title = {$regex:"#{testimonial_query}", $options: 'i'}
-        Counts.publish this, 'testimonial_counter', Docs.find(match)
+        if review_query and review_query.length > 1
+            console.log 'searching review_query', review_query
+            match.title = {$regex:"#{review_query}", $options: 'i'}
+        Counts.publish this, 'review_counter', Docs.find(match)
         return undefined

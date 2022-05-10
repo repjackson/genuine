@@ -1,44 +1,44 @@
-template(name='testimonials')
+template(name='reviews')
     .ui.stackable.padded.centered.grid 
         .sixteen.wide.center.aligned.column
             .ui.massive.header 
-                |Testimonials
+                |reviews
             if currentUser
-                .ui.icon.button.add_testimonial
+                .ui.icon.button.add_review
                     i.plus.large.icon
         .twelve.wide.column
             .scrolling
                 // if subs_ready
                 .ui.centered.stackable.cards
-                    each model_docs 'testimonial' 
-                        +testimonial_card
+                    each model_docs 'review' 
+                        +review_card
                 // else 
                 //     i.massive.yin.yang.loading.icon
 
 
-template(name='testimonial_card')
-    .ui.link.card.view_testimonial.pointer.fly_right
+template(name='review_card')
+    .ui.link.card.view_review.pointer.fly_right
         img.ui.fluid.rounded.image(src="{{c.url image_id height=200 width=400 gravity='face' crop='fill'}}" class=currentUser.invert_class)
         .content
-            a.ui.header(href="/testimonial/#{_id}") #{title}
+            a.ui.header(href="/review/#{_id}") #{title}
             .ui.small.grey.inline.header #{when}
             | !{content}
             // +comments_view_small
             +author_info
 
-template(name='testimonial_view')
+template(name='review_view')
     with current_doc
         .ui.stackable.padded.grid
             .row 
                 .four.wide.column.scrolling
-                    a.ui.circular.icon.button(href="/testimonials" title='testimonials')
+                    a.ui.circular.icon.button(href="/reviews" title='reviews')
                         i.chevron.left.icon
-                        +i name='testimonial'
-                        |testimonials
+                        +i name='review'
+                        |reviews
                     .ui.inline.grey.header {{from_now start_datetime}}
                     
                     if can_edit
-                        a.ui.circular.icon.button.fly_down(href="/testimonial/#{_id}/edit" title='edit')
+                        a.ui.circular.icon.button.fly_down(href="/review/#{_id}/edit" title='edit')
                             +i name='pencil'
                     .ui.segment
                         .ui.header 
@@ -76,15 +76,15 @@ template(name='testimonial_view')
 
 
 
-template(name='testimonial_edit')
+template(name='review_edit')
     with current_doc
         .ui.stackable.padded.grid
             .two.column.row 
                 .column.scrolling
                     .ui.inline.header 
                         +icolor name='news' cl='ui image inline pointer'
-                        |edit testimonial
-                    a.ui.icon.green.big.button(href="/testimonial/#{_id}/view" title='save')
+                        |edit review
+                    a.ui.icon.green.big.button(href="/review/#{_id}/view" title='save')
                         i.checkmark.big.icon
                     +text_edit key='title' label='title' direct=true
                     
@@ -92,7 +92,7 @@ template(name='testimonial_edit')
                     if has_content
                         +html_edit key='content' label='content' direct=true
                 .column.scrolling
-                    i.large.link.red.remove.icon.delete_testimonial
+                    i.large.link.red.remove.icon.delete_review
                     if is_dev
                         +single_user_edit key='_author_id' label='author' direct=true
                     else 
@@ -125,13 +125,13 @@ template(name='testimonial_edit')
                     
                     
                     
-template(name='testimonials_widget')
+template(name='reviews_widget')
     .ui.center.aligned.segment(style="background: #F5FDFF url(https://asimbalochtech.com/tundaasega/wp-content/uploads/2022/02/03___about-Copy-1.png) no-repeat center / contain !important;")
-        a.ui.center.aligned.dividing.header.fly_down(href="/testimonials")
-            |Testimonials
+        a.ui.center.aligned.dividing.header.fly_down(href="/reviews")
+            |reviews
         .ui.center.aligned.massive.blue.header 
             |What People Say About Us
-        each testimonial_docs
+        each review_docs
             .ui.header #{title}
     
                 
