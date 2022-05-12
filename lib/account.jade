@@ -36,9 +36,10 @@ template(name='account_layout')
                         +yield
                     
 template(name='account_menu_item')
-    a.ui.compact.button(href="/user/#{current_user.username}/edit/#{key}")
+    a.ui.compact.large.circular.button(href="/user/#{current_user.username}/edit/#{key}" title=key)
         +i name=icon cl='ui avatar image'
-        |#{key}
+        unless currentUser.hide_menu_labels
+            |#{key}
 
 
 template(name='account_profile')

@@ -20,7 +20,8 @@ template(name='profile_layout')
                         +user_status
                         a.ui.large.button.fly_down.no_blink(href="/user/#{username}/edit" title='profile settings')
                             i.cog.icon
-                            |account
+                            unless currentUser.hide_menu_labels
+                                |account
                         .ui.circular.compact.icon.button.refresh_points(title='refresh point calculation')
                             i.refresh.large.icon
                         if admin 
@@ -175,7 +176,8 @@ template(name='user_bank')
 template(name='profile_menu_item')
     a.ui.compact.button(href="/user/#{current_user.username}/#{key}")
         +i name=icon
-        |#{key}
+        unless currentUser.hide_menu_labels
+            |#{key}
                  
 template(name='user_social')                 
     .ui.header user social

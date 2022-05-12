@@ -78,38 +78,14 @@ template(name='nav')
         .ui.attached.borderless.small.menu.hscroll
             +top_nav_item key='users' icon='groups' label='users'
             +top_nav_item key='posts' icon='blog' label='posts'
-            a.icon.item.zoomer.fly_right(href="/groups" class="{{isActiveRoute 'groups'}}" title='groups')
-                // i.large.fire.icon
-                +i name='campfire'
-                span.mobile.hidden groups
-            a.icon.item.zoomer.fly_right(href="/transfers" class="{{isActiveRoute 'transfers'}}" title='transfers')
-                // i.large.fire.icon
-                +i name='exchange'
-                span.mobile.hidden transfers
-            a.icon.item.zoomer.fly_right(href="/requests" class="{{isActiveRoute 'requests'}}" title='requests')
-                // i.large.fire.icon
-                +i name='horn'
-                span.mobile.hidden requests
-            a.icon.item.zoomer.fly_right(href="/products" class="{{isActiveRoute 'products'}}" title='products')
-                // i.large.fire.icon
-                +i name='shop'
-                span.mobile.hidden shop
-            a.icon.item.zoomer.fly_right(href="/services" class="{{isActiveRoute 'services'}}" title='services')
-                // i.large.fire.icon
-                +i name='service'
-                span.mobile.hidden services
-            a.icon.item.zoomer.fly_right(href="/rentals" class="{{isActiveRoute 'rentals'}}" title='rentals')
-                // i.large.fire.icon
-                +i name='clock'
-                span.mobile.hidden rentals
-            a.icon.item.zoomer.fly_right(href="/events" class="{{isActiveRoute 'events'}}" title='events')
-                // i.large.fire.icon
-                +i name='calendar'
-                span.mobile.hidden events
-            a.icon.item.zoomer.fly_right(href="/reviews" class="{{isActiveRoute 'reviews'}}" title='reviews')
-                // i.large.fire.icon
-                +i name='megaphone'
-                span.mobile.hidden reviews
+            +top_nav_item key='groups' icon='campfire' label='groups'
+            +top_nav_item key='transfers' icon='exchange' label='transfers'
+            +top_nav_item key='requests' icon='horn' label='requests'
+            +top_nav_item key='products' icon='shop' label='products'
+            +top_nav_item key='services' icon='service' label='services'
+            +top_nav_item key='rentals' icon='clock' label='rentals'
+            +top_nav_item key='events' icon='calendar' label='events'
+            +top_nav_item key='reviews' icon='megaphone' label='reviews'
             
                 
 

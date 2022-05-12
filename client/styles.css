@@ -370,6 +370,9 @@ body {
 .zoomer:hover{
     /*box-shadow: 0 2px 2px 2px rgba(50, 50, 100, 0.1) !important; */
 }
+.button {
+    border-radius: 20px !important;
+}
 .button:hover {
     transition: transform .2s; /* Animation */
     transform: scale(1.05) !important; /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
