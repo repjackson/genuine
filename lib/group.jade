@@ -21,16 +21,6 @@ template(name='groups')
             //     .ui.icon.circular.black.compact.button.clear_picked_tags
             //         i.remove.icon
             +facet key='tag'
-            // span.sorting_row
-            //     +search_input key='title'
-            //     +set_sort_key key='member_ids' label='$/serving' icon='money'
-            //     +set_sort_key key='private' label='available' icon='clock'
-            //     +set_sort_key key='_timestamp' label='added' icon='clock'
-            //     +set_sort_key key='comment_count' label='comment count' icon='chat'
-            //     +toggle_sort_direction
-            // +session_set key='view_mode' value='grid' icon='th'
-            // +session_set key='view_mode' value='list' icon='list'
-            // if session_is 'view_mode' 'grid'
             +facet key='time_tag'
             +facet key='emotion_tag'
             +facet key='location_tag'

@@ -9,7 +9,7 @@ template(name='nav')
             i.large.bars.icon
         a.item(href='/')
             +i name='friends'
-            |Genuine
+            |genuine
         // a.pointer.mobile.hidden(href='/' class="{{isActivePath '/'}}" )
         //     img.ui.image(src="{{c.url 'coinbox_logo'}}")
             
@@ -76,10 +76,8 @@ template(name='nav')
                         | Login
     if true
         .ui.attached.borderless.small.menu.hscroll
-            a.icon.item.zoomer.fly_right(href="/posts" class="{{isActiveRoute 'posts'}}" title='posts')
-                // i.large.users.icon
-                +i name='blog'
-                .mobile.hidden posts 
+            +top_nav_item key='users' icon='groups' label='users'
+            +top_nav_item key='posts' icon='blog' label='posts'
             a.icon.item.zoomer.fly_right(href="/groups" class="{{isActiveRoute 'groups'}}" title='groups')
                 // i.large.fire.icon
                 +i name='campfire'
@@ -88,18 +86,10 @@ template(name='nav')
                 // i.large.fire.icon
                 +i name='exchange'
                 span.mobile.hidden transfers
-            a.icon.item.zoomer.fly_right(href="/invoices" class="{{isActiveRoute 'invoices'}}" title='invoices')
-                // i.large.fire.icon
-                +i name='invoice'
-                span.mobile.hidden invoices
             a.icon.item.zoomer.fly_right(href="/requests" class="{{isActiveRoute 'requests'}}" title='requests')
                 // i.large.fire.icon
                 +i name='horn'
                 span.mobile.hidden requests
-            a.icon.item.zoomer.fly_right(href="/tasks" class="{{isActiveRoute 'tasks'}}" title='tasks')
-                // i.large.fire.icon
-                +i name='tasks'
-                span.mobile.hidden tasks
             a.icon.item.zoomer.fly_right(href="/products" class="{{isActiveRoute 'products'}}" title='products')
                 // i.large.fire.icon
                 +i name='shop'
@@ -120,16 +110,17 @@ template(name='nav')
                 // i.large.fire.icon
                 +i name='megaphone'
                 span.mobile.hidden reviews
-            a.icon.item.zoomer.fly_right(href="/users" class="{{isActiveRoute 'users'}}" title='users')
-                // i.large.users.icon
-                +i name='groups'
-                .mobile.hidden users 
-            a.icon.item.zoomer.fly_right(href="/organizations" class="{{isActiveRoute 'organizations'}}" title='organizations')
-                // i.large.organizations.icon
-                +i name='hand-holding-heart'
-                .mobile.hidden organizations 
             
                 
+
+template(name='top_nav_item')
+    a.icon.item.zoomer.fly_right(href="/#{key}" class="{{isActiveRoute key}}" title=key)
+        // i.large.users.icon
+        +i name=icon
+        unless currentUser.hide_menu_labels
+            .mobile.hidden #{label} 
+
+
 
 template(name='my_latest_activity')
     .ui.grey.header 
