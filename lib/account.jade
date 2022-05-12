@@ -101,7 +101,9 @@ template(name='account_appearance')
         .ui.header
             +i name='paint'
             |appearance 
+        .ui.header icon theme
         // +text_edit key='icon_class' label='icon class'
+        +key_value_edit key='icon_class' value=null label='none'
         +key_value_edit key='icon_class' value='ios' label='outline'
         +key_value_edit key='icon_class' value='color' label='color'
         +key_value_edit key='icon_class' value='office' label='office'
