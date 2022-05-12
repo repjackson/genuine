@@ -164,16 +164,10 @@ template(name='rightbar')
                 +i name='dashboard' cl='ui avatar image'
                 // i.dashboard.icon
                 |dashboard
-            a.item.zoomer.toggle_rightbar(href="/user/#{username}/credit" class="{{isActiveRoute regex='user_credit'}}")
+            a.item.zoomer.toggle_rightbar(href="/user/#{username}/bank" class="{{isActiveRoute regex='user_bank'}}")
                 +i name='money' cl='ui avatar image'
                 // i.coins.icon
-                |credit
-            a.item.zoomer.toggle_rightbar(href="/user/#{username}/requests" class="{{isActiveRoute 'user_requests'}}")
-                +i name='check' cl='ui avatar image'
-                |requests
-            a.item.zoomer.toggle_rightbar(href="/user/#{username}/subscriptions" class="{{isActiveRoute 'user_subscriptions'}}")
-                +i name='clock' cl='ui avatar image'
-                |subscriptions
+                |bank
             a.item.zoomer(href="/inbox" class="{{isActivePath '/inbox'}}")
                 // i.large.inbox.icon
                 +i name='inbox'
@@ -185,9 +179,6 @@ template(name='rightbar')
             a.item.zoomer.toggle_rightbar(href="/user/#{username}/friends" class="{{isActiveRoute 'user_friends'}}")
                 +i name='friends' cl='ui avatar image'
                 |friends
-            a.item.zoomer.toggle_rightbar(href="/user/#{username}/cart" class="{{isActiveRoute 'user_cart'}}")
-                +i name='shopping-cart' cl='ui avatar image'
-                |cart
             a.item.zoomer.toggle_rightbar.no_blink(href="/user/#{currentUser.username}/edit" title='edit your account')
                 +i name='settings' cl='ui avatar image'
                 |settings

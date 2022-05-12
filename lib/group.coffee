@@ -209,7 +209,7 @@ if Meteor.isClient
 
     Template.groups.onCreated ->
         Session.setDefault 'view_mode', 'list'
-        Session.setDefault 'sort_key', 'member_count'
+        Session.setDefault 'sort_key', 'views'
         Session.setDefault 'sort_label', 'available'
         Session.setDefault 'limit', 20
         Session.setDefault 'view_open', true
@@ -264,24 +264,24 @@ if Meteor.isClient
             Session.set('current_group_search',null)
             picked_tags.clear()
 
-        'keyup #search': _.throttle((e,t)->
-            query = $('#search').val()
-            Session.set('current_group_search', query)
-            # console.log Session.get('current_group_search')
-            if e.which is 13
-                search = $('#search').val().trim().toLowerCase()
-                if search.length > 0
-                    picked_tags.push search
-                    console.log 'search', search
-                    # Meteor.call 'log_term', search, ->
-                    $('#search').val('')
-                    Session.set('current_group_search', null)
-                    # # $('#search').val('').blur()
-                    # # $( "p" ).blur();
-                    # Meteor.setTimeout ->
-                    #     Session.set('dummy', !Session.get('dummy'))
-                    # , 10000
-        , 1000)
+        # 'keyup #search': _.throttle((e,t)->
+        #     query = $('#search').val()
+        #     Session.set('current_group_search', query)
+        #     # console.log Session.get('current_group_search')
+        #     if e.which is 13
+        #         search = $('#search').val().trim().toLowerCase()
+        #         if search.length > 0
+        #             picked_tags.push search
+        #             console.log 'search', search
+        #             # Meteor.call 'log_term', search, ->
+        #             $('#search').val('')
+        #             Session.set('current_group_search', null)
+        #             # # $('#search').val('').blur()
+        #             # # $( "p" ).blur();
+        #             # Meteor.setTimeout ->
+        #             #     Session.set('dummy', !Session.get('dummy'))
+        #             # , 10000
+        # , 1000)
 
         'click .calc_group_count': ->
             Meteor.call 'calc_group_count', ->
@@ -301,15 +301,8 @@ if Meteor.isClient
             Meteor.reconnect()
 
 
-        'click .set_sort_direction': ->
-            if Session.get('group_sort_direction') is -1
-                Session.set('group_sort_direction', 1)
-            else
-                Session.set('group_sort_direction', -1)
-
 
     Template.groups.helpers
-        sorting_up: -> parseInt(Session.get('group_sort_direction')) is 1
 
         # toggle_open_class: -> if Session.get('view_open') then 'blue' else ''
         # connection: ->
@@ -345,7 +338,7 @@ if Meteor.isClient
             Docs.find {
                 model:'group'
             },
-                sort: "#{Session.get('group_sort_key')}":parseInt(Session.get('group_sort_direction'))
+                sort: "#{Session.get('sort_key')}":parseInt(Session.get('sort_direction'))
                 # limit:Session.get('group_limit')
 
         users: ->

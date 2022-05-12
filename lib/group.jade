@@ -35,66 +35,49 @@ template(name='groups')
                 //     .item {{ to_percent avg_sadness_score}}% sad
                 //     .item {{ to_percent avg_disgust_score}}% disgust
                 //     .item {{ to_percent avg_fear_score}}% fear
-                if is 'doc_sentiment_label' 'positive'
-                    span.say.ui.green.text(class="{{calculated_size doc_sentiment_score}}") {{ to_percent doc_sentiment_score }}% #{doc_sentiment_label}
-                        |&nbsp;
-                    div.rounded(style="height:5px;width:{{to_percent doc_sentiment_score}}%;background-color:green" title="{{to_percent doc_sentiment_score}}% #{doc_sentiment_label}")
-                else if is 'doc_sentiment_label' 'negative'
-                    span.say.ui.red.text(class="{{calculated_size doc_sentiment_score}}") {{ to_percent doc_sentiment_score }}%  #{doc_sentiment_label} 
-                        |&nbsp;
-                    div.rounded(style="height:5px;width:{{abs_percent doc_sentiment_score}}%;background-color:red" title="{{abs_percent doc_sentiment_score}}% #{doc_sentiment_label}")
+                // if is 'doc_sentiment_label' 'positive'
+                //     span.say.ui.green.text(class="{{calculated_size doc_sentiment_score}}") {{ to_percent doc_sentiment_score }}% #{doc_sentiment_label}
+                //         |&nbsp;
+                //     div.rounded(style="height:5px;width:{{to_percent doc_sentiment_score}}%;background-color:green" title="{{to_percent doc_sentiment_score}}% #{doc_sentiment_label}")
+                // else if is 'doc_sentiment_label' 'negative'
+                //     span.say.ui.red.text(class="{{calculated_size doc_sentiment_score}}") {{ to_percent doc_sentiment_score }}%  #{doc_sentiment_label} 
+                //         |&nbsp;
+                //     div.rounded(style="height:5px;width:{{abs_percent doc_sentiment_score}}%;background-color:red" title="{{abs_percent doc_sentiment_score}}% #{doc_sentiment_label}")
                     
-                span.say.ui.green.text(class="{{calculated_size avg_sent_score}}") {{ to_percent avg_sent_score }}% joy 
-                    |&nbsp;
-                div.rounded(style="height:5px;width:{{to_percent avg_sent_score}}%;background-color:green" title="{{to_percent avg_sent_score}}% joy")
+                // span.say.ui.green.text(class="{{calculated_size avg_sent_score}}") {{ to_percent avg_sent_score }}% joy 
+                //     |&nbsp;
+                // div.rounded(style="height:5px;width:{{to_percent avg_sent_score}}%;background-color:green" title="{{to_percent avg_sent_score}}% joy")
       
-                span.say.ui.green.text(class="{{calculated_size avg_joy_score}}") {{ to_percent avg_joy_score }}% joy 
-                    |&nbsp;
-                div.rounded(style="height:5px;width:{{to_percent avg_joy_score}}%;background-color:green" title="{{to_percent avg_joy_score}}% joy")
-                //- if above_50 'avg_sadness_score'
-                    //- .spacer
-                span.say.ui.blue.text(class="{{calculated_size avg_sadness_score}}") {{ to_percent avg_sadness_score}}% sad 
-                    |&nbsp;
-                div.rounded(style="height:5px;width:{{to_percent avg_sadness_score}}%;background-color:blue" title="{{to_percent avg_sadness_score}}% sad")
-                //- if above_50 'avg_fear_score'
-                    //- .spacer
-                span.say.ui.grey.text(class="{{calculated_size avg_fear_score}}") {{ to_percent avg_fear_score }}% fear 
-                    |&nbsp;
-                div.rounded(style="height:5px;width:{{to_percent avg_fear_score}}%;background-color:grey" title="{{to_percent avg_fear_score}}% fear")
-                //- if above_50 'avg_disgust_score'
-                    //- .spacer
-                span.say.ui.orange.text(class="{{calculated_size avg_disgust_score}}") {{ to_percent avg_disgust_score }}% disgust 
-                    |&nbsp;
-                div.rounded(style="height:5px;width:{{to_percent avg_disgust_score}}%;background-color:orange" title="{{to_percent avg_disgust_score}}% disgust")
-                //- if above_50 'avg_anger_score'
-                    //- .spacer
-                span.say.ui.red.text(class="{{calculated_size avg_anger_score}}") {{ to_percent avg_anger_score }}% anger 
-                    |&nbsp;
-                div.rounded(style="height:5px;width:{{to_percent avg_anger_score}}%;background-color:red" title="{{to_percent avg_anger_score}}% anger")
+                // span.say.ui.green.text(class="{{calculated_size avg_joy_score}}") {{ to_percent avg_joy_score }}% joy 
+                //     |&nbsp;
+                // div.rounded(style="height:5px;width:{{to_percent avg_joy_score}}%;background-color:green" title="{{to_percent avg_joy_score}}% joy")
+                // //- if above_50 'avg_sadness_score'
+                //     //- .spacer
+                // span.say.ui.blue.text(class="{{calculated_size avg_sadness_score}}") {{ to_percent avg_sadness_score}}% sad 
+                //     |&nbsp;
+                // div.rounded(style="height:5px;width:{{to_percent avg_sadness_score}}%;background-color:blue" title="{{to_percent avg_sadness_score}}% sad")
+                // //- if above_50 'avg_fear_score'
+                //     //- .spacer
+                // span.say.ui.grey.text(class="{{calculated_size avg_fear_score}}") {{ to_percent avg_fear_score }}% fear 
+                //     |&nbsp;
+                // div.rounded(style="height:5px;width:{{to_percent avg_fear_score}}%;background-color:grey" title="{{to_percent avg_fear_score}}% fear")
+                // //- if above_50 'avg_disgust_score'
+                //     //- .spacer
+                // span.say.ui.orange.text(class="{{calculated_size avg_disgust_score}}") {{ to_percent avg_disgust_score }}% disgust 
+                //     |&nbsp;
+                // div.rounded(style="height:5px;width:{{to_percent avg_disgust_score}}%;background-color:orange" title="{{to_percent avg_disgust_score}}% disgust")
+                // //- if above_50 'avg_anger_score'
+                //     //- .spacer
+                // span.say.ui.red.text(class="{{calculated_size avg_anger_score}}") {{ to_percent avg_anger_score }}% anger 
+                //     |&nbsp;
+                // div.rounded(style="height:5px;width:{{to_percent avg_anger_score}}%;background-color:red" title="{{to_percent avg_anger_score}}% anger")
         .twelve.wide.column
             |sort by
             +toggle_sort_direction
             +session_set key='sort_key' value='_timestamp' label='added' icon='clock'
             +session_set key='sort_key' value='points' label='points' icon='hashtag'
+            +session_set key='sort_key' value='views' label='views' icon='eye'
             
-            if session_is 'group_sort_key' 'points'
-                .ui.circular.black.icon.button.set_sort_points
-                    i.large.thumbs.up.icon
-            else
-                .ui.circular.basic.icon.button.set_sort_points
-                    i.large.thumbs.up.icon
-            if session_is 'group_sort_key' '_timestamp'
-                .ui.circular.black.icon.button.set_sort_timestamp
-                    i.clock.large.icon
-            else
-                .ui.circular.basic.icon.button.set_sort_timestamp
-                    i.clock.large.icon
-            if session_is 'group_sort_key' 'views'
-                .ui.circular.black.icon.button.set_sort_views
-                    i.eye.large.icon
-            else
-                .ui.circular.basic.icon.button.set_sort_views
-                    i.eye.large.icon
             .scrolling    
                 .ui.hidden.divider
                 if subs_ready
@@ -125,6 +108,9 @@ template(name='group_card')
             a.ui.header.zoomer.fly_right(href="/group/#{_id}")
                 |#{title}
             |#{member_ids.length} members
+            .ui.basic.label
+                i.grey.eye.icon 
+                |#{views}
             .smallscroll
                 |!{description}
             //+ismall name='tags' cl='ui inline image'
