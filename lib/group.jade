@@ -277,11 +277,21 @@ template(name='checkin_widget')
     .ui.header 
         +i name='checkmark'
         |checkins
-    .ui.button.checkin  
-        |checkin
+    if checked_in
+        .ui.button.checkout  
+            |checkout
+    else
+        .ui.button.checkin  
+            |checkin
     .ui.list
         each checkin_docs 
-            .item #{when}
+            .item 
+                strong 
+                    if active 
+                        i.large.green.clock.icon(title='active')
+                    img.ui.avatar.image(src="{{c.url _author.image_id width=200 height=200}}")
+                    |#{_author.username}
+                small #{when}
 
                
 template(name='group_about')

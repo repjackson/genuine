@@ -69,7 +69,7 @@ if Meteor.isClient
                     })
 
     Template.facet.onCreated ->
-        console.log @
+        # console.log @
         @autorun => @subscribe 'facets',
             @data.model
             picked_tags.array()

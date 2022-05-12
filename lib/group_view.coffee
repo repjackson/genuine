@@ -5,8 +5,27 @@ if Meteor.isClient
         'click .checkin': ->
             Docs.insert 
                 model:'checkin'
+                active:true
+        'click .checkout': ->
+            active_doc =
+                Docs.findOne 
+                    model:'checkin'
+                    active:true
+            if active_doc
+                Docs.update active_doc._id, 
+                    $set:
+                        active:false
+                        checkout_timestamp:Date.now()
+                    
+                    
     Template.checkin_widget.helpers
         checkin_docs: ->
-            Docs.find 
+            Docs.find {
                 model:'checkin'
+            }, sort:_timestamp:-1
+        checked_in: ->
+            Docs.findOne 
+                model:'checkin'
+                _author_id:Meteor.userId()
+                active:true
         
