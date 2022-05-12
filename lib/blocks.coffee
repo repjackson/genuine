@@ -3,6 +3,19 @@ if Meteor.isClient
         'click .recalc': ->
             console.log 'recalc'
             Meteor.call 'calc_stats', ->
+    Template.doc_array_toggle.helpers
+        user_list_toggle_class: ->
+            if Session.get('current_user')
+                parent = Template.parentData()
+                if parent["#{@key}"] and Meteor.userId() in parent["#{@key}"] then '' else 'basic'
+            else
+                'disabled'
+        in_list: ->
+            parent = Template.parentData()
+            if parent["#{@key}"] and Meteor.userId() in parent["#{@key}"] then true else false
+        list_users: ->
+            parent = Template.parentData()
+            Docs.find _id:$in:parent["#{@key}"]
 
 
     Template.calc_user_stats_button.events 

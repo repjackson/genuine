@@ -1,11 +1,38 @@
 Router.route '/group/:doc_id', (->
-    @layout 'layout'
+    @layout 'group_layout'
     @render 'group_view'
-    ), name:'group_view'
+    ), name:'group_view
+    '
+Router.route '/group/:doc_id/events', (->
+    @layout 'group_layout'
+    @render 'group_events'
+    ), name:'group_events'
+Router.route '/group/:doc_id/posts', (->
+    @layout 'group_layout'
+    @render 'group_posts'
+    ), name:'group_posts'
+Router.route '/group/:doc_id/members', (->
+    @layout 'group_layout'
+    @render 'group_members'
+    ), name:'group_members'
+Router.route '/group/:doc_id/tasks', (->
+    @layout 'group_layout'
+    @render 'group_tasks'
+    ), name:'group_tasks'
+Router.route '/group/:doc_id/chat', (->
+    @layout 'group_layout'
+    @render 'group_chat'
+    ), name:'group_chat'
+
 
 
 if Meteor.isClient
-    Template.group_view.onCreated ->
+    Template.group_widget.onCreated ->
+        @autorun => Meteor.subscribe 'user_from_username', @data
+    Template.group_widget.helpers
+        
+
+    Template.group_layout.onCreated ->
         @autorun => Meteor.subscribe 'doc_by_id', Router.current().params.doc_id, ->
         # @autorun => Meteor.subscribe 'children', 'group_update', Router.current().params.doc_id
         @autorun => Meteor.subscribe 'group_members', Router.current().params.doc_id, ->
@@ -13,7 +40,7 @@ if Meteor.isClient
         @autorun => Meteor.subscribe 'group_events', Router.current().params.doc_id, ->
         @autorun => Meteor.subscribe 'group_posts', Router.current().params.doc_id, ->
         @autorun => Meteor.subscribe 'group_products', Router.current().params.doc_id, ->
-    Template.group_view.onRendered ->
+    Template.group_layout.onRendered ->
         Meteor.call 'log_view', Router.current().params.doc_id, ->
     
     Template.group_edit.onCreated ->
@@ -29,14 +56,27 @@ if Meteor.isClient
                 
                 
                 
-    Template.group_view.helpers
+    Template.group_layout.helpers
         group_events: ->
             Docs.find 
                 model:'event'
                 group_ids:$in:[Router.current().params.doc_id]
-        group_posts: ->
+    Template.group_posts.events 
+        'click .add_group_post': ->
+            new_id = 
+                Docs.insert 
+                    model:'post'
+                    group_id:Router.current().params.doc_id
+            Router.go "/post/#{new_id}/edit"
+    Template.group_posts.helpers
+        group_post_docs: ->
             Docs.find 
                 model:'post'
+                group_id:Router.current().params.doc_id
+    Template.group_members.helpers
+        group_member_docs: ->
+            Docs.find 
+                model:'user'
                 # group_ids:$in:[Router.current().params.doc_id]
         # current_group: ->
         #     Docs.findOne
@@ -49,10 +89,9 @@ if Meteor.isClient
                 Docs.insert 
                     model:'product'
                     group_id:Router.current().params.doc_id
-                    
             Router.go "/product/#{new_id}/edit"
             
-    Template.group_view.events
+    Template.group_layout.events
         'click .add_group_task': ->
             new_id = 
                 Docs.insert 
@@ -61,21 +100,31 @@ if Meteor.isClient
                     
             Router.go "/task/#{new_id}/edit"
             
-        
+        'click .add_group_member': ->
+            new_username = prompt('username')
+            splitted = new_username.split(' ')
+            formatted = new_username.split(' ').join('_').toLowerCase()
+            console.log formatted
+            Meteor.call 'add_user', formatted, (err,res)->
+                console.log res
+                new_user = Meteor.users.findOne res
+                Meteor.users.update res,
+                    $set:
+                        first_name:splitted[0]
+                        last_name:splitted[1]
+                    $addToSet:
+                        group_memberships:Router.current().params.doc_id
+
+
+
         'click .refresh_group_stats': ->
             Meteor.call 'calc_group_stats', Router.current().params.doc_id, ->
         'click .add_group_event': ->
             new_id = 
                 Docs.insert 
                     model:'event'
-                    group_ids:[Router.current().params.doc_id]
+                    group_id:Router.current().params.doc_id
             Router.go "/event/#{new_id}/edit"
-        'click .add_group_post': ->
-            new_id = 
-                Docs.insert 
-                    model:'post'
-                    group_ids:[Router.current().params.doc_id]
-            Router.go "/post/#{new_id}/edit"
         # 'click .join': ->
         #     Docs.update
         #         model:'group'
@@ -110,7 +159,7 @@ if Meteor.isServer
         #     _id:group_id
         Docs.find
             model:'post'
-            group_ids:$in: [group_id]
+            group_id:group_id
 
 
     Meteor.publish 'group_leaders', (group_id)->
@@ -161,14 +210,27 @@ if Meteor.isClient
         Session.setDefault 'limit', 20
         Session.setDefault 'view_open', true
 
-    Template.groups.onCreated ->
-        @autorun => @subscribe 'results',
-            'group'
+        @autorun => @subscribe 'group_facets',
             picked_tags.array()
-            Session.get('current_query')
+            Session.get('current_search')
+            Session.get('limit')
             Session.get('sort_key')
             Session.get('sort_direction')
+            Session.get('view_delivery')
+            Session.get('view_pickup')
+            Session.get('view_open')
+
+        @autorun => @subscribe 'group_results',
+            picked_tags.array()
+            Session.get('current_search')
             Session.get('limit')
+            Session.get('sort_key')
+            Session.get('sort_direction')
+            Session.get('view_delivery')
+            Session.get('view_pickup')
+            Session.get('view_open')
+
+
 
 
     Template.groups.events
@@ -177,6 +239,45 @@ if Meteor.isClient
                 Docs.insert
                     model:'group'
             Router.go("/group/#{new_id}/edit")
+            
+
+
+        'click .toggle_delivery': -> Session.set('view_delivery', !Session.get('view_delivery'))
+        'click .toggle_pickup': -> Session.set('view_pickup', !Session.get('view_pickup'))
+        'click .toggle_open': -> Session.set('view_open', !Session.get('view_open'))
+
+        'click .tag_result': -> picked_tags.push @title
+        'click .unselect_tag': ->
+            picked_tags.remove @valueOf()
+            # console.log picked_tags.array()
+            # if picked_tags.array().length is 1
+                # Meteor.call 'call_wiki', search, ->
+
+            # if picked_tags.array().length > 0
+                # Meteor.call 'search_reddit', picked_tags.array(), ->
+
+        'click .clear_picked_tags': ->
+            Session.set('current_group_search',null)
+            picked_tags.clear()
+
+        'keyup #search': _.throttle((e,t)->
+            query = $('#search').val()
+            Session.set('current_group_search', query)
+            # console.log Session.get('current_group_search')
+            if e.which is 13
+                search = $('#search').val().trim().toLowerCase()
+                if search.length > 0
+                    picked_tags.push search
+                    console.log 'search', search
+                    # Meteor.call 'log_term', search, ->
+                    $('#search').val('')
+                    Session.set('current_group_search', null)
+                    # # $('#search').val('').blur()
+                    # # $( "p" ).blur();
+                    # Meteor.setTimeout ->
+                    #     Session.set('dummy', !Session.get('dummy'))
+                    # , 10000
+        , 1000)
 
         'click .calc_group_count': ->
             Meteor.call 'calc_group_count', ->
@@ -192,24 +293,204 @@ if Meteor.isClient
         #             Meteor.call 'search_reddit', picked_tags.array(), ->
         # , 1000)
 
+        'click .reconnect': ->
+            Meteor.reconnect()
 
-if Meteor.isClient
-    Meteor.methods
-        calc_group_stats: ->
-            group_stat_doc = Docs.findOne(model:'group_stats')
-            unless group_stat_doc
-                new_id = Docs.insert
-                    model:'group_stats'
-                group_stat_doc = Docs.findOne(model:'group_stats')
-            console.log group_stat_doc
-            total_count = Docs.find(model:'group').count()
-            complete_count = Docs.find(model:'group', complete:true).count()
-            incomplete_count = Docs.find(model:'group', complete:$ne:true).count()
-            Docs.update group_stat_doc._id,
-                $set:
-                    total_count:total_count
-                    complete_count:complete_count
-                    incomplete_count:incomplete_count
+
+        'click .set_sort_direction': ->
+            if Session.get('group_sort_direction') is -1
+                Session.set('group_sort_direction', 1)
+            else
+                Session.set('group_sort_direction', -1)
+
+
+    Template.groups.helpers
+        sorting_up: -> parseInt(Session.get('group_sort_direction')) is 1
+
+        # toggle_open_class: -> if Session.get('view_open') then 'blue' else ''
+        # connection: ->
+        #     console.log Meteor.status()
+        #     Meteor.status()
+        # connected: ->
+        #     Meteor.status().connected
+        group_tag_results: ->
+            # if Session.get('current_group_search') and Session.get('current_group_search').length > 1
+            #     Terms.find({}, sort:count:-1)
+            # else
+            group_count = Docs.find().count()
+            # console.log 'group count', group_count
+            # if group_count < 3
+            #     Results.find({count: $lt: group_count})
+            # else
+            Results.find()
+
+        current_group_search: -> Session.get('current_group_search')
+
+        result_class: ->
+            if Template.instance().subscriptionsReady()
+                ''
+            else
+                'disabled'
+
+        picked_tags: -> picked_tags.array()
+        picked_tags_plural: -> picked_tags.array().length > 1
+        searching: -> Session.get('searching')
+
+        group_docs: ->
+            # if picked_tags.array().length > 0
+            Docs.find {
+                model:'group'
+            },
+                sort: "#{Session.get('group_sort_key')}":parseInt(Session.get('group_sort_direction'))
+                # limit:Session.get('group_limit')
+
+        users: ->
+            # if picked_tags.array().length > 0
+            Meteor.users.find {
+            },
+                sort: count:-1
+                # limit:1
+
+
+        # timestamp_tags: ->
+        #     # if picked_tags.array().length > 0
+        #     Timestamp_tags.find {
+        #         # model:'reddit'
+        #     },
+        #         sort: count:-1
+        #         # limit:1
+
+        group_limit: ->
+            Session.get('group_limit')
+
+        current_group_sort_label: ->
+            Session.get('group_sort_label')
+
+
+if Meteor.isServer
+    Meteor.publish 'group_results', (
+        picked_tags
+        title_search=null
+        doc_limit
+        doc_sort_key
+        doc_sort_direction
+        view_delivery
+        view_pickup
+        view_open
+        )->
+        # console.log picked_tags
+        match = {model:'group'}
+        if doc_limit
+            limit = doc_limit
+        else
+            limit = 42
+        if title_search
+            match.title = {$regex:"#{title_search}", $options: 'i'}
+
+        if doc_sort_key
+            sort_key = doc_sort_key
+        if doc_sort_direction
+            sort_direction = parseInt(doc_sort_direction)
+        self = @
+        # if view_open
+        #     match.open = $ne:false
+        # if view_delivery
+        #     match.delivery = $ne:false
+        # if view_pickup
+        #     match.pickup = $ne:false
+        if picked_tags.length > 0
+            match.tags = $all: picked_tags
+            sort = 'member_count'
+        else
+            # match.tags = $nin: ['wikipedia']
+            sort = '_timestamp'
+            # match.source = $ne:'wikipedia'
+        # if view_images
+        #     match.is_image = $ne:false
+        # if view_videos
+        #     match.is_video = $ne:false
+        unless Meteor.userId()
+            match.private = $ne:true
+
+        # match.tags = $all: picked_tags
+        # if filter then match.model = filter
+        # keys = _.keys(prematch)
+        # for key in keys
+        #     key_array = prematch["#{key}"]
+        #     if key_array and key_array.length > 0
+        #         match["#{key}"] = $all: key_array
+            # console.log 'current facet filter array', current_facet_filter_array
+
+        console.log 'group match', match
+        console.log 'sort key', sort_key
+        console.log 'sort direction', sort_direction
+        Docs.find match,
+            # sort:"#{sort_key}":sort_direction
+            sort:_timestamp:-1
+            limit: limit
+
+    Meteor.publish 'group_facets', (
+        picked_tags=[]
+        title_search=null
+        picked_timestamp_tags
+        query
+        doc_limit
+        doc_sort_key
+        doc_sort_direction
+        view_delivery
+        view_pickup
+        view_open
+        )->
+        # console.log 'dummy', dummy
+        # console.log 'query', query
+        console.log 'selected tags', picked_tags
+
+        self = @
+        match = {}
+        match.model = 'group'
+        # if view_open
+        #     match.open = $ne:false
+
+        # if view_delivery
+        #     match.delivery = $ne:false
+        # if view_pickup
+        #     match.pickup = $ne:false
+        if picked_tags.length > 0 then match.tags = $all: picked_tags
+        if title_search
+            match.title = $regex:{"#{title_search}", $options: 'i'}
+
+        tag_cloud = Docs.aggregate [
+            { $match: match }
+            { $project: "tags": 1 }
+            { $unwind: "$tags" }
+            { $group: _id: "$tags", count: $sum: 1 }
+            { $sort: count: -1, _id: 1 }
+            { $limit: 20 }
+            { $project: _id: 0, name: '$_id', count: 1 }
+        ], {
+            allowDiskUse: true
+        }
+
+        tag_cloud.forEach (tag, i) =>
+            # console.log 'group tag result ', tag
+            self.added 'results', Random.id(),
+                name: tag.name
+                count: tag.count
+                model:'group_tag'
+                # category:key
+                # index: i
+
+
+        self.ready()
+
+
+# Router.route '/group/:doc_id/', (->
+#     @render 'group_layout'
+#     ), name:'group_layout'
+# Router.route '/group/:doc_id/edit', (->
+#     @render 'group_edit'
+#     ), name:'group_edit'
+
 
 if Meteor.isServer
     Meteor.publish 'user_groups', (username)->
@@ -217,6 +498,16 @@ if Meteor.isServer
         Docs.find
             model:'group'
             _author_id: user._id
+
+    Meteor.publish 'related_group', (doc_id)->
+        doc = Docs.findOne doc_id
+        if doc
+            Docs.find {
+                model:'group'
+                _id:doc.group_id
+            }
+            
+
 
     Meteor.publish 'group_by_slug', (group_slug)->
         Docs.find
@@ -284,3 +575,20 @@ if Meteor.isServer
                     dish_count:dish_count
                     total_credit_exchanged:total_credit_exchanged
                     dish_ids:dish_ids
+                    
+        # calc_group_stats: ->
+        #     group_stat_doc = Docs.findOne(model:'group_stats')
+        #     unless group_stat_doc
+        #         new_id = Docs.insert
+        #             model:'group_stats'
+        #         group_stat_doc = Docs.findOne(model:'group_stats')
+        #     console.log group_stat_doc
+        #     total_count = Docs.find(model:'group').count()
+        #     complete_count = Docs.find(model:'group', complete:true).count()
+        #     incomplete_count = Docs.find(model:'group', complete:$ne:true).count()
+        #     Docs.update group_stat_doc._id,
+        #         $set:
+        #             total_count:total_count
+        #             complete_count:complete_count
+        #             incomplete_count:incomplete_count
+                    

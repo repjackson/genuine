@@ -12,6 +12,23 @@ template(name='visibility_settings')
             |friends only
 
 
+template(name='doc_array_toggle')
+    // if currentUser
+    .ui.button.toggle(class=doc_array_toggle_class title=label)
+        if in_list
+            if remove_icon
+                i.large.icon(class=remove_icon)
+            |#{remove_label}
+        else
+            if add_icon
+                i.large.icon(class=add_icon)
+            |#{add_label}
+        |#{label}
+    //- each list_users
+        //-     +user_info
+
+
+
 template(name='toggle_sort_direction')
     if session_is 'sort_direction' -1
         .ui.icon.compact.button.toggle(title='toggle sort direction')
