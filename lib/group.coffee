@@ -19,6 +19,10 @@ Router.route '/group/:doc_id/members', (->
     @layout 'group_layout'
     @render 'group_members'
     ), name:'group_members'
+Router.route '/group/:doc_id/related', (->
+    @layout 'group_layout'
+    @render 'group_related'
+    ), name:'group_related'
 Router.route '/group/:doc_id/products', (->
     @layout 'group_layout'
     @render 'group_products'
@@ -35,7 +39,21 @@ if Meteor.isClient
         @autorun => Meteor.subscribe 'user_from_username', @data
     Template.group_widget.helpers
         
-
+    Template.related_groups.onCreated ->
+        @autorun => Meteor.subscribe 'related_groups', @data._id, ->
+    Template.related_groups.helpers
+        related_group_docs: ->
+            Docs.find 
+                model:'group'
+                _id: $nin:[Router.current().params.doc_id]
+                
+if Meteor.isServer 
+    Meteor.publish 'related_groups', (group_id)->
+        Docs.find 
+            model:'group'
+            _id:$nin:[group_id]
+            
+if Meteor.isClient
     Template.group_layout.onCreated ->
         @autorun => Meteor.subscribe 'doc_by_id', Router.current().params.doc_id, ->
         # @autorun => Meteor.subscribe 'children', 'group_update', Router.current().params.doc_id

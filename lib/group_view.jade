@@ -27,6 +27,7 @@ template(name='group_layout')
                                 +group_nav_item key='chat' icon='chat'
                             if has_shop
                                 +group_nav_item key='products' icon='shop'
+                            +group_nav_item key='related' icon='connect'
                             .scrolling
                                 +yield
 
@@ -66,4 +67,48 @@ template(name='group_nav_item')
     a.ui.circular.compact.button(href="/group/#{current_doc._id}/#{key}")
         +i name=icon
         |#{key}
+        
+        
+        
+template(name='group_related')
+    +related_groups
+template(name='related_groups')
+    .ui.header 
+        +i name='connect'
+        |related groups 
+    .ui.cards
+        each related_group_docs
+            +group_card
                 
+
+
+template(name='group_view')
+    .ui.stackable.padded.grid
+        .row
+            .eight.wide.column
+                +group_about
+                if has_members
+                    +group_members
+                // .ui.large.selection.animated.list
+                        // a.item(href="/group/#{_id}/#{username}")
+                        //     img.ui.mini.image(src="{{c.url image_id width=200 height=200}}")
+                        //     .content
+                        //         .header
+                        //             |#{username}
+                if currentUser
+                    +doc_array_toggle key='member_ids' value=currentUser._id add_label='join' remove_label='leave'
+                else 
+                    a.ui.big.button(href="/login")
+                        +i name='internal'
+                        |join
+            .eight.wide.column
+                +checkin_widget
+                +group_activity
+                +comments
+                if has_events
+                    +group_events
+                if has_posts
+                    +group_posts
+                if has_shop
+                    .four.wide.column
+                        +group_products
