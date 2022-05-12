@@ -201,20 +201,20 @@ template(name='group_info')
 template(name='group_edit')
     with current_doc
         .ui.stackable.padded.grid
-            .three.column.row
-                .column
+            .row
+                .six.wide.column
                     .ui.header 
                         i.pencil.icon
-                        |edit group
+                        |editing group
                     a.ui.big.icon.fluid.green.button.fly_up(href="/group/#{_id}" title='save')
                         i.checkmark.large.icon
-                    +remove_button
+                    if in_dev
+                        +remove_button
                     +image_edit key='image_id' label='image' direct=true
-                .column 
+                .ten.wide.column
                     +text_edit key='title' direct=true
                     +html_edit key='description' label='content' icon='content' direct=true
                     +call_watson key='description'
-                .column
                     // +single_user_edit key='leader_id' label='leader' icon='crown' direct=true
                     +multi_user_edit key='leader_ids' label='leaders' icon='crown' direct=true
                     +array_edit key='tags' label='tags' icon='tags' direct=true
@@ -223,96 +223,25 @@ template(name='group_edit')
                     +multi_user_edit key='member_ids' label='members' direct=true
                     +boolean_edit key='private' label='private' direct=true
                     +link_edit key='link' label='link' direct=true
-                .column
                     .ui.header 
                         i.cubes.icon
                         |modules
                     +boolean_edit key='has_checkin' label='checkin' icon='clock' direct=true
                     +boolean_edit key='has_shop' label='shop' icon='shop' direct=true
                     +boolean_edit key='has_posts' label='posts' icon='blog' direct=true
-                    +boolean_edit key='has_tasks' label='tasks' icon='tasks' direct=true
+                    +boolean_edit key='has_events' label='events' icon='calendar' direct=true
                     +boolean_edit key='has_chat' label='chat' icon='chat' direct=true
                     
                     
-template(name='group_layout')
-    +nav
-    .ui.bottom.attached.pushable.segment.scrollin
-        +topbar
-        +leftbar
-        +rightbar
-        .global_container.bg
-            with current_doc
-                .ui.stackable.padded.grid
-                    .row
-                        .four.wide.column
-                            +group_sidebar
-                        .twelve.wide.column
-                            a.ui.circular.compact.button.fly_up(href="/group/#{current_doc._id}/")
-                                +i name='dashboard'
-                                |dashboard
-                            +group_nav_item key='about' icon='info'
-                            if has_posts
-                                +group_nav_item key='posts' icon='blog'
-                            if has_events
-                                +group_nav_item key='events' icon='calendar'
-                            // if has_tasks
-                            //     +group_nav_item key='tasks' icon='tasks'
-                            if has_members
-                                +group_nav_item key='members' icon='groups'
-                            if has_chat
-                                +group_nav_item key='chat' icon='chat'
-                            if has_shop
-                                +group_nav_item key='products' icon='shop'
-                            .scrolling
-                                +yield
-
-template(name='group_sidebar')
-    .ui.inline.header 
-        if icon
-            +i name=icon
-        |#{title}
-    a.ui.circular.button.fly_right(href="/groups")
-        i.left.chevron.icon
-        // i.big.fire.icon
-        +i name='campfire' cl='ui mini inline image'
-        |groups
-    if can_edit
-        a.ui.circular.icon.button.fly_down(href="/group/#{_id}/edit")
-            i.setting.large.icon
-    +image_view key='image_id' icon='image' label='image'
-    +array_view key='tags' icon='tags'
-    .spacer
-    if link
-        a.ui.circular.button(href=link target='_window')
-            i.external.icon
-            |#{link}
-        .spacer
-    div
-    if address
-        a.ui.compact.circular.button(href=address_link target='_window')
-            i.marker.icon
-            |#{address}
-    +viewing
-    if in_dev 
-        +print_this
-    +multi_user_view key='member_ids' label='members' direct=true
-
-
-template(name='group_nav_item')
-    a.ui.circular.compact.button(href="/group/#{current_doc._id}/#{key}")
-        +i name=icon
-        |#{key}
-                
                 
 template(name='group_posts')                
-    .four.wide.column
-        .ui.header 
-            +i name='blog'
-            |group posts
+    .ui.inline.header 
+        +i name='blog'
+        |group posts
     if currentUser 
         .ui.icon.button.add_group_post(title='add group post')
             i.plus.icon
-    .twelve.wide.column
+    div
         .ui.stackable.doubling.centered.cards
             each group_post_docs 
                 +post_card
@@ -335,7 +264,7 @@ template(name='group_chat')
 template(name='group_view')
     .ui.stackable.padded.grid
         .row
-            .ten.wide.column
+            .eight.wide.column
                 +group_about
                 if has_members
                     +group_members
@@ -351,10 +280,10 @@ template(name='group_view')
                     a.ui.big.button(href="/login")
                         +i name='internal'
                         |join
-            .six.wide.column
+            .eight.wide.column
+                +checkin_widget
                 +group_activity
                 +comments
-            .eight.wide.column
                 if has_events
                     +group_events
                 if has_posts
@@ -362,8 +291,6 @@ template(name='group_view')
                 if has_shop
                     .four.wide.column
                         +group_products
-                if has_tasks 
-                    +group_tasks
                
 template(name='group_members')
     .ui.header
@@ -387,6 +314,16 @@ template(name='group_members')
         +user_info
 
                
+template(name='checkin_widget')
+    .ui.header 
+        +i name='checkmark'
+        |checkins
+    .ui.button.checkin  
+        |checkin
+    .ui.list
+        each checkin_docs 
+            .item #{when}
+
                
 template(name='group_about')
     .ui.inline.header
@@ -480,6 +417,7 @@ template(name='group_widget')
                 .content
                     .ui.header 
                         |#{title}
+                    |!{description}
 
                
                 

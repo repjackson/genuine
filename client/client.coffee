@@ -46,6 +46,7 @@ Template.layout.events
 
 Template.nav.onCreated ->
     @autorun => @subscribe 'unread_logs',->
+    @autorun => @subscribe 'model_docs','group',->
 Template.nav.helpers
     unread_count: ->
         Meteor.user().unread_count

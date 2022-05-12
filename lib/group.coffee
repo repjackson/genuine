@@ -7,6 +7,10 @@ Router.route '/group/:doc_id/events', (->
     @layout 'group_layout'
     @render 'group_events'
     ), name:'group_events'
+Router.route '/group/:doc_id/about', (->
+    @layout 'group_layout'
+    @render 'group_about'
+    ), name:'group_about'
 Router.route '/group/:doc_id/posts', (->
     @layout 'group_layout'
     @render 'group_posts'

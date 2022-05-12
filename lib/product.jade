@@ -93,7 +93,7 @@ template(name='product_view')
                     +message_author_button
                     +group_widget
                     +array_view key='tags' icon='tags'
-                .eight.wide.column
+                .ten.wide.column
                     +html_view key='description' direct=true
                     if watson 
                         +watson_view
@@ -350,7 +350,7 @@ template(name='product_edit')
                     .ui.inline.header food
                     +boolean_edit key='is_food' label='is food' direct=true icon='food'
                     if is_food
-                        +ingredient_picker
+                        // +ingredient_picker
                         +boolean_edit key='gluten_free' label='gluten free' direct=true icon='no-gluten'
                         +boolean_edit key='paleo' label='paleo' direct=true icon='caveman'
                         +boolean_edit key='vegetarian' label='vegetarian' direct=true icon='vegetarian-mark'

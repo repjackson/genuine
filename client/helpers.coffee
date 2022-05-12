@@ -7,6 +7,9 @@ Template.registerHelper 'sort_label', () -> Session.get('sort_label')
 Template.registerHelper 'sort_icon', () -> Session.get('sort_icon')
 Template.registerHelper 'current_limit', () -> parseInt(Session.get('limit'))
 
+Template.registerHelper 'related_group_doc', () -> 
+    Docs.findOne 
+        _id:@group_id
 Template.registerHelper 'is_author', () -> 
     @_author_id is Meteor.userId()
 Template.registerHelper 'current_lat', () -> 

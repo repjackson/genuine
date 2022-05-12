@@ -809,7 +809,7 @@ template(name='float_edit')
             |#{key}
     //- +clear_value  
     .ui.input            
-        input.edit_float(type='number' class=cl min=min step=step value=field_value placeholder=placeholder autocomplete="off")
+        input.edit_float(type='number' class=cl min=min step='.01' value=field_value placeholder=placeholder autocomplete="off")
             
             
 template(name='phone_edit')
@@ -1037,8 +1037,8 @@ template(name='multi_user_edit')
     div
     .ui.inline.header
         if icon
-            i.icon(class=icon)
-            //- +i name=icon
+            // i.icon(class=icon)
+            +i name=icon
         if title
             |#{title}
         else if label
