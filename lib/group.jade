@@ -236,7 +236,7 @@ template(name='group_edit')
                     
 template(name='group_layout')
     +nav
-    .ui.bottom.attached.pushable.segment.scrolling
+    .ui.bottom.attached.pushable.segment.scrollin
         +topbar
         +leftbar
         +rightbar
@@ -250,16 +250,19 @@ template(name='group_layout')
                             a.ui.circular.compact.button.fly_up(href="/group/#{current_doc._id}/")
                                 +i name='dashboard'
                                 |dashboard
+                            +group_nav_item key='about' icon='info'
                             if has_posts
                                 +group_nav_item key='posts' icon='blog'
                             if has_events
                                 +group_nav_item key='events' icon='calendar'
-                            if has_tasks
-                                +group_nav_item key='tasks' icon='tasks'
+                            // if has_tasks
+                            //     +group_nav_item key='tasks' icon='tasks'
                             if has_members
                                 +group_nav_item key='members' icon='groups'
                             if has_chat
                                 +group_nav_item key='chat' icon='chat'
+                            if has_shop
+                                +group_nav_item key='products' icon='shop'
                             .scrolling
                                 +yield
 
@@ -358,7 +361,7 @@ template(name='group_view')
                     +group_posts
                 if has_shop
                     .four.wide.column
-                        +group_shop
+                        +group_products
                 if has_tasks 
                     +group_tasks
                
@@ -438,23 +441,8 @@ template(name='group_events')
                                 |{{from_now start_datetime}}
               
                
-template(name='group_tasks')
-    .ui.header
-        i.tasks.icon
-        |tasks
-    if currentUser
-        i.large.circular.link.plus.icon.add_group_task
-    .ui.large.list 
-        each group_tasks 
-            a.item(href="/tasks/#{_id}")
-                |#{title}
-
                                 
-             
-
-                                
-                                
-template(name='group_shop')
+template(name='group_products')
     .ui.header 
         +i name='shop'
         |shop

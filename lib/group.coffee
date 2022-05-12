@@ -15,10 +15,10 @@ Router.route '/group/:doc_id/members', (->
     @layout 'group_layout'
     @render 'group_members'
     ), name:'group_members'
-Router.route '/group/:doc_id/tasks', (->
+Router.route '/group/:doc_id/products', (->
     @layout 'group_layout'
-    @render 'group_tasks'
-    ), name:'group_tasks'
+    @render 'group_products'
+    ), name:'group_products'
 Router.route '/group/:doc_id/chat', (->
     @layout 'group_layout'
     @render 'group_chat'
@@ -83,7 +83,7 @@ if Meteor.isClient
         #         model:'group'
         #         slug: Router.current().params.doc_id
 
-    Template.group_shop.events
+    Template.group_products.events
         'click .add_product': ->
             new_id = 
                 Docs.insert 
